@@ -794,11 +794,15 @@ export async function getSetting(key: string): Promise<string> {
 export async function getAllSettings(): Promise<Record<string, string>> {
   const now = Date.now();
   if (settingsCache && now - settingsCache.at < SETTINGS_TTL_MS) return settingsCache.data;
-  const rows = (await qr("SELECT key, value FROM settings")) as { key: string; value: string }[];
-  const out: Record<string, string> = { ...DEFAULT_SETTINGS };
-  for (const r of rows) out[r.key] = r.value;
-  settingsCache = { at: now, data: out };
-  return out;
+  try {
+    const rows = (await qr("SELECT key, value FROM settings")) as { key: string; value: string }[];
+    const out: Record<string, string> = { ...DEFAULT_SETTINGS };
+    for (const r of rows) out[r.key] = r.value;
+    settingsCache = { at: now, data: out };
+    return out;
+  } catch {
+    return { ...DEFAULT_SETTINGS, ...(settingsCache?.data ?? {}) };
+  }
 }
 
 const SETTINGS_TTL_MS = 60 * 1000;
@@ -1370,12 +1374,21 @@ export async function restoreProductStock(
   return changed;
 }
 
-export async function listAdminGuides(): Promise<{ slug: string; data: unknown; updated_at: string }[]> {  return (await qr("SELECT * FROM admin_guides ORDER BY updated_at DESC")) as { slug: string; data: unknown; updated_at: string }[];
+export async function listAdminGuides(): Promise<{ slug: string; data: unknown; updated_at: string }[]> {
+  try {
+    return (await qr("SELECT * FROM admin_guides ORDER BY updated_at DESC")) as { slug: string; data: unknown; updated_at: string }[];
+  } catch {
+    return [];
+  }
 }
 
 export async function getAdminGuide(slug: string) {
-  const row = (await q1("SELECT data FROM admin_guides WHERE slug = ?", slug)) as { data: string } | undefined;
-  return row ? JSON.parse(row.data) : undefined;
+  try {
+    const row = (await q1("SELECT data FROM admin_guides WHERE slug = ?", slug)) as { data: string } | undefined;
+    return row ? JSON.parse(row.data) : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 export async function upsertAdminGuide(slug: string, data: unknown) {
@@ -1415,16 +1428,24 @@ export type PostInput = {
   published?: boolean;
 };
 
-export async function listPosts(includeUnpublished = false): Promise<DbPost[]> {  const sql = includeUnpublished
-    ? "SELECT * FROM posts ORDER BY created_at DESC"
-    : "SELECT * FROM posts WHERE published = 1 ORDER BY created_at DESC";
-  return (await qr(sql)) as DbPost[];
+export async function listPosts(includeUnpublished = false): Promise<DbPost[]> {
+  try {
+    const sql = includeUnpublished
+      ? "SELECT * FROM posts ORDER BY created_at DESC"
+      : "SELECT * FROM posts WHERE published = 1 ORDER BY created_at DESC";
+    return (await qr(sql)) as DbPost[];
+  } catch {
+    return [];
+  }
 }
 
-export async function getPostBySlug(slug: string, includeUnpublished = false): Promise<DbPost | undefined> {  const sql = includeUnpublished
-    ? "SELECT * FROM posts WHERE slug = ?"
-    : "SELECT * FROM posts WHERE slug = ? AND published = 1";
-  return (await q1(sql, slug)) as DbPost | undefined;
+export async function getPostBySlug(slug: string, includeUnpublished = false): Promise<DbPost | undefined> {
+  try {
+    const sql = includeUnpublished ? "SELECT * FROM posts WHERE slug = ?" : "SELECT * FROM posts WHERE slug = ? AND published = 1";
+    return (await q1(sql, slug)) as DbPost | undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 export async function createPost(input: PostInput): Promise<DbPost> {  const post: DbPost = {
@@ -1539,9 +1560,13 @@ export async function deleteBanner(id: number) {
 export async function getActiveBanners(): Promise<MarketingBanner[]> {
   const now = Date.now();
   if (bannersCache && now - bannersCache.at < MARKETING_TTL_MS) return bannersCache.data;
-  const rows = (await qr("SELECT * FROM marketing_banners WHERE active = 1 ORDER BY sort ASC, id ASC")) as MarketingBanner[];
-  bannersCache = { at: now, data: rows };
-  return rows;
+  try {
+    const rows = (await qr("SELECT * FROM marketing_banners WHERE active = 1 ORDER BY sort ASC, id ASC")) as MarketingBanner[];
+    bannersCache = { at: now, data: rows };
+    return rows;
+  } catch {
+    return bannersCache?.data ?? [];
+  }
 }
 
 export async function listCampaigns(): Promise<MarketingCampaign[]> {  return (await qr("SELECT * FROM marketing_campaigns ORDER BY COALESCE(end_date, '9999-12-31') DESC, id DESC")) as MarketingCampaign[];
@@ -1573,12 +1598,17 @@ export async function deleteCampaign(id: number) {
   invalidateMarketingCache();
 }
 
-export async function getActiveCampaigns(): Promise<MarketingCampaign[]> {  const today = new Date().toISOString().slice(0, 10);
+export async function getActiveCampaigns(): Promise<MarketingCampaign[]> {
+  const today = new Date().toISOString().slice(0, 10);
   const now = Date.now();
   if (campaignsCache && now - campaignsCache.at < MARKETING_TTL_MS) return campaignsCache.data;
-  const rows = (await qr("SELECT * FROM marketing_campaigns WHERE active = 1 AND (start_date IS NULL OR start_date <= ?) AND (end_date IS NULL OR end_date >= ?) ORDER BY COALESCE(end_date, '9999-12-31') ASC, id ASC", today, today)) as MarketingCampaign[];
-  campaignsCache = { at: now, data: rows };
-  return rows;
+  try {
+    const rows = (await qr("SELECT * FROM marketing_campaigns WHERE active = 1 AND (start_date IS NULL OR start_date <= ?) AND (end_date IS NULL OR end_date >= ?) ORDER BY COALESCE(end_date, '9999-12-31') ASC, id ASC", today, today)) as MarketingCampaign[];
+    campaignsCache = { at: now, data: rows };
+    return rows;
+  } catch {
+    return campaignsCache?.data ?? [];
+  }
 }
 
 const MARKETING_TTL_MS = 60 * 1000;

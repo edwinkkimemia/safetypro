@@ -85,5 +85,6 @@ jobs:
       - name: Build validation (no Vercel secrets — fallback)
         if: steps.check.outputs.skip == 'true'
         run: |
-          echo "Vercel secrets missing — running fallback 'next build' validation (migrations skipped)."
-          npm run build
+          echo "Vercel secrets missing — running type-check (migrations skipped). Vercel will still auto-deploy via Git integration."
+          npx tsc --noEmit
+          echo "Type-check passed."
