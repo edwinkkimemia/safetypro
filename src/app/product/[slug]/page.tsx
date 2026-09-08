@@ -17,84 +17,104 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const product = await liveGetBySlug(params.slug);
-  if (!product) return { title: "Product not found" };
-  const cleanDesc = product.description.replace(/<[^>]+>/g, " ").trim();
-  const title = `Buy ${product.name} — ${product.brand} in Kenya | KimSafety`;
-  const description = `${cleanDesc.slice(0, 120)} — KES ${product.price.toLocaleString()} · ${product.stock > 0 ? `${product.stock} in stock` : "Out of stock"} · ${product.rating}★ (${product.reviews} reviews) · Same-day Nairobi delivery & bulk discounts.`;
-  // Main image: admin override -> committed product photo -> SKU fallback. Make absolute for OG crawlers.
-  const mainImageRaw =
-    product.image ||
-    productImages[product.sku] ||
-    `/images/products/${product.sku}.jpg`;
-  const mainImage = mainImageRaw.startsWith("http") ? mainImageRaw : `${siteUrl}${mainImageRaw.startsWith("/") ? "" : "/"}${mainImageRaw}`;
-  const images = [{ url: mainImage, width: 1200, height: 630, alt: product.name }];
-  return {
-    title,
-    description: description.slice(0, 160),
-    keywords: [
-      product.name,
-      `${product.brand} ${product.name}`,
-      `${product.categoryName} Kenya`,
-      `${product.sku} KimSafety`,
-      `${product.brand} Kenya`,
-      `buy ${product.name} Nairobi`,
-    ],
-    alternates: { canonical: `${siteUrl}/product/${product.slug}` },
-    openGraph: {
+  try {
+    const product = await liveGetBySlug(params.slug);
+    if (!product) return { title: "Product not found" };
+    const cleanDesc = String(product.description ?? "").replace(/<[^>]+>/g, " ").trim();
+    const price = Number(product.price ?? 0);
+    const stock = Number(product.stock ?? 0);
+    const rating = Number(product.rating ?? 0);
+    const reviews = Number(product.reviews ?? 0);
+    const title = `Buy ${product.name} — ${product.brand} in Kenya | KimSafety`;
+    const description = `${cleanDesc.slice(0, 120)} — KES ${price.toLocaleString()} · ${stock > 0 ? `${stock} in stock` : "Out of stock"} · ${rating}★ (${reviews} reviews) · Same-day Nairobi delivery & bulk discounts.`;
+    const mainImageRaw =
+      (product.image as string) ||
+      productImages[product.sku] ||
+      `/images/products/${product.sku}.jpg`;
+    const mainImage = String(mainImageRaw).startsWith("http") ? String(mainImageRaw) : `${siteUrl}${String(mainImageRaw).startsWith("/") ? "" : "/"}${mainImageRaw}`;
+    const images = [{ url: mainImage, width: 1200, height: 630, alt: String(product.name) }];
+    return {
       title,
       description: description.slice(0, 160),
-      type: "website",
-      url: `${siteUrl}/product/${product.slug}`,
-      siteName: "KimSafety",
-      images,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description: description.slice(0, 160),
-      images: [mainImage],
-    },
-  };
+      keywords: [
+        String(product.name),
+        `${product.brand} ${product.name}`,
+        `${product.categoryName} Kenya`,
+        `${product.sku} KimSafety`,
+        `${product.brand} Kenya`,
+        `buy ${product.name} Nairobi`,
+      ],
+      alternates: { canonical: `${siteUrl}/product/${product.slug}` },
+      openGraph: {
+        title,
+        description: description.slice(0, 160),
+        type: "website",
+        url: `${siteUrl}/product/${product.slug}`,
+        siteName: "KimSafety",
+        images,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description: description.slice(0, 160),
+        images: [mainImage],
+      },
+    };
+  } catch {
+    return { title: "Product not found" };
+  }
 }
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
-  const product = await liveGetBySlug(params.slug);
+  let product: Awaited<ReturnType<typeof liveGetBySlug>>;
+  try {
+    product = await liveGetBySlug(params.slug);
+  } catch {
+    return notFound();
+  }
   if (!product) return notFound();
 
-  const related = await liveRelatedFor(product);
+  let related: Awaited<ReturnType<typeof liveRelatedFor>> = [];
+  try {
+    related = await liveRelatedFor(product);
+  } catch {
+    related = [];
+  }
   const mainImageRaw =
-    product.image ||
+    (product.image as string) ||
     productImages[product.sku] ||
     `/images/products/${product.sku}.jpg`;
-  const mainImage = mainImageRaw.startsWith("http") ? mainImageRaw : `${siteUrl}${mainImageRaw.startsWith("/") ? "" : "/"}${mainImageRaw}`;
-  const cleanDesc = product.description.replace(/<[^>]+>/g, " ").trim();
+  const mainImage = String(mainImageRaw).startsWith("http") ? String(mainImageRaw) : `${siteUrl}${String(mainImageRaw).startsWith("/") ? "" : "/"}${mainImageRaw}`;
+  const cleanDesc = String(product.description ?? "").replace(/<[^>]+>/g, " ").trim();
+  const priceNum = Number(product.price ?? 0);
+  const oldPriceNum = product.oldPrice != null ? Number(product.oldPrice) : undefined;
+  const stockNum = Number(product.stock ?? 0);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `${siteUrl}/product/${product.slug}#product`,
-    name: product.name,
-    sku: product.sku,
-    mpn: product.sku,
+    "@id": `${siteUrl}/product/${String(product.slug)}#product`,
+    name: String(product.name),
+    sku: String(product.sku),
+    mpn: String(product.sku),
     image: [mainImage],
-    url: `${siteUrl}/product/${product.slug}`,
-    brand: { "@type": "Brand", name: product.brand },
+    url: `${siteUrl}/product/${String(product.slug)}`,
+    brand: { "@type": "Brand", name: String(product.brand) },
     description: cleanDesc,
-    category: product.categoryName,
+    category: String(product.categoryName),
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviews,
+      ratingValue: Number(product.rating ?? 0),
+      reviewCount: Number(product.reviews ?? 0),
       bestRating: 5,
       worstRating: 1,
     },
     offers: {
       "@type": "Offer",
-      url: `${siteUrl}/product/${product.slug}`,
+      url: `${siteUrl}/product/${String(product.slug)}`,
       priceCurrency: "KES",
-      price: product.price,
+      price: priceNum,
       priceValidUntil: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString().split("T")[0],
-      availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      availability: stockNum > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
       seller: { "@type": "Organization", name: "KimSafety", url: siteUrl },
     },
@@ -106,8 +126,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "Shop", item: `${siteUrl}/search` },
-      { "@type": "ListItem", position: 3, name: product.categoryName, item: `${siteUrl}/category/${product.category}` },
-      { "@type": "ListItem", position: 4, name: product.name, item: `${siteUrl}/product/${product.slug}` },
+      { "@type": "ListItem", position: 3, name: String(product.categoryName), item: `${siteUrl}/category/${String(product.category)}` },
+      { "@type": "ListItem", position: 4, name: String(product.name), item: `${siteUrl}/product/${String(product.slug)}` },
     ],
   };
 
@@ -117,13 +137,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
     mainEntity: [
       {
         "@type": "Question",
-        name: `What is the price of ${product.name} in Kenya?`,
-        acceptedAnswer: { "@type": "Answer", text: `${product.name} costs KES ${product.price.toLocaleString()} ${product.oldPrice && product.oldPrice > product.price ? `(was KES ${product.oldPrice.toLocaleString()})` : ""} at KimSafety. Bulk discounts apply for 10+ units.` },
+        name: `What is the price of ${String(product.name)} in Kenya?`,
+        acceptedAnswer: { "@type": "Answer", text: `${String(product.name)} costs KES ${priceNum.toLocaleString()} ${oldPriceNum && oldPriceNum > priceNum ? `(was KES ${oldPriceNum.toLocaleString()})` : ""} at KimSafety. Bulk discounts apply for 10+ units.` },
       },
       {
         "@type": "Question",
-        name: `Is ${product.name} in stock?`,
-        acceptedAnswer: { "@type": "Answer", text: product.stock > 0 ? `Yes — ${product.stock} units in stock at KimSafety's Nairobi warehouse. Same-day dispatch in Nairobi on orders before 3 PM, 24–72 hours countrywide.` : `Currently out of stock. Join the restock notification on the product page to be emailed when ${product.name} is back.` },
+        name: `Is ${String(product.name)} in stock?`,
+        acceptedAnswer: { "@type": "Answer", text: stockNum > 0 ? `Yes — ${stockNum} units in stock at KimSafety's Nairobi warehouse. Same-day dispatch in Nairobi on orders before 3 PM, 24–72 hours countrywide.` : `Currently out of stock. Join the restock notification on the product page to be emailed when ${String(product.name)} is back.` },
       },
       {
         "@type": "Question",
