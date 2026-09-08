@@ -23,8 +23,8 @@ const COMPANY = {
   name: "KimSafety Kenya Ltd",
   address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
   phone: "+254 715 135 141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  email: "sales@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const fmtDate = (d: Date) =>

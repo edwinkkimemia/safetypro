@@ -9,8 +9,8 @@ import fs from "fs";
 
 export const runtime = "nodejs";
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
 const GRAY = "#6B7280";
 const LIGHT = "#F3F4F6";
 

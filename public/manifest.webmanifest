@@ -1,11 +1,11 @@
 {
-  "name": "KimSafety — Industrial & Medical Safety Equipment Supplier in Kenya",
-  "short_name": "KimSafety",
-  "description": "Certified industrial PPE, medical, fire, road and lab safety equipment. Bulk discounts, same-day Nairobi delivery, corporate procurement support.",
+  "name": "SAFETYPRO AFRICA — Protecting People. Powering Safety.",
+  "short_name": "SAFETYPRO",
+  "description": "Professional Safety Solutions for Safer Workplaces. PPE, Workwear, Fire Safety, Fall Protection, Safety Training & Workplace Compliance.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0F2847",
-  "theme_color": "#0F2847",
+  "background_color": "#063B70",
+  "theme_color": "#063B70",
   "lang": "en-KE",
   "icons": [
     {

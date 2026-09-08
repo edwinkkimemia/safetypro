@@ -54,7 +54,7 @@ function createTransporter(cfg: SmtpConfig): Transporter {
 // admin-configured logo (fresh bytes on cache expiry).
 // ---------------------------------------------------------------------------
 
-const LOGO_CID = "kimsafety-logo";
+const LOGO_CID = "safetypro-logo";
 let logoAttachmentCache: { at: number; att: { filename: string; content: Buffer; cid: string; contentType: string } } | null = null;
 
 async function getLogoAttachment() {
@@ -86,7 +86,7 @@ async function getLogoAttachment() {
 
 /**
  * Sends mail with the branded logo attached inline. Every HTML email rendered
- * by renderShell references src="cid:kimsafety-logo"; without the attachment
+ * by renderShell references src="cid:safetypro-logo"; without the attachment
  * the header logo would be blank.
  */
 async function sendBrandedMail(cfg: SmtpConfig, mail: nodemailer.SendMailOptions) {
@@ -102,9 +102,9 @@ async function sendBrandedMail(cfg: SmtpConfig, mail: nodemailer.SendMailOptions
 // Branded email template
 // ---------------------------------------------------------------------------
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
-const EMERALD = "#059669";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
+const EMERALD = "#08A88A";
 const GRAY = "#6B7280";
 
 type Brand = {
@@ -130,16 +130,16 @@ async function getSettingSafe(key: string): Promise<string> {
 
 async function getBrand(): Promise<Brand> {
   const s = await getAllSettings();  const logo = s.logo || "/images/logo/logoy.png";
-  const whatsapp = (s.whatsapp || "254715135141").replace(/\D/g, "");
+  const whatsapp = (s.whatsapp || "254729396174").replace(/\D/g, "");
   return {
     logo: logo.startsWith("http") ? logo : `${siteUrl}${logo}`,
-    site_name: s.site_name || "KimSafety Ltd",
+    site_name: s.site_name || "SAFETYPRO AFRICA",
     tagline: s.tagline || "Safety Equipment Kenya",
-    phone: s.phone || "+254 715135141",
+    phone: s.phone || "+254 729396174",
     whatsapp,
     waLink: `https://wa.me/${whatsapp}`,
-    email: s.email || "sales@kimsafety.co.ke",
-    address: s.address || "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
+    email: s.email || "info@safetypro.co.ke",
+    address: s.address || "Head Office, Nairobi, Kenya",
     website: siteUrl.replace(/^https?:\/\//, ""),
   };
 }
@@ -156,7 +156,7 @@ function renderShell(brand: Brand, body: string): string {
     <div style="max-width:600px;margin:0 auto;">
       <div style="background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;">
         <div style="background:${NAVY};text-align:center;padding:26px 24px 20px;">
-          <img src="cid:kimsafety-logo" alt="${esc(brand.site_name)}" style="height:52px;max-width:240px;object-fit:contain;" />
+          <img src="cid:safetypro-logo" alt="${esc(brand.site_name)}" style="height:52px;max-width:240px;object-fit:contain;" />
           <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#93a5be;margin-top:10px;">${esc(brand.tagline)}</div>
           <div style="width:56px;height:4px;background:${SAFETY};margin:14px auto 0;border-radius:2px;"></div>
         </div>
@@ -287,14 +287,14 @@ export async function sendTestEmail(input: { to: string }): Promise<boolean> {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to: input.to,
-    subject: "KimSafety — SMTP test",
+    subject: "SAFETYPRO AFRICA — SMTP test",
     text: "If you can read this, your SMTP configuration is working.",
     html: renderShell(
       brand,
       `
       ${eyebrow("SMTP test")}
       <h1 style="font-size:24px;color:${NAVY};margin:0 0 14px 0;">Email is working 🎉</h1>
-      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 14px 0;">If you can read this email, your SMTP configuration is working. KimSafety is now sending password resets, order confirmations, invoices, quote replies and newsletters through this account.</p>
+      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 14px 0;">If you can read this email, your SMTP configuration is working. SAFETYPRO AFRICA is now sending password resets, order confirmations, invoices, quote replies and newsletters through this account.</p>
       <p style="font-size:13px;line-height:1.7;color:${GRAY};margin:0;">No action needed — this is a test message.</p>
       `
     ),
@@ -310,12 +310,12 @@ export async function sendWelcomeEmail(input: { to: string; name?: string | null
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to: input.to,
-    subject: "Welcome to KimSafety — your account is ready",
-    text: `Hi ${firstName},\n\nWelcome to KimSafety. Your account is ready — sign in to browse certified PPE, track orders and request quotations.\n\n${siteUrl}/login\n\n— KimSafety Team`,
+    subject: "Welcome to SAFETYPRO AFRICA — your account is ready",
+    text: `Hi ${firstName},\n\nWelcome to SAFETYPRO AFRICA. Your account is ready — sign in to browse certified PPE, track orders and request quotations.\n\n${siteUrl}/login\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
-      ${eyebrow("Welcome to KimSafety")}
+      ${eyebrow("Welcome to SAFETYPRO AFRICA")}
       <h1 style="font-size:24px;color:${NAVY};margin:0 0 14px 0;">Hi ${esc(firstName)}, your account is ready</h1>
       <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 18px 0;">Thanks for joining ${esc(brand.site_name)} — Kenya's trusted source for certified safety equipment. Here's what you can do with your account:</p>
       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 20px 0;">
@@ -360,8 +360,8 @@ export async function sendAbandonedCartEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to: input.to,
-    subject: `You left ${input.items.length} item${input.items.length === 1 ? "" : "s"} in your cart — KimSafety`,
-    text: `Hi ${firstName},\n\nYour cart is waiting — ${input.items.map((i) => `${i.name} x${i.qty}`).join(", ")}. Total ${money(input.total)}.\n\nComplete your order: ${checkoutUrl}\n\n— KimSafety Team`,
+    subject: `You left ${input.items.length} item${input.items.length === 1 ? "" : "s"} in your cart — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour cart is waiting — ${input.items.map((i) => `${i.name} x${i.qty}`).join(", ")}. Total ${money(input.total)}.\n\nComplete your order: ${checkoutUrl}\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -395,8 +395,8 @@ export async function sendBackInStockEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to: input.to,
-    subject: `Back in stock: ${input.productName} — KimSafety`,
-    text: `Good news!\n\n${input.productName} is back in stock at KimSafety.\n\nOrder now: ${input.productUrl}\n\n— KimSafety Team`,
+    subject: `Back in stock: ${input.productName} — SAFETYPRO AFRICA`,
+    text: `Good news!\n\n${input.productName} is back in stock at SAFETYPRO AFRICA.\n\nOrder now: ${input.productUrl}\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -423,8 +423,8 @@ export async function sendVerificationEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to: input.to,
-    subject: "Verify your email — KimSafety",
-    text: `Hi ${firstName},\n\nWelcome to KimSafety! Please confirm your email address to activate your account:\n\n${verifyUrl}\n\nThis link expires in 48 hours. If you didn't create an account, you can ignore this email.\n\n— KimSafety Team`,
+    subject: "Verify your email — SAFETYPRO AFRICA",
+    text: `Hi ${firstName},\n\nWelcome to SAFETYPRO AFRICA! Please confirm your email address to activate your account:\n\n${verifyUrl}\n\nThis link expires in 48 hours. If you didn't create an account, you can ignore this email.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -457,15 +457,15 @@ export async function sendCorporateWelcomeEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Your ${company} corporate account with KimSafety is active`,
-    text: `Hi ${firstName},\n\nYour corporate account with ${company} is now active. Sign in here: ${siteUrl}/login${tempPassword ? `\nTemporary password: ${tempPassword}` : ""}\n\n— KimSafety Team`,
+    subject: `Your ${company} corporate account with SAFETYPRO AFRICA is active`,
+    text: `Hi ${firstName},\n\nYour corporate account with ${company} is now active. Sign in here: ${siteUrl}/login${tempPassword ? `\nTemporary password: ${tempPassword}` : ""}\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
       ${eyebrow("Corporate account approved")}
       <h1 style="font-size:24px;color:${NAVY};margin:0 0 14px 0;">Your ${esc(company)} account is active</h1>
       <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 14px 0;">Hi ${esc(firstName)},</p>
-      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 18px 0;">KimSafety has approved the corporate account for <strong>${esc(company)}</strong>. You can now order with corporate pricing, request quotations and track every purchase in one place.</p>
+      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 18px 0;">SAFETYPRO AFRICA has approved the corporate account for <strong>${esc(company)}</strong>. You can now order with corporate pricing, request quotations and track every purchase in one place.</p>
       ${passwordNote}
       ${btn(`${siteUrl}/login`, "Sign in to your corporate account")}
       <p style="font-size:12px;color:${GRAY};text-align:center;margin:14px 0 0 0;">Your dedicated account manager is on WhatsApp — ${esc(brand.phone)}</p>
@@ -489,8 +489,8 @@ export async function sendQuoteConfirmationEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Quote request ${quoteId} received — KimSafety`,
-    text: `Hi ${firstName},\n\nWe received your quotation request ${quoteId} (estimated KES ${Math.round(total).toLocaleString("en-KE")}). Our team will confirm pricing and availability within 4 business hours.\n\n— KimSafety Team`,
+    subject: `Quote request ${quoteId} received — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nWe received your quotation request ${quoteId} (estimated KES ${Math.round(total).toLocaleString("en-KE")}). Our team will confirm pricing and availability within 4 business hours.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -523,15 +523,15 @@ export async function sendPasswordResetEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: "Reset your KimSafety password",
-    text: `Hi ${firstName},\n\nWe received a request to reset the password for your KimSafety account. Open the link below to choose a new password. The link expires in 1 hour.\n\n${resetUrl}\n\nIf you did not request this, you can safely ignore this email.\n\n— KimSafety Team`,
+    subject: "Reset your SAFETYPRO AFRICA password",
+    text: `Hi ${firstName},\n\nWe received a request to reset the password for your SAFETYPRO AFRICA account. Open the link below to choose a new password. The link expires in 1 hour.\n\n${resetUrl}\n\nIf you did not request this, you can safely ignore this email.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
       ${eyebrow("Account security")}
       <h1 style="font-size:24px;color:${NAVY};margin:0 0 14px 0;">Reset your password</h1>
       <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 14px 0;">Hi ${esc(firstName)},</p>
-      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 18px 0;">We received a request to reset the password for your KimSafety account. Tap the button below to choose a new password. This link expires in <strong>1 hour</strong>.</p>
+      <p style="font-size:14px;line-height:1.7;color:#374151;margin:0 0 18px 0;">We received a request to reset the password for your SAFETYPRO AFRICA account. Tap the button below to choose a new password. This link expires in <strong>1 hour</strong>.</p>
       ${btn(resetUrl, "Reset password")}
       <p style="font-size:13px;line-height:1.7;color:${GRAY};margin:14px 0 14px 0;">If the button does not work, copy and paste this link into your browser:</p>
       <p style="font-size:12px;color:${GRAY};margin:0 0 14px 0;word-break:break-all;">${esc(resetUrl)}</p>
@@ -592,13 +592,13 @@ export async function sendOrderInvoiceEmail(input: {
   const unpaidNote =
     paid === 1
       ? ""
-      : `<p style="font-size:12px;color:${GRAY};margin:12px 0 0 0;text-align:center;">Payment: ${esc(paymentLabel[payment] ?? payment)}. If the M-Pesa prompt or card checkout fails, pay manually via <strong>M-Pesa Buy Goods · Till ${esc(till)}</strong> (KimSafety Ltd) using your order number as the reference, then send the confirmation SMS to WhatsApp <strong>+${esc(brand.whatsapp)}</strong> — we'll confirm and dispatch. Details are on the attached invoice.</p>`;
+      : `<p style="font-size:12px;color:${GRAY};margin:12px 0 0 0;text-align:center;">Payment: ${esc(paymentLabel[payment] ?? payment)}. If the M-Pesa prompt or card checkout fails, pay manually via <strong>M-Pesa Buy Goods · Till ${esc(till)}</strong> (SAFETYPRO AFRICA) using your order number as the reference, then send the confirmation SMS to WhatsApp <strong>+${esc(brand.whatsapp)}</strong> — we'll confirm and dispatch. Details are on the attached invoice.</p>`;
 
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
     subject: `Order confirmed — ${orderId} · KES ${Math.round(orderTotal).toLocaleString("en-KE")}`,
-    text: `Hi ${name},\n\nThank you for your order! Your order ${orderId} (total KES ${Math.round(orderTotal).toLocaleString("en-KE")}) has been received and is being processed.\n\nTrack it anytime at ${trackUrl}\n\nYour invoice is attached to this email.\n\n— KimSafety Team`,
+    text: `Hi ${name},\n\nThank you for your order! Your order ${orderId} (total KES ${Math.round(orderTotal).toLocaleString("en-KE")}) has been received and is being processed.\n\nTrack it anytime at ${trackUrl}\n\nYour invoice is attached to this email.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -714,7 +714,7 @@ export async function sendPaidInvoiceEmail(input: {
     from: cfg.from,
     to: email,
     subject: `Payment received — ${orderId} · KES ${Math.round(input.total).toLocaleString("en-KE")}`,
-    text: `Hi ${name},\n\nWe've received your payment of KES ${Math.round(input.total).toLocaleString("en-KE")} for order ${orderId}. Thank you!\n\nTrack it anytime at ${trackUrl}\n\nYour paid invoice and official receipt are attached to this email.\n\n— KimSafety Team`,
+    text: `Hi ${name},\n\nWe've received your payment of KES ${Math.round(input.total).toLocaleString("en-KE")} for order ${orderId}. Thank you!\n\nTrack it anytime at ${trackUrl}\n\nYour paid invoice and official receipt are attached to this email.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -770,7 +770,7 @@ export async function sendNewOrderAlert(input: {
     from: cfg.from,
     to,
     subject: `New order ${orderId} — KES ${Math.round(orderTotal).toLocaleString("en-KE")}`,
-    text: `New KimSafety order ${orderId} (KES ${Math.round(orderTotal).toLocaleString("en-KE")}) from ${customer}${company ? ` (${company})` : ""}. Payment: ${payment}. Manage it at ${siteUrl}/admin/orders.`,
+    text: ` New SAFETYPRO AFRICA order ${orderId} (KES ${Math.round(orderTotal).toLocaleString("en-KE")}) from ${customer}${company ? ` (${company})` : ""}. Payment: ${payment}. Manage it at ${siteUrl}/admin/orders.`,
     html: renderShell(
       brand,
       `
@@ -803,7 +803,7 @@ export async function sendNewQuoteAlert(input: {
     from: cfg.from,
     to,
     subject: `New quote request ${quoteId} — KES ${Math.round(total).toLocaleString("en-KE")}`,
-    text: `New KimSafety quote request ${quoteId} (estimated KES ${Math.round(total).toLocaleString("en-KE")}) from ${customer}${company ? ` (${company})` : ""}. Manage it at ${siteUrl}/admin/quotes.`,
+    text: `  New SAFETYPRO AFRICA quote request ${quoteId} (estimated KES ${Math.round(total).toLocaleString("en-KE")}) from ${customer}${company ? ` (${company})` : ""}. Manage it at ${siteUrl}/admin/quotes.`,
     html: renderShell(
       brand,
       `
@@ -836,7 +836,7 @@ export async function sendContactAlert(input: {
     from: cfg.from,
     to,
     subject: `New contact message — ${topic}`,
-    text: `New KimSafety contact form message (${topic}) from ${name} <${email}>${phone ? ` · ${phone}` : ""}:\n\n${message}\n\nReply at ${siteUrl}/admin/contact-messages.`,
+    text: `  New SAFETYPRO AFRICA contact form message (${topic}) from ${name} <${email}>${phone ? ` · ${phone}` : ""}:\n\n${message}\n\nReply at ${siteUrl}/admin/contact-messages.`,
     html: renderShell(
       brand,
       `
@@ -867,7 +867,7 @@ export async function sendNewTicketAlert(input: {
     from: cfg.from,
     to,
     subject: `New support ticket ${ticketId} — ${subject}`,
-    text: `New KimSafety support ticket ${ticketId} from ${customer}: "${subject}". Manage it at ${siteUrl}/admin/tickets.`,
+    text: `  New SAFETYPRO AFRICA support ticket ${ticketId} from ${customer}: "${subject}". Manage it at ${siteUrl}/admin/tickets.`,
     html: renderShell(
       brand,
       `
@@ -896,8 +896,8 @@ export async function sendTicketReplyEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Re: your support ticket ${ticketId} — KimSafety`,
-    text: `Hi ${firstName},\n\n${staffName} replied to your support ticket ${ticketId}:\n\n${message}\n\nView the full thread at ${siteUrl}/account/tickets\n\n— KimSafety Team`,
+    subject: `Re: your support ticket ${ticketId} — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\n${staffName} replied to your support ticket ${ticketId}:\n\n${message}\n\nView the full thread at ${siteUrl}/account/tickets\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -931,7 +931,7 @@ export async function sendNewReturnAlert(input: {
     from: cfg.from,
     to,
     subject: `New return request ${returnId}`,
-    text: `New KimSafety return request ${returnId} from ${customer} (order ${orderId}): ${productName} — "${reason}". Manage it at ${siteUrl}/admin/returns.`,
+    text: `  New SAFETYPRO AFRICA return request ${returnId} from ${customer} (order ${orderId}): ${productName} — "${reason}". Manage it at ${siteUrl}/admin/returns.`,
     html: renderShell(
       brand,
       `
@@ -964,8 +964,8 @@ export async function sendReturnStatusEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Return ${returnId} is now "${status}" — KimSafety`,
-    text: `Hi ${firstName},\n\nYour return request ${returnId} is now: ${status}.\n\nTrack it in your account at ${siteUrl}/account\n\n— KimSafety Team`,
+    subject: `Return ${returnId} is now "${status}" — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour return request ${returnId} is now: ${status}.\n\nTrack it in your account at ${siteUrl}/account\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1024,7 +1024,7 @@ export async function sendNewCorporateApplicationAlert(input: {
     from: cfg.from,
     to,
     subject: `New corporate application — ${company}`,
-    text: `A new KimSafety corporate application was submitted by ${company} (${contact}). Review it at ${siteUrl}/admin/corporate.`,
+    text: `A new SAFETYPRO AFRICA corporate application was submitted by ${company} (${contact}). Review it at ${siteUrl}/admin/corporate.`,
     html: renderShell(
       brand,
       `
@@ -1051,8 +1051,8 @@ export async function sendCorporateApplicationConfirmation(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `We received your ${company} corporate application — KimSafety`,
-    text: `Hi ${firstName},\n\nThank you — we received the corporate account application for ${company}. Our team will review it within 1-2 business days and email you the outcome.\n\n— KimSafety Team`,
+    subject: `We received your ${company} corporate application — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nThank you — we received the corporate account application for ${company}. Our team will review it within 1-2 business days and email you the outcome.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1081,8 +1081,8 @@ export async function sendOrderStatusEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Your order ${orderId} is now "${status}" — KimSafety`,
-    text: `Hi ${firstName},\n\nYour order ${orderId} (KES ${Math.round(orderTotal).toLocaleString("en-KE")}) is now: ${status}.\n\nTrack it at ${siteUrl}/account/orders\n\n— KimSafety Team`,
+    subject: `Your order ${orderId} is now "${status}" — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour order ${orderId} (KES ${Math.round(orderTotal).toLocaleString("en-KE")}) is now: ${status}.\n\nTrack it at ${siteUrl}/account/orders\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1114,8 +1114,8 @@ export async function sendDeliveryNoteEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Your order ${orderId} has been delivered — signed delivery note attached — KimSafety`,
-    text: `Hi ${firstName},\n\nYour order ${orderId} has been marked as Delivered. The signed delivery note is attached to this email.\n\nThank you for choosing KimSafety!\n\n— KimSafety Team`,
+    subject: `Your order ${orderId} has been delivered — signed delivery note attached — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour order ${orderId} has been marked as Delivered. The signed delivery note is attached to this email.\n\nThank you for choosing SAFETYPRO AFRICA!\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1146,8 +1146,8 @@ export async function sendKraInvoiceEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `KRA invoice for order ${orderId} — KimSafety`,
-    text: `Hi ${firstName},\n\nYour KRA-compliant invoice for order ${orderId} is attached to this email. It carries our official stamp.\n\n— KimSafety Team`,
+    subject: `KRA invoice for order ${orderId} — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour KRA-compliant invoice for order ${orderId} is attached to this email. It carries our official stamp.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1177,8 +1177,8 @@ export async function sendQuoteStatusEmail(input: {
   await sendBrandedMail(cfg, {
     from: cfg.from,
     to,
-    subject: `Your quote ${quoteId} is now "${status}" — KimSafety`,
-    text: `Hi ${firstName},\n\nYour quotation request ${quoteId} is now: ${status}.\n\n— KimSafety Team`,
+    subject: `Your quote ${quoteId} is now "${status}" — SAFETYPRO AFRICA`,
+    text: `Hi ${firstName},\n\nYour quotation request ${quoteId} is now: ${status}.\n\n— SAFETYPRO AFRICA Team`,
     html: renderShell(
       brand,
       `
@@ -1213,7 +1213,7 @@ export async function newsletterHtml(input: { title: string; body: string }): Pr
     <div style="font-size:14px;line-height:1.7;color:#334155;">${content}</div>
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:22px;border-top:1px solid #f3f4f6;padding-top:16px;">
       <tr><td align="center" style="font-size:12px;color:${GRAY};line-height:1.7;">
-        You are receiving this because you subscribed to the KimSafety safety briefing.<br/>
+        You are receiving this because you subscribed to the SAFETYPRO AFRICA safety briefing.<br/>
         <a href="{{unsubscribe_url}}" style="color:#dc2626;font-weight:bold;">Unsubscribe</a>
       </td></tr>
     </table>
@@ -1238,7 +1238,7 @@ export async function sendDailyOrdersEmail(input: {
     from: cfg.from,
     to,
     subject: `Daily orders — ${dateLabel} · ${orderCount} order${orderCount === 1 ? "" : "s"} · ${money(revenue)}`,
-    text: `KimSafety daily order summary for ${dateLabel}:\n\nOrders: ${orderCount}\nPaid: ${paidCount}\nUnpaid: ${pending}\nRevenue: ${money(revenue)}\n\nThe Excel spreadsheet with every order is attached.\n\n— KimSafety`,
+    text: `SAFETYPRO AFRICA daily order summary for ${dateLabel}:\n\nOrders: ${orderCount}\nPaid: ${paidCount}\nUnpaid: ${pending}\nRevenue: ${money(revenue)}\n\nThe Excel spreadsheet with every order is attached.\n\n— SAFETYPRO AFRICA`,
     html: renderShell(
       brand,
       `

@@ -29,18 +29,18 @@ export type InvoiceOrder = {
   po_ref?: string | null;
 };
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
-const EMERALD = "#059669";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
+const EMERALD = "#08A88A";
 const GRAY = "#6B7280";
 const LIGHT = "#F3F4F6";
 
 const FALLBACK_COMPANY = {
-  name: "KimSafety Ltd",
-  address: "KimSafety House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
-  phone: "+254 715135141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  name: "SAFETYPRO AFRICA",
+  address: "Head Office,\nNairobi, Kenya",
+  phone: "+254 729396174",
+  email: "info@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const paymentLabel: Record<string, string> = {
@@ -126,7 +126,7 @@ export async function buildInvoicePdf(order: InvoiceOrder): Promise<Buffer> {
     doc
       .fontSize(7)
       .fillColor("#93A5BE")
-      .text("E&OE · Goods remain property of KimSafety Ltd until paid in full", padR - 250, pageH - 29, { width: 250, align: "right" });
+      .text("E&OE · Goods remain property of SAFETYPRO AFRICA until paid in full", padR - 250, pageH - 29, { width: 250, align: "right" });
   };
   doc.on("pageAdded", drawPageChrome);
   drawPageChrome();
@@ -332,7 +332,7 @@ export async function buildInvoicePdf(order: InvoiceOrder): Promise<Buffer> {
     .fillColor(GRAY)
     .text(
       paid
-        ? "This invoice has been settled in full. Thank you for choosing KimSafety."
+        ? "This invoice has been settled in full. Thank you for choosing SAFETYPRO AFRICA."
         : order.payment === "po"
           ? "Payment is due within 30 days of the invoice date. Approved corporate accounts only."
           : "Payment is due on receipt of this invoice. Orders are dispatched once payment is confirmed.",
@@ -357,7 +357,7 @@ export async function buildInvoicePdf(order: InvoiceOrder): Promise<Buffer> {
     const steps = [
       "Open M-Pesa on your phone",
       "Choose Lipa na M-Pesa, then Buy Goods and Services",
-      `Enter Till Number ${till} (KimSafety Ltd)`,
+      `Enter Till Number ${till} (SAFETYPRO AFRICA)`,
       `Enter Amount ${fmt(order.total)}`,
       `Enter "${order.id}" as the account / reference`,
       `Send the confirmation SMS to WhatsApp ${waDisplay} — we'll confirm and dispatch`,

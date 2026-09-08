@@ -16,8 +16,8 @@ import { getLiveBrands } from "@/lib/brands";
 import { slugify } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
 const GREEN = "#1A9A5E";
 const GRAY = "#6B7280";
 const INK = "#1F2937";

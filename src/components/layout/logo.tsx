@@ -16,10 +16,10 @@ export function Logo({ light, className }: { light?: boolean; className?: string
   const isUpload = clean.startsWith("/uploads/") || clean.startsWith("/api/uploads/") || clean.startsWith("/documents/");
 
   return (
-    <Link href="/" className={cn("flex items-center", className)} aria-label="KimSafety home">
+    <Link href="/" className={cn("flex items-center", className)} aria-label="SAFETYPRO AFRICA home">
       <Image
         src={src}
-        alt="KimSafety — Safety Equipment Kenya"
+        alt="SAFETYPRO AFRICA — Protecting People. Powering Safety."
         width={360}
         height={120}
         quality={90}

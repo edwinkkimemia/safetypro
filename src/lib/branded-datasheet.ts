@@ -50,8 +50,8 @@ export type DatasheetOptions = {
   compact?: boolean;
 };
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
 const GREEN = "#1A9A5E";
 const GRAY = "#6B7280";
 const INK = "#1F2937";
@@ -59,11 +59,11 @@ const LIGHT = "#C7D2E0";
 const SOFT = "#93A5BE";
 
 const COMPANY = {
-  name: "KimSafety Kenya Ltd",
-  address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
-  phone: "+254 715 135 141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  name: "SAFETYPRO AFRICA",
+  address: "Head Office, Nairobi, Kenya",
+  phone: "+254 729396174",
+  email: "info@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 // PDFKit only supports JPEG and PNG. Any other format (WebP, SVG, AVIF, etc.)

@@ -7,15 +7,15 @@ type Size = "sm" | "md" | "lg" | "xl";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-safety-500 text-white hover:bg-safety-600 shadow-[0_4px_14px_rgba(245,124,0,0.35)]",
+    "bg-teal-500 text-white hover:bg-teal-600 shadow-[0_4px_14px_rgba(8,168,138,0.35)]",
   secondary:
-    "bg-navy-900 text-white hover:bg-navy-800 shadow-[0_4px_14px_rgba(15,40,71,0.35)]",
+    "bg-navy-700 text-white hover:bg-navy-800 shadow-[0_4px_14px_rgba(6,59,112,0.35)]",
   outline:
-    "border border-line bg-white text-navy-900 hover:border-navy-300 hover:bg-navy-50",
-  ghost: "text-navy-900 hover:bg-navy-50",
-  success: "bg-emerald-600 text-white hover:bg-emerald-700",
-  dark: "bg-ink text-white hover:bg-navy-800",
-  white: "bg-white text-navy-900 hover:bg-safety-50",
+    "border border-line bg-white text-navy-700 hover:border-navy-300 hover:bg-navy-50",
+  ghost: "text-navy-700 hover:bg-navy-50",
+  success: "bg-teal-500 text-white hover:bg-teal-600",
+  dark: "bg-slate-700 text-white hover:bg-slate-800",
+  white: "bg-white text-navy-700 hover:bg-teal-50",
 };
 
 const sizes: Record<Size, string> = {
@@ -26,7 +26,7 @@ const sizes: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-safety-500 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap";
 
 export function Button({
   variant = "primary",
@@ -67,12 +67,12 @@ export function Badge({
   children: ReactNode;
 }) {
   const tones = {
-    neutral: "bg-navy-50 text-navy-700",
-    success: "bg-emerald-50 text-emerald-700 border-emerald-100",
+    neutral: "bg-slate-50 text-slate-700 border-slate-200",
+    success: "bg-teal-50 text-teal-700 border-teal-100",
     warning: "bg-amber-50 text-amber-700 border-amber-100",
-    danger: "bg-red-50 text-red-600 border-red-100",
-    safety: "bg-safety-50 text-safety-700 border-safety-100",
-    navy: "bg-navy-900 text-white",
+    danger: "bg-accent-50 text-accent-600 border-accent-100",
+    safety: "bg-teal-50 text-teal-700 border-teal-100",
+    navy: "bg-navy-700 text-white",
   };
   return (
     <span

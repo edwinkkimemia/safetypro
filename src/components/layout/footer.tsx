@@ -14,7 +14,7 @@ import { megaCategories } from "@/lib/data/catalog";
 import { useSettings } from "@/lib/settings";
 
 const company: [string, string][] = [
-  ["About KimSafety", "/about"],
+  ["About SAFETYPRO", "/about"],
   ["Why Choose Us", "/about"],
   ["Corporate Solutions", "/corporate"],
   ["Government & Tenders", "/corporate"],
@@ -62,8 +62,8 @@ export function Footer() {
           <div className="col-span-2 lg:col-span-2">
             <Logo light />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-              Kenya&apos;s most trusted supplier of certified industrial PPE, medical safety, fire safety
-              and laboratory equipment — serving hospitals, industries and organizations nationwide.
+              <span className="font-bold text-white">SAFETYPRO AFRICA</span> — Protecting People. Powering Safety.<br />
+              Professional Safety Solutions for Safer Workplaces. PPE · Workwear · Fire Safety · Industrial Safety · Fall Protection.
             </p>
             <div className="mt-5 space-y-2.5 text-sm text-white/70">
               <p className="flex items-start gap-2.5">
@@ -91,18 +91,18 @@ export function Footer() {
             </div>
             <div className="mt-5 flex gap-2">
               {[
-                ["Facebook", "https://facebook.com/kimsafetyltdke", "M13.5 9H16V6h-2.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.5l.5-3H13v-1.5c0-.3.2-.5.5-.5z"],
-                ["Instagram", "https://instagram.com/kimsafetyltdke", "M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.6 1.6 1 .4.5.8 1 1 1.6.3.6.4 1.3.5 2.3 0 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.6 1.1-1 1.6-.5.4-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1 0-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.6-1.6-1-.4-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.6-1.1 1-1.6.5-.4 1-.8 1.6-1 .6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 1.8c-2.7 0-3 0-4 .1-.9 0-1.4.2-1.7.3-.4.2-.7.4-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.7-.1 1-.1 1.3-.1 4s0 3 .1 4c0 .9.2 1.4.3 1.7.2.4.4.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.7.3 1 .1 1.3.1 4 .1s3 0 4-.1c.9 0 1.4-.2 1.7-.3.4-.2.7-.4 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.7.1-1 .1-1.3.1-4s0-3-.1-4c0-.9-.2-1.4-.3-1.7-.2-.4-.4-.7-.7-1-.3-.3-.6-.5-1-.7-.3-.1-.8-.3-1.7-.3-1-.1-1.3-.1-4-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-3.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"],
-                ["LinkedIn", "https://linkedin.com/company/kimsafetyltdke", "M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14H.2V8zm7.6 0h4.4v1.9h.1c.6-1.2 2.1-2.4 4.4-2.4 4.7 0 5.6 3.1 5.6 7.1V22h-4.6v-6.5c0-1.5 0-3.5-2.1-3.5s-2.5 1.7-2.5 3.4V22H7.8V8z"],
-                ["YouTube", "https://youtube.com/@kimsafetyltdke", "M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6c-1 .3-1.8 1.1-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"],
+                ["Facebook", "https://facebook.com/safetyproafrica", "M13.5 9H16V6h-2.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.5l.5-3H13v-1.5c0-.3.2-.5.5-.5z"],
+                ["Instagram", "https://instagram.com/safetyproafrica", "M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.6 1.6 1 .4.5.8 1 1 1.6.3.6.4 1.3.5 2.3 0 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3-.2.6-.6 1.1-1 1.6-.5.4-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1 0-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5-.6-.2-1.1-.6-1.6-1-.4-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.6-1.1 1-1.6.5-.4 1-.8 1.6-1 .6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 1.8c-2.7 0-3 0-4 .1-.9 0-1.4.2-1.7.3-.4.2-.7.4-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.7-.1 1-.1 1.3-.1 4s0 3 .1 4c0 .9.2 1.4.3 1.7.2.4.4.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.7.3 1 .1 1.3.1 4 .1s3 0 4-.1c.9 0 1.4-.2 1.7-.3.4-.2.7-.4 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.7.1-1 .1-1.3.1-4s0-3-.1-4c0-.9-.2-1.4-.3-1.7-.2-.4-.4-.7-.7-1-.3-.3-.6-.5-1-.7-.3-.1-.8-.3-1.7-.3-1-.1-1.3-.1-4-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-3.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"],
+                ["LinkedIn", "https://linkedin.com/company/safetyproafrica", "M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14H.2V8zm7.6 0h4.4v1.9h.1c.6-1.2 2.1-2.4 4.4-2.4 4.7 0 5.6 3.1 5.6 7.1V22h-4.6v-6.5c0-1.5 0-3.5-2.1-3.5s-2.5 1.7-2.5 3.4V22H7.8V8z"],
+                ["YouTube", "https://youtube.com/@safetyproafrica", "M23.5 6.2c-.3-1-1.1-1.8-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6c-1 .3-1.8 1.1-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"],
               ].map(([label, href, path]) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${label} (@kimsafetyltdke)`}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors hover:bg-safety-500"
+                  aria-label={`${label} (@safetyproafrica)`}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 transition-colors hover:bg-teal-500"
                 >
                   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
                     <path d={path} />
@@ -158,7 +158,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-white/10 py-6 text-[11px] text-white/40 lg:flex-row">
           <p>© {new Date().getFullYear()} {site_name}. All rights reserved. RC: PVT-2024-8871</p>
-          <p>Certified safety equipment · ISO 9001:2015 Compliant Operations</p>
+          <p>PPE · Workwear · Fire Safety · Fall Protection · Workplace Compliance</p>
         </div>
       </div>
     </footer>

@@ -73,7 +73,7 @@ export function HeroSlider({ slides = heroSlides }: { slides?: HeroSlide[] }) {
         <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/35 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent" />
       </div>
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#0F2847_1px,transparent_0)] [background-size:22px_22px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#063B70_1px,transparent_0)] [background-size:22px_22px]" />
       <div className="pointer-events-none absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-safety-500/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
 

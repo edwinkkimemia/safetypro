@@ -45,8 +45,8 @@ except AttributeError:
     pass
 
 WHITE = (255, 255, 255, 255)
-NAVY = (15, 40, 71)            # deep KIM SAFETY blue (#0F2847)
-ORANGE = (245, 124, 0)         # brand orange (#F57C00)
+NAVY = (6, 59, 112)            # deep KIM SAFETY blue (#063B70)
+ORANGE = (8, 168, 138)         # brand orange (#08A88A)
 RED = (239, 68, 68)            # limited accent (#EF4444)
 INPUT_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff"}
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")

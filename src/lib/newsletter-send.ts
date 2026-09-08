@@ -16,13 +16,13 @@ function cta(href: string, label: string): string {
   return `
   <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:24px 0 0 0;">
     <tr><td align="center">
-      <a href="${href}" style="display:inline-block;background:#F57C00;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:13px 28px;border-radius:10px;">${label}</a>
+      <a href="${href}" style="display:inline-block;background:#08A88A;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:13px 28px;border-radius:10px;">${label}</a>
     </td></tr>
   </table>`;
 }
 
 function preview(p: string): string {
-  return `<p style="font-size:14px;font-weight:bold;line-height:1.7;color:#0F2847;margin:0 0 16px 0;">${p}</p>`;
+  return `<p style="font-size:14px;font-weight:bold;line-height:1.7;color:#063B70;margin:0 0 16px 0;">${p}</p>`;
 }
 
 /**

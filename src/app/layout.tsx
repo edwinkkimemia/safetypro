@@ -28,17 +28,17 @@ async function loadBrand(): Promise<{ site_name: string; logo: string; email: st
   try {
     const s = await getAllSettings();
     return {
-      site_name: (s.site_name || "KimSafety").trim(),
+      site_name: (s.site_name || "SAFETYPRO AFRICA").trim(),
       logo: resolveLogoUrl(s),
-      email: s.email || "sales@kimsafety.co.ke",
-      phone: s.phone || "+254 715135141",
+      email: s.email || "info@safetypro.co.ke",
+      phone: s.phone || "+254 729396174",
     };
   } catch {
     return {
-      site_name: "KimSafety",
+      site_name: "SAFETYPRO AFRICA",
       logo: DEFAULT_LOGO,
-      email: "sales@kimsafety.co.ke",
-      phone: "+254 715135141",
+      email: "info@safetypro.co.ke",
+      phone: "+254 729396174",
     };
   }
 }
@@ -56,23 +56,24 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: "KimSafety — Industrial & Medical Safety Equipment Supplier in Kenya",
-      template: "%s | KimSafety",
+      default: "SAFETYPRO AFRICA — Protecting People. Powering Safety. | PPE & Safety Equipment Kenya",
+      template: "%s | SAFETYPRO AFRICA",
     },
-    description: `Kenya's trusted marketplace for certified industrial PPE, medical safety, fire safety, road safety and laboratory equipment. ${count} products, bulk discounts, same-day Nairobi delivery, corporate procurement support. Serving 1,200+ organizations across 47 counties.`,
+    description: `SAFETYPRO AFRICA — Professional Safety Solutions for Safer Workplaces. PPE, Workwear, Fire Safety, Industrial Safety, Fall Protection, Respiratory Protection, Safety Training & Workplace Compliance. ${count} products, bulk discounts, nationwide delivery.`,
     keywords: [
+      "SAFETYPRO AFRICA",
       "safety equipment Kenya",
       "PPE Kenya",
+      "workwear Kenya",
+      "fire safety Kenya",
       "industrial safety Nairobi",
-      "fire extinguishers Kenya",
-      "medical gloves Kenya",
+      "fall protection Kenya",
+      "respiratory protection Kenya",
+      "safety training Kenya",
+      "workplace compliance Kenya",
       "safety helmets Kenya",
-      "lab equipment Kenya",
-      "KimSafety",
       "safety boots Kenya",
-      "reflective vest Kenya",
-      "first aid kit Kenya",
-      "construction safety Kenya",
+      "safetypro.co.ke",
     ],
     alternates: {
       canonical: siteUrl,
@@ -89,15 +90,15 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_KE",
       url: siteUrl,
-      siteName: "KimSafety",
-      title: "KimSafety — Industrial & Medical Safety Equipment Supplier in Kenya",
-      description: `Certified PPE, medical, fire, road and lab safety equipment. ${count} products, bulk discounts, same-day Nairobi delivery, corporate procurement support.`,
-      images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "KimSafety — Industrial & Medical Safety Equipment Supplier in Kenya" }],
+      siteName: "SAFETYPRO AFRICA",
+      title: "SAFETYPRO AFRICA — Protecting People. Powering Safety.",
+      description: `Professional Safety Solutions for Safer Workplaces. PPE · Workwear · Fire Safety · Fall Protection · ${count} products.`,
+      images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "SAFETYPRO AFRICA — Protecting People. Powering Safety." }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "KimSafety — Industrial & Medical Safety Equipment Supplier in Kenya",
-      description: `Certified PPE, medical, fire, road and lab safety equipment. ${count} products, bulk discounts, same-day Nairobi delivery.`,
+      title: "SAFETYPRO AFRICA — Protecting People. Powering Safety.",
+      description: `Professional Safety Solutions for Safer Workplaces. PPE, Fire Safety, Fall Protection, Safety Training. ${count} products.`,
       images: [`${siteUrl}/og-image.jpg`],
     },
     icons: {
@@ -116,7 +117,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0F2847",
+  themeColor: "#063B70",
 };
 
 export default async function RootLayout({
@@ -134,12 +135,12 @@ export default async function RootLayout({
     url: siteUrl,
     logo: absoluteUrl(brand.logo),
     description:
-      `Kenya's trusted marketplace for certified industrial PPE, medical safety, fire safety, road safety and laboratory equipment. ${count} products, 15 categories, 40+ authorized brands.`,
+      `SAFETYPRO AFRICA — Professional Safety Solutions for Safer Workplaces. PPE, Workwear, Fire Safety, Industrial Safety, Fall Protection, Respiratory Protection & Workplace Compliance. ${count} products, 15 categories, 40+ authorized brands.`,
     email: brand.email,
     telephone: brand.phone,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Industrial Area",
+      streetAddress: "Head Office",
       addressLocality: "Nairobi",
       addressRegion: "Nairobi",
       postalCode: "00100",
@@ -150,6 +151,7 @@ export default async function RootLayout({
         "@type": "ContactPoint",
         telephone: brand.phone,
         contactType: "sales",
+        email: "sales@safetypro.co.ke",
         availableLanguage: ["en"],
         areaServed: "KE",
       },
@@ -157,18 +159,19 @@ export default async function RootLayout({
         "@type": "ContactPoint",
         telephone: brand.phone,
         contactType: "customer service",
+        email: "info@safetypro.co.ke",
         availableLanguage: ["en"],
       },
     ],
     sameAs: [
-      "https://facebook.com/kimsafetyltdke",
-      "https://instagram.com/kimsafetyltdke",
-      "https://linkedin.com/company/kimsafetyltdke",
-      "https://youtube.com/@kimsafetyltdke",
+      "https://facebook.com/safetyproafrica",
+      "https://instagram.com/safetyproafrica",
+      "https://linkedin.com/company/safetyproafrica",
+      "https://youtube.com/@safetyproafrica",
     ],
     areaServed: { "@type": "Country", name: "Kenya" },
     foundingDate: "2019",
-    slogan: "Protect Every Worker, Every Shift",
+    slogan: "Protecting People. Powering Safety.",
   };
 
   const websiteJsonLd = {

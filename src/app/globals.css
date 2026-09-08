@@ -4,7 +4,11 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0b1b2f;
+  --foreground: #263746;
+  --navy: #063B70;
+  --teal: #08A88A;
+  --accent: #E53935;
+  --slate: #263746;
 }
 
 * {
@@ -42,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: #f57c00;
+  background: #08A88A;
   color: #fff;
 }
 
@@ -51,14 +55,14 @@ h1, h2, h3, h4, h5, h6 {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8f9fa;
+  background: #F8F9FA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9d2dd;
+  background: #B0BCC0;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9fb0c3;
+  background: #063B70;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -102,7 +106,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .blog-prose th,
 .prose-editor th {
-  background: #0b1b2f;
+  background: #063B70;
   color: #ffffff;
   font-weight: 700;
 }
@@ -115,7 +119,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 1.6em 0 0.6em;
   font-size: 1.45rem;
   font-weight: 800;
-  color: #0b1b2f;
+  color: #063B70;
   letter-spacing: -0.02em;
 }
 .blog-prose h3,
@@ -123,7 +127,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 1.4em 0 0.5em;
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0b1b2f;
+  color: #263746;
   letter-spacing: -0.02em;
 }
 .blog-prose ul,
@@ -148,19 +152,23 @@ input[type="number"]::-webkit-inner-spin-button {
 .blog-prose blockquote,
 .prose-editor blockquote {
   margin: 0 0 1.1em;
-  border-left: 4px solid #f57c00;
-  background: #fff7ed;
+  border-left: 4px solid #08A88A;
+  background: #E6F7F3;
   padding: 0.9em 1.2em;
   border-radius: 0 0.75rem 0.75rem 0;
   font-style: italic;
-  color: #0b1b2f;
+  color: #063B70;
 }
 .blog-prose a,
 .prose-editor a {
-  color: #f57c00;
+  color: #063B70;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+.blog-prose a:hover,
+.prose-editor a:hover {
+  color: #08A88A;
 }
 .blog-prose img,
 .prose-editor img {
@@ -205,10 +213,10 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  color: #475569;
+  color: #5C6F7A;
   transition: background-color 0.15s, color 0.15s;
 }
 .toolbar-btn:hover {
-  background: #f1f5f9;
-  color: #0b1b2f;
+  background: #E6F7F3;
+  color: #063B70;
 }

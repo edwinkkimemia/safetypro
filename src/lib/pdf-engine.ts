@@ -1,8 +1,8 @@
 import type PDFDocument from "pdfkit";
 import { htmlToBlocks, type TextRun, type Block } from "@/lib/html-blocks";
 
-export const NAVY = "#0F2847";
-export const SAFETY = "#F57C00";
+export const NAVY = "#063B70";
+export const SAFETY = "#08A88A";
 export const GREEN = "#1A9A5E";
 export const GRAY = "#6B7280";
 export const INK = "#1F2937";

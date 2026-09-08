@@ -5,16 +5,16 @@ import { getAllSettings } from "@/lib/db";
 import { readLogoBytes } from "@/lib/logo";
 import type { InvoiceOrder } from "@/lib/invoice-pdf";
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
-const EMERALD = "#059669";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
+const EMERALD = "#08A88A";
 const GRAY = "#6B7280";
 
 const FALLBACK_COMPANY = {
-  name: "KimSafety Ltd",
-  address: "KimSafety House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
-  phone: "+254 715135141",
-  email: "sales@kimsafety.co.ke",
+  name: "SAFETYPRO AFRICA",
+  address: "Head Office, Nairobi, Kenya",
+  phone: "+254 729396174",
+  email: "info@safetypro.co.ke",
 };
 
 export const paymentLabel: Record<string, string> = {
@@ -119,7 +119,7 @@ export async function buildReceiptPdf(order: InvoiceOrder): Promise<Buffer> {
     doc
       .fontSize(7.5)
       .fillColor("#93A5BE")
-      .text(`${COMPANY.phone} · ${COMPANY.email} · www.kimsafety.co.ke`, padL, pageH - 30, { width: 360 });
+      .text(`${COMPANY.phone} · ${COMPANY.email} · www.safetypro.co.ke`, padL, pageH - 30, { width: 360 });
     doc
       .font("Helvetica-Bold")
       .fontSize(7.5)
@@ -215,7 +215,7 @@ export async function buildReceiptPdf(order: InvoiceOrder): Promise<Buffer> {
     .fontSize(8)
     .fillColor(GRAY)
     .text(
-      "This receipt confirms full settlement of the above invoice. Goods remain property of KimSafety Ltd until paid in full. This document was generated electronically and is valid without signature.",
+      "This receipt confirms full settlement of the above invoice. Goods remain property of SAFETYPRO AFRICA until paid in full. This document was generated electronically and is valid without signature.",
       padL,
       ry,
       { width: padR - padL - 200 }

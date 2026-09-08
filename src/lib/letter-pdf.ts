@@ -24,17 +24,17 @@ export type LetterInput = {
 
 export type LetterSettings = Record<string, string | undefined>;
 
-const NAVY = "#0F2847";
-const SAFETY = "#F57C00";
+const NAVY = "#063B70";
+const SAFETY = "#08A88A";
 const GRAY = "#6B7280";
 const INK = "#1F2937";
 
 const FALLBACK_COMPANY = {
-  name: "KimSafety Ltd",
-  address: "KimSafety House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
-  phone: "+254 715135141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  name: "SAFETYPRO AFRICA",
+  address: "Head Office, Nairobi, Kenya",
+  phone: "+254 729396174",
+  email: "info@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const fmtDate = (iso: string) =>
