@@ -9,5 +9,5 @@
       "schedule": "0 8 * * *"
     }
   ],
-  "buildCommand": "node scripts/deploy-db.mjs || true; next build"
+  "buildCommand": "node scripts/vercel-build.mjs"
 }
