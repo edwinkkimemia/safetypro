@@ -47,3 +47,6 @@ implementation.md
 todo.md
 .vercel
 .env*
+# build logs (avoid committing Windows-temporary opencode build.log with colon in name)
+*.log
+C:*.log

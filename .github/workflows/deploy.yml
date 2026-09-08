@@ -23,16 +23,45 @@ jobs:
         with:
           node-version: 22
 
+      - name: Validate Vercel secrets
+        id: check
+        run: |
+          missing=""
+          [ -z "${{ secrets.VERCEL_TOKEN }}" ] && missing="$missing VERCEL_TOKEN"
+          [ -z "${{ secrets.VERCEL_ORG_ID }}" ] && missing="$missing VERCEL_ORG_ID"
+          [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ] && missing="$missing VERCEL_PROJECT_ID"
+          if [ -n "$missing" ]; then
+            echo "::warning::Missing GitHub secrets:$missing — Vercel deploy will be skipped, but build will still be validated."
+            echo "Create them at: GitHub repo → Settings → Secrets and variables → Actions"
+            echo "  VERCEL_TOKEN: vercel.com → Settings → Tokens → Create"
+            echo "  VERCEL_ORG_ID & VERCEL_PROJECT_ID: run 'vercel link' locally then copy from .vercel/project.json"
+            echo "Alternatively, enable Vercel's native Git integration (vercel.com → Project → Settings → Git) and disable this workflow."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Install Vercel CLI
+        if: steps.check.outputs.skip == 'false'
         run: npm install --global vercel@latest
 
       - name: Pull Vercel environment information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          set -x
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} || {
+            echo "::error::vercel pull failed — check VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID secrets"
+            echo "Debug: verify with 'vercel whoami --token=\$VERCEL_TOKEN' and 'vercel ls --token=\$VERCEL_TOKEN'"
+            exit 1
+          }
+          ls -la .vercel/ || true
+          cat .vercel/project.json 2>/dev/null | head -20 || true
 
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
       - name: Apply database migrations before deploy
+        if: steps.check.outputs.skip == 'false'
         # Uses the production env pulled from Vercel. Adopts the raw-SQL-built
         # database for Prisma (baselines migrations already present), then runs
         # `prisma migrate deploy` so tables like upload_files exist before the
@@ -45,8 +74,16 @@ jobs:
           cp .vercel/.env.production.local .env
           node scripts/deploy-db.mjs
 
-      - name: Build project artifacts
+      - name: Build project artifacts (Vercel)
+        if: steps.check.outputs.skip == 'false'
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy project artifacts to Vercel
+        if: steps.check.outputs.skip == 'false'
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build validation (no Vercel secrets — fallback)
+        if: steps.check.outputs.skip == 'true'
+        run: |
+          echo "Vercel secrets missing — running fallback 'next build' validation (migrations skipped)."
+          npm run build

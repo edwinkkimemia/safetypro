@@ -5,4 +5,4 @@
 -- paystack_reference (KSxxxxx-<ts>, generated at initialization) is still used
 -- to match webhooks and prevent replay; this column carries the gateway's own
 -- code for reconciliation, receipts and invoices.
-ALTER TABLE orders ADD COLUMN paystack_transaction_id TEXT;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS paystack_transaction_id TEXT;

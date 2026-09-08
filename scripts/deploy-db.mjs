@@ -25,22 +25,41 @@ import "dotenv/config";
 import { execSync } from "node:child_process";
 import pg from "pg";
 
-const url = process.env.DIRECT_URL ?? process.env.DATABASE_URL;
+let url = process.env.DIRECT_URL ?? process.env.DATABASE_URL;
 if (!url) {
   console.error("deploy-db: DIRECT_URL or DATABASE_URL environment variable is required");
   process.exit(1);
+}
+// Vercel/Prisma Postgres at plan limit surfaces DATABASE_URL as prisma://
+// which pg cannot use — prefer DIRECT_URL if DATABASE_URL is prisma://
+if (url.startsWith("prisma://")) {
+  const direct = process.env.DIRECT_URL;
+  if (direct) {
+    console.warn("deploy-db: DATABASE_URL is prisma:// — using DIRECT_URL");
+    url = direct;
+  } else {
+    console.error("deploy-db: DATABASE_URL is prisma:// and DIRECT_URL not set — cannot connect (upgrade plan or set DIRECT_URL)");
+    process.exit(1);
+  }
 }
 
 // Migration folder name → key table whose presence means the migration's
 // effects are already in the database. `null` = never applied to the app DB
 // (Prisma starter `User`/`Post` models), so always baseline it to avoid
 // creating unused starter tables.
+// Only table-creation migrations are baselined; column-only alters are
+// idempotent (IF NOT EXISTS) and are applied by `migrate deploy` below.
+// This prevents baselining a migration when its table exists but required
+// columns are still missing.
 const MIGRATIONS = [
   ["20260808042311_init", null],
   ["20260808070000_app_schema", "users"],
   ["20260809000000_upload_files", "upload_files"],
   ["20260810000000_reviews", "reviews"],
   ["20260812000000_newsletter_subscribers", "newsletter_subscribers"],
+  ["20260812000001_corporate_accounts", "corporate_accounts"],
+  ["20260814000000_newsletter_campaigns", "newsletter_campaigns"],
+  ["20260823000000_cart_recovery", "abandoned_carts"],
 ];
 
 const host = new URL(url).hostname;
