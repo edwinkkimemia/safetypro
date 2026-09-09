@@ -147,7 +147,8 @@ function resolveImage(sku: string, value: unknown, blocked: Set<string>): string
       return mapped;
     }
   }
-  return `/images/products/${sku}.jpg`;
+  // Fallback to generic template when no mapping and no SKU file exists
+  return "/images/products/product_template.jpg";
 }
 
 function resolveGallery(sku: string, value: unknown, blocked: Set<string>): string[] | undefined {

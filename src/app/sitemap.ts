@@ -33,10 +33,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("[sitemap] liveCatalog failed, using seed:", (err as Error).message);
     const { products: seed } = await import("@/lib/data/products");
     const { productImages } = await import("@/lib/data/product-images");
-    products = seed.map((p) => ({ ...p, image: productImages[p.sku] ?? `/images/products/${p.sku}.jpg` })) as typeof products;
+    products = seed.map((p) => ({ ...p, image: productImages[p.sku] ?? "/images/products/product_template.jpg" })) as typeof products;
   }
   const productRoutes = products.map((p) => {
-    const imgRaw = (p as unknown as { image?: string }).image || `/images/products/${(p as { sku: string }).sku}.jpg`;
+    const imgRaw = (p as unknown as { image?: string }).image || "/images/products/product_template.jpg";
     const img = imgRaw.startsWith("http") ? imgRaw : `${base}${imgRaw}`;
     return {
       url: `${base}/product/${p.slug}`,
