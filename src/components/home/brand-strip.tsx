@@ -2,21 +2,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getLiveBrands } from "@/lib/brands";
-import fs from "fs";
-import path from "path";
+
+const KNOWN_BRAND_FILES = new Set([
+  "3m.jpg",
+  "ansell.jpg",
+  "delta-plus.jpg",
+  "draeger.jpg",
+  "dupont.jpg",
+  "goliath.png",
+  "honeywell.jpg",
+  "jsp.png",
+  "karam.jpg",
+  "kimberly_clark.jpg",
+  "msalogo.jpg",
+  "portwest.png",
+  "protecta.png",
+  "safety-jogger.png",
+  "uvex.jpg",
+  "vaultex.png",
+]);
 
 function hasLogoFile(image: string): boolean {
   if (!image) return false;
-  if (image.startsWith("/api/uploads/")) return true;
-  if (image.startsWith("/images/")) {
-    const full = path.join(process.cwd(), "public", image.replace(/^\//, ""));
-    try {
-      return fs.existsSync(full);
-    } catch {
-      return false;
-    }
-  }
+  if (image.startsWith("/api/uploads/") || image.startsWith("/uploads/") || image.startsWith("/documents/")) return true;
   if (image.startsWith("http")) return true;
+  if (image.startsWith("/images/")) {
+    const base = decodeURIComponent(image.split("?")[0].split("/").pop() || "");
+    if (KNOWN_BRAND_FILES.has(base)) return true;
+    return false;
+  }
   return false;
 }
 

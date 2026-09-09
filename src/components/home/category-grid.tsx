@@ -3,21 +3,12 @@ import Link from "next/link";
 import { ArrowRight, Tag } from "lucide-react";
 import { categories } from "@/lib/data/catalog";
 import { getFeaturedCategories } from "@/lib/db";
-import fs from "fs";
-import path from "path";
 
 function hasImageFile(image: string): boolean {
   if (!image) return false;
   if (image.startsWith("/api/uploads/") || image.startsWith("/uploads/") || image.startsWith("/documents/")) return true;
-  if (image.startsWith("/images/")) {
-    const full = path.join(process.cwd(), "public", image.replace(/^\//, "").split("?")[0]);
-    try {
-      return fs.existsSync(decodeURIComponent(full));
-    } catch {
-      return false;
-    }
-  }
   if (image.startsWith("http")) return true;
+  if (image.startsWith("/images/")) return true;
   return false;
 }
 

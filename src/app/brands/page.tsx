@@ -6,21 +6,38 @@ import { PageHeader } from "@/components/layout/page-header";
 import { siteUrl } from "@/lib/site";
 import { getLiveBrands } from "@/lib/brands";
 import { liveCatalog } from "@/lib/catalog";
-import fs from "fs";
-import path from "path";
+
+const KNOWN_BRAND_FILES = new Set([
+  "3m.jpg",
+  "ansell.jpg",
+  "delta-plus.jpg",
+  "draeger.jpg",
+  "dupont.jpg",
+  "goliath.png",
+  "honeywell.jpg",
+  "jsp.png",
+  "karam.jpg",
+  "kimberly_clark.jpg",
+  "msalogo.jpg",
+  "portwest.png",
+  "protecta.png",
+  "safety-jogger.png",
+  "uvex.jpg",
+  "vaultex.png",
+]);
 
 function hasLogoFile(image: string): boolean {
   if (!image) return false;
   if (image.startsWith("/api/uploads/") || image.startsWith("/uploads/") || image.startsWith("/documents/")) return true;
-  if (image.startsWith("/images/")) {
-    const full = path.join(process.cwd(), "public", image.replace(/^\//, "").split("?")[0]);
-    try {
-      return fs.existsSync(decodeURIComponent(full));
-    } catch {
-      return false;
-    }
-  }
   if (image.startsWith("http")) return true;
+  if (image.startsWith("/images/")) {
+    const base = decodeURIComponent(image.split("?")[0].split("/").pop() || "");
+    // Static brand logos are known to exist - don't rely on fs.existsSync which fails on Vercel serverless
+    if (KNOWN_BRAND_FILES.has(base)) return true;
+    // Other /images/ paths (product/template etc.) assume exists - browser will 404 if not, but avoid false initials
+    // For brands, unknown files should show initials, so return false to show fallback
+    return false;
+  }
   return false;
 }
 
