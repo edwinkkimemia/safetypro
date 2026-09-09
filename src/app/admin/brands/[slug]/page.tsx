@@ -112,7 +112,7 @@ export default function AdminBrandDetailsPage() {
         <div className="flex flex-wrap gap-2">
           <a
             href={`/api/documents/brand-catalog?slug=${encodeURIComponent(brand.slug)}`}
-            download={`kimsafety-brand-${brand.slug}-catalog.pdf`}
+            download={`safetypro-brand-${brand.slug}-catalog.pdf`}
             className="inline-flex items-center gap-2 rounded-xl bg-safety-50 px-5 py-3 text-sm font-bold text-safety-700 ring-1 ring-safety-200 transition-colors hover:bg-safety-100"
             title="Download a branded PDF catalog of every product in this brand"
           >

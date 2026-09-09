@@ -32,7 +32,7 @@ const empty: AdminPost = {
   excerpt: "",
   content: "",
   cover: null,
-  author: "KimSafety Team",
+  author: "SafetyPro Team",
   read_time: "5 min read",
   published: true,
   created_at: "",

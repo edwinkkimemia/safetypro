@@ -25,7 +25,7 @@ const posts = [
     excerpt:
       "How to buy certified PPE in Kenya in 2026 — standards, certification checks, sizing, bulk pricing and where counterfeit gear hides. Everything a procurement officer or safety manager needs before placing an order.",
     read_time: "12 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/hero/hero1.jpg",
     created_at: day(3),
     content: `
@@ -68,7 +68,7 @@ const posts = [
 <p>PPE that does not fit is PPE that does not protect. A loose helmet shifts on impact. A baggy harness can cause a worker to slip out during a fall. Buy from suppliers who stock full size ranges and, ideally, who will help with fitting. For items like respirators, a proper seal test is essential — see our guide on <a href="/knowledge/working-at-height-checklist">working at height</a> and respiratory protection for the details.</p>
 
 <h2>Bulk buying: the smart way to cut costs</h2>
-<p>Volume pricing is where Kenyan organisations save the most. Most suppliers — KimSafety included — work in tiers:</p>
+<p>Volume pricing is where Kenyan organisations save the most. Most suppliers — SafetyPro included — work in tiers:</p>
 <ul>
 <li>1–9 units: standard retail pricing.</li>
 <li>10–49 units: modest discount (around 5%).</li>
@@ -87,7 +87,7 @@ const posts = [
 </ul>
 
 <h2>Where to start</h2>
-<p>Browse the certified range at <a href="/search">KimSafety's shop</a> — every product page lists its standards, stock levels and honest pricing. And when you are ready to buy in volume, <a href="/quote">request a quotation</a> and our corporate desk will respond within 4 business hours.</p>
+<p>Browse the certified range at <a href="/search">SafetyPro's shop</a> — every product page lists its standards, stock levels and honest pricing. And when you are ready to buy in volume, <a href="/quote">request a quotation</a> and our corporate desk will respond within 4 business hours.</p>
 `,
   },
   {
@@ -97,7 +97,7 @@ const posts = [
     excerpt:
       "ABC dry powder, CO2, foam and water extinguishers do very different jobs. This guide explains the fire classes, the right extinguisher for every Kenyan workplace and the maintenance rules that keep you compliant.",
     read_time: "9 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/6KG DRY POWDER FIRE EXTINGUISHER.jpg",
     created_at: day(10),
     content: `
@@ -154,7 +154,7 @@ const posts = [
 <p>Use the acronym <strong>PASS</strong> for training: <strong>P</strong>ull the pin, <strong>A</strong>im at the base, <strong>S</strong>queeze the handle, <strong>S</strong>weep side to side.</p>
 
 <h2>Buying new or refilling</h2>
-<p>Only buy from suppliers who can show certification and a current service network. KimSafety supplies <a href="/search?category=fire-safety">certified extinguishers and fire safety equipment</a> nationwide, with refill and maintenance arrangements through our partners.</p>
+<p>Only buy from suppliers who can show certification and a current service network. SafetyPro supplies <a href="/search?category=fire-safety">certified extinguishers and fire safety equipment</a> nationwide, with refill and maintenance arrangements through our partners.</p>
 `,
   },
   {
@@ -164,7 +164,7 @@ const posts = [
     excerpt:
       "Chemical resistance, allergen profiles, cost and durability — we compare nitrile, latex and vinyl gloves line by line so Kenyan clinics, factories and food businesses choose the right glove for every task.",
     read_time: "8 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Assorted Industrial Gloves.jpg",
     created_at: day(17),
     content: `
@@ -224,7 +224,7 @@ const posts = [
 <li>Buy powdered-free for clinical areas to reduce contamination and skin irritation.</li>
 <li>If your team handles both food and chemicals, separate the glove types — don't compromise.</li>
 </ul>
-<p>KimSafety stocks <a href="/search">certified gloves for every task</a> — from surgical latex to industrial nitrile — and can advise on volume pricing for clinics and factories.</p>
+<p>SafetyPro stocks <a href="/search">certified gloves for every task</a> — from surgical latex to industrial nitrile — and can advise on volume pricing for clinics and factories.</p>
 `,
   },
   {
@@ -234,7 +234,7 @@ const posts = [
     excerpt:
       "A practical, repeatable method for identifying, assessing and controlling hazards in Kenyan workplaces — with the hierarchy of controls, documentation templates and how to turn findings into a PPE plan.",
     read_time: "10 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Construction Helmets.jpg",
     created_at: day(24),
     content: `
@@ -293,7 +293,7 @@ const posts = [
     excerpt:
       "Falls are the leading cause of death on Kenyan construction sites. Here is what full-body harnesses, lanyards, anchor points and rescue plans actually require — with inspection and selection guidance.",
     read_time: "11 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Double Hook Work Man Full Body Safety Harness.jpg",
     created_at: day(31),
     content: `
@@ -356,7 +356,7 @@ const posts = [
     excerpt:
       "A plain-English walkthrough of Kenya's Occupational Safety and Health Act 2007 — duties of employers, safety committees, reporting obligations, penalties and how to prove compliance to DOSHS inspectors.",
     read_time: "9 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/hero/hero4.jpg",
     created_at: day(38),
     content: `
@@ -417,7 +417,7 @@ const posts = [
     excerpt:
       "EN 397 vs ANSI Type I and II, shell materials, suspension systems, expiry rules and the inspection points that DOSHS and site inspectors check on helmets.",
     read_time: "7 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Construction Helmets.jpg",
     created_at: day(45),
     content: `
@@ -487,7 +487,7 @@ const posts = [
     excerpt:
       "What the Kenyan workplace first aid regulations require, the contents list to stock, how many kits your premises needs and why refills are a compliance issue, not a convenience.",
     read_time: "8 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Medium Grey First Aid Kit.jpg",
     created_at: day(52),
     content: `
@@ -562,7 +562,7 @@ const posts = [
     excerpt:
       "Counterfeit helmets, gloves and respirators kill. Learn the tell-tale signs of fake PPE, the certification documents to demand and how to buy only from authorised channels in Kenya.",
     read_time: "9 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/PROTECTA CHEMICAL SAFETY GOGGLES.jpg",
     created_at: day(59),
     content: `
@@ -607,11 +607,11 @@ const posts = [
 </ul>
 <p>If a supplier hesitates on any of these, walk away.</p>
 
-<h2>How KimSafety guarantees authenticity</h2>
-<p>KimSafety sources only through authorised distribution channels for brands like 3M, Honeywell, Ansell, Uvex, MSA, DuPont and Karam. Every batch is quality-inspected before dispatch, certification documentation is kept on file, and counterfeits discovered in our network are destroyed — not resold.</p>
+<h2>How SafetyPro guarantees authenticity</h2>
+<p>SafetyPro sources only through authorised distribution channels for brands like 3M, Honeywell, Ansell, Uvex, MSA, DuPont and Karam. Every batch is quality-inspected before dispatch, certification documentation is kept on file, and counterfeits discovered in our network are destroyed — not resold.</p>
 
 <h2>Buy safe, buy certified</h2>
-<p>Buy your PPE from the <a href="/search">certified KimSafety range</a>, and for organisational purchases insist on <a href="/quote">documented quotations</a> that include certification files. A few extra shillings on a genuine product is the cheapest insurance your workforce will ever have.</p>
+<p>Buy your PPE from the <a href="/search">certified SafetyPro range</a>, and for organisational purchases insist on <a href="/quote">documented quotations</a> that include certification files. A few extra shillings on a genuine product is the cheapest insurance your workforce will ever have.</p>
 `,
   },
   {
@@ -621,7 +621,7 @@ const posts = [
     excerpt:
       "From 3-ply face masks to half-mask respirators with chemical cartridges — the hierarchy of respiratory protection, filter classes, fit testing and when each level is actually required in Kenyan workplaces.",
     read_time: "10 min read",
-    author: "KimSafety HSE Team",
+    author: "SafetyPro HSE Team",
     cover: "/images/products/Double Respirator Mask (NP306).jpg",
     created_at: day(66),
     content: `

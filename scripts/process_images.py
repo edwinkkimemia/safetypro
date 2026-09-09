@@ -22,8 +22,8 @@ Usage:
                              [--workers 4] [--formats webp,jpeg] [--dry-run]
                               [--in-place] [--no-branding] [--logo ../logo/logoy.jpg]
                               [--template product_template.jpg] [--title 'PRODUCT NAME']  # legacy, not displayed
-                             [--website www.kimsafety.co.ke]
-                             [--email sales@kimsafety.co.ke] [--phone '+254 715 135 141']
+                             [--website www.safetypro.co.ke]
+                             [--email sales@safetypro.co.ke] [--phone '+254 715 135 141']
 """
 
 import argparse
@@ -51,8 +51,8 @@ RED = (239, 68, 68)            # limited accent (#EF4444)
 INPUT_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp", ".tif", ".tiff"}
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
 
-WEBSITE = "www.kimsafety.co.ke"
-EMAIL = "sales@kimsafety.co.ke"
+WEBSITE = "www.safetypro.co.ke"
+EMAIL = "sales@safetypro.co.ke"
 PHONE = "+254 715 135 141"
 
 _session = None
@@ -615,7 +615,7 @@ def main() -> None:
     ap.add_argument("--files", nargs="*", help="process only these filenames")
     ap.add_argument("--in-place", action="store_true", help="write processed images back over the source files (originals backed up to <output>/original)")
     ap.add_argument("--no-branding", action="store_true", help="skip the ad layout (plain white square image only)")
-    ap.add_argument("--logo", default="../logo/logoy.jpg", help="path to the KimSafety logo (relative to this script)")
+    ap.add_argument("--logo", default="../logo/logoy.jpg", help="path to the SafetyPro logo (relative to this script)")
     ap.add_argument("--template", default="product_template.jpg", help="background template image used in place of the drawn ad layout (relative to this script)")
     ap.add_argument("--title", default=None, help="legacy option; title is intentionally not displayed in the clean ad")
     ap.add_argument("--website", default=WEBSITE, help="website text shown in the ad footer")

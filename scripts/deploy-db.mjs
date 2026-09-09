@@ -2,7 +2,7 @@
 /**
  * Ensure the database schema is up to date before deploying.
  *
- * The KimSafety Postgres database was originally built from raw SQL (the
+ * The SafetyPro Postgres database was originally built from raw SQL (the
  * SQLite -> Postgres migration script + the DDL previously embedded in
  * src/lib/db.ts), so it has tables but no Prisma `_prisma_migrations` history.
  * Running `prisma migrate deploy` on such a database fails with P3005

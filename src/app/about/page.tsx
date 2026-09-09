@@ -7,23 +7,23 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "About KimSafety — Certified Safety Equipment Supplier Since 2019 | Kenya",
+  title: "About SafetyPro — Certified Safety Equipment Supplier Since 2019 | Kenya",
   description:
-    "KimSafety is Kenya's leading supplier of certified industrial PPE, medical safety, fire safety and laboratory equipment — serving 1,200+ organizations across 47 counties since 2019. Industrial Area, Nairobi.",
-  keywords: ["about KimSafety", "safety supplier Nairobi", "industrial Area KimSafety", "KimSafety Kenya history"],
+    "SafetyPro is Kenya's leading supplier of certified industrial PPE, medical safety, fire safety and laboratory equipment — serving 1,200+ organizations across 47 counties since 2019. Industrial Area, Nairobi.",
+  keywords: ["about SafetyPro", "safety supplier Nairobi", "industrial Area SafetyPro", "SafetyPro Kenya history"],
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
-    title: "About KimSafety — Certified Safety Equipment Since 2019",
+    title: "About SafetyPro — Certified Safety Equipment Since 2019",
     description: "Kenya's leading supplier of certified safety equipment — 1,200+ organizations across 47 counties.",
     type: "website",
     url: `${siteUrl}/about`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "About KimSafety" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "About SafetyPro" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About KimSafety — Kenya's Safety Supplier Since 2019",
-    description: "1,200+ organizations across 47 counties trust KimSafety.",
+    title: "About SafetyPro — Kenya's Safety Supplier Since 2019",
+    description: "1,200+ organizations across 47 counties trust SafetyPro.",
     images: [`${siteUrl}/og-image.jpg`],
   },
 };
@@ -41,9 +41,9 @@ export default function AboutPage() {
     <div className="bg-white">
       <PageHeader
         bg="/images/hero/hero1.jpg"
-        eyebrow="About KimSafety"
+        eyebrow="About SafetyPro"
         title="Safety equipment Kenya can rely on — since 2019"
-        subtitle="KimSafety was founded in Nairobi by HSE professionals who were tired of counterfeit PPE on Kenyan worksites. Today we supply 1,200+ hospitals, factories, contractors, schools and NGOs across all 47 counties — with genuine, certified equipment and procurement support built for African businesses."
+        subtitle="SafetyPro was founded in Nairobi by HSE professionals who were tired of counterfeit PPE on Kenyan worksites. Today we supply 1,200+ hospitals, factories, contractors, schools and NGOs across all 47 counties — with genuine, certified equipment and procurement support built for African businesses."
       />
 
       <section className="bg-surface py-16 lg:py-20">
@@ -55,7 +55,7 @@ export default function AboutPage() {
                 <p>
                   In 2019, our founders were auditing construction sites when they found helmets that
                   collapsed under thumb pressure and &quot;3M&quot; respirators with no traceable batch numbers.
-                  The audit report — and the supplier — is what KimSafety was built to fix.
+                  The audit report — and the supplier — is what SafetyPro was built to fix.
                 </p>
                 <p>
                   We started with a warehouse in Industrial Area and a simple promise:{" "}
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   <BadgeCheck className="h-6 w-6" />
                 </span>
                 <h2 className="mt-4 font-display text-2xl font-extrabold lg:text-3xl">
-                  The KimSafety Quality Promise
+                  The SafetyPro Quality Promise
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-white/65">
                   Every batch is verified against certificates of conformance. If a product ever fails to
