@@ -8,22 +8,22 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Deals & Discounts — Up to 35% Off Safety Equipment in Kenya | KimSafety",
+  title: "Deals & Discounts — Up to 35% Off Safety Equipment in Kenya | SafetyPro",
   description:
     "Limited-time deals on safety equipment in Kenya. Up to 35% off helmets, gloves, boots, respirators, fire extinguishers and first aid kits. Bulk pricing & same-day delivery.",
   keywords: ["safety equipment deals Kenya", "PPE discounts Nairobi", "cheap safety helmets Kenya", "safety boots deal"],
   alternates: { canonical: `${siteUrl}/deals` },
   openGraph: {
-    title: "Deals & Discounts — KimSafety Kenya",
+    title: "Deals & Discounts — SafetyPro Kenya",
     description: "Up to 35% off helmets, gloves, boots, respirators & fire extinguishers — while stock lasts.",
     type: "website",
     url: `${siteUrl}/deals`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Deals & Discounts — KimSafety Kenya" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Deals & Discounts — SafetyPro Kenya" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deals & Discounts — KimSafety Kenya",
+    title: "Deals & Discounts — SafetyPro Kenya",
     description: "Up to 35% off safety equipment — limited time.",
     images: [`${siteUrl}/og-image.jpg`],
   },
@@ -36,10 +36,10 @@ export default async function DealsPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${siteUrl}/deals#collection`,
-    name: "Deals & Discounts — KimSafety Kenya",
+    name: "Deals & Discounts — SafetyPro Kenya",
     description: "Limited-time deals on safety equipment — up to 35% off.",
     url: `${siteUrl}/deals`,
-    isPartOf: { "@type": "WebSite", name: "KimSafety", url: siteUrl },
+    isPartOf: { "@type": "WebSite", name: "SafetyPro", url: siteUrl },
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: dealsList.length,

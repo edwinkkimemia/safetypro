@@ -5,8 +5,8 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — KimSafety Kenya",
-  description: "Terms & Conditions for KimSafety — orders, pricing in KES, payment, delivery, returns, warranty & governing law (Kenya).",
+  title: "Terms & Conditions — SafetyPro Kenya",
+  description: "Terms & Conditions for SafetyPro — orders, pricing in KES, payment, delivery, returns, warranty & governing law (Kenya).",
   alternates: { canonical: `${siteUrl}/terms` },
   robots: { index: true, follow: true },
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const sections: [string, string][] = [
   [
     "1. Agreement",
-    "By accessing kimsafety.co.ke or placing an order, you agree to these Terms & Conditions. KimSafety Limited is a company registered in the Republic of Kenya (RC: PVT-2024-8871) with its principal place of business at KimSafety House, Enterprise Road, Industrial Area, Nairobi.",
+    "By accessing safetypro.co.ke or placing an order, you agree to these Terms & Conditions. SafetyPro Limited is a company registered in the Republic of Kenya (RC: PVT-2024-8871) with its principal place of business at SafetyPro House, Enterprise Road, Industrial Area, Nairobi.",
   ],
   [
     "2. Products & pricing",
@@ -38,15 +38,15 @@ const sections: [string, string][] = [
   ],
   [
     "7. Warranty",
-    "Products carry the warranties stated on their product pages (typically 12 months). The KimSafety Quality Guarantee: any product failing to meet its stated certification is replaced free of charge.",
+    "Products carry the warranties stated on their product pages (typically 12 months). The SafetyPro Quality Guarantee: any product failing to meet its stated certification is replaced free of charge.",
   ],
   [
     "8. Limitation of liability",
-    "To the maximum extent permitted by law, KimSafety's liability for any claim shall not exceed the amount paid for the products giving rise to the claim. Nothing in these terms limits liability for death, personal injury or fraud.",
+    "To the maximum extent permitted by law, SafetyPro's liability for any claim shall not exceed the amount paid for the products giving rise to the claim. Nothing in these terms limits liability for death, personal injury or fraud.",
   ],
   [
     "9. Intellectual property",
-    "All content on this site — branding, text, imagery and design — is the property of KimSafety Limited and may not be reproduced without written permission.",
+    "All content on this site — branding, text, imagery and design — is the property of SafetyPro Limited and may not be reproduced without written permission.",
   ],
   [
     "10. Governing law",
@@ -54,7 +54,7 @@ const sections: [string, string][] = [
   ],
   [
     "11. Contact",
-    "Questions about these terms: legal@kimsafety.co.ke or +254 715135141.",
+    "Questions about these terms: legal@safetypro.co.ke or +254 715135141.",
   ],
 ];
 
@@ -64,7 +64,7 @@ export default function TermsPage() {
       <PageHeader
         bg="/images/hero/hero4.jpg"
         title="Terms & Conditions"
-        subtitle="Last updated: July 2026 · KimSafety Limited, Nairobi, Kenya"
+        subtitle="Last updated: July 2026 · SafetyPro Limited, Nairobi, Kenya"
       />
       <div className="mx-auto max-w-3xl px-4 pt-8 lg:px-0">
         <div className="space-y-8 rounded-2xl border border-line bg-white p-8 shadow-card">

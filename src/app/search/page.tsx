@@ -12,20 +12,20 @@ export async function generateMetadata(): Promise<Metadata> {
   const count = await liveCatalog().then((c) => c.length).catch(() => 0);
   return {
     title: `Shop All Safety Equipment in Kenya — ${count} Products`,
-    description: `Browse KimSafety's full catalogue — ${count} certified PPE, medical, fire, road, lab and emergency safety products with bulk pricing, same-day Nairobi delivery & corporate procurement support.`,
+    description: `Browse SafetyPro's full catalogue — ${count} certified PPE, medical, fire, road, lab and emergency safety products with bulk pricing, same-day Nairobi delivery & corporate procurement support.`,
     keywords: ["safety equipment Kenya", "shop safety equipment Nairobi", "PPE Kenya", "buy safety helmets Kenya"],
     alternates: { canonical: `${siteUrl}/search` },
     openGraph: {
-      title: "Shop All Safety Equipment — KimSafety Kenya",
+      title: "Shop All Safety Equipment — SafetyPro Kenya",
       description: `${count} certified safety products with bulk pricing & same-day delivery across Kenya.`,
       type: "website",
       url: `${siteUrl}/search`,
-      siteName: "KimSafety",
-      images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Shop Safety Equipment Kenya — KimSafety" }],
+      siteName: "SafetyPro",
+      images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Shop Safety Equipment Kenya — SafetyPro" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Shop All Safety Equipment — KimSafety Kenya",
+      title: "Shop All Safety Equipment — SafetyPro Kenya",
       description: `${count} certified PPE, fire, medical & lab safety products.`,
       images: [`${siteUrl}/og-image.jpg`],
     },
@@ -39,10 +39,10 @@ export default async function SearchPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${siteUrl}/search#collection`,
-    name: "All Safety Equipment — KimSafety Kenya",
+    name: "All Safety Equipment — SafetyPro Kenya",
     description: `Browse ${catalog.length} certified PPE, medical, fire, road, lab and emergency safety products.`,
     url: `${siteUrl}/search`,
-    isPartOf: { "@type": "WebSite", name: "KimSafety", url: siteUrl },
+    isPartOf: { "@type": "WebSite", name: "SafetyPro", url: siteUrl },
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: Math.min(catalog.length, 30),

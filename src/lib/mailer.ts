@@ -634,7 +634,7 @@ export async function sendOrderInvoiceEmail(input: {
       ${unpaidNote}
       `
     ),
-    attachments: [{ filename: `kimsafety-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
+    attachments: [{ filename: `safetypro-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
   });
   return true;
 }
@@ -747,8 +747,8 @@ export async function sendPaidInvoiceEmail(input: {
       `
     ),
     attachments: [
-      { filename: `kimsafety-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" },
-      { filename: `kimsafety-receipt-${orderId}.pdf`, content: receiptPdf, contentType: "application/pdf" },
+      { filename: `safetypro-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" },
+      { filename: `safetypro-receipt-${orderId}.pdf`, content: receiptPdf, contentType: "application/pdf" },
     ],
   });
   return true;
@@ -1127,7 +1127,7 @@ export async function sendDeliveryNoteEmail(input: {
       ${btn(`${siteUrl}/account/orders`, "View your orders")}
       `
     ),
-    attachments: [{ filename: `kimsafety-delivery-note-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
+    attachments: [{ filename: `safetypro-delivery-note-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
   });
   return true;
 }
@@ -1158,7 +1158,7 @@ export async function sendKraInvoiceEmail(input: {
       ${btn(`${siteUrl}/account/orders`, "View your orders")}
       `
     ),
-    attachments: [{ filename: `kimsafety-kra-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
+    attachments: [{ filename: `safetypro-kra-invoice-${orderId}.pdf`, content: pdf, contentType: "application/pdf" }],
   });
   return true;
 }
@@ -1251,11 +1251,11 @@ export async function sendDailyOrdersEmail(input: {
         { label: "Unpaid / pending", value: String(pending) },
         { label: "Total order value", value: money(revenue) },
       ])}
-      <p style="font-size:13px;line-height:1.7;color:#374151;margin:0 0 14px 0;">Open the attached <strong>kimsafety-orders-${esc(dateLabel)}.xlsx</strong> to see each order — customer, items, payment status and totals.</p>
+      <p style="font-size:13px;line-height:1.7;color:#374151;margin:0 0 14px 0;">Open the attached <strong>safetypro-orders-${esc(dateLabel)}.xlsx</strong> to see each order — customer, items, payment status and totals.</p>
       ${btn(`${siteUrl}/admin/orders`, "Open orders in admin")}
       `
     ),
-    attachments: [{ filename: `kimsafety-orders-${dateLabel}.xlsx`, content: xlsx, contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }],
+    attachments: [{ filename: `safetypro-orders-${dateLabel}.xlsx`, content: xlsx, contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }],
   });
   return true;
 }

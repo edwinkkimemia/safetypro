@@ -89,7 +89,7 @@ export async function GET(req: Request) {
 
     const date = new Date().toISOString().slice(0, 10);
     const suffix = filtered ? `${count}-selected` : `${count}-all`;
-    const filename = `kimsafety-datasheets-${suffix}-${date}.pdf`;
+    const filename = `safetypro-datasheets-${suffix}-${date}.pdf`;
 
     return new NextResponse(new Uint8Array(buffer), {
       headers: {
@@ -123,7 +123,7 @@ export async function POST(req: Request) {
 
     const date = new Date().toISOString().slice(0, 10);
     const suffix = filtered ? `${count}-selected` : `${count}-all`;
-    const filename = `kimsafety-datasheets-${suffix}-${date}.pdf`;
+    const filename = `safetypro-datasheets-${suffix}-${date}.pdf`;
 
     return new NextResponse(new Uint8Array(buffer), {
       headers: {

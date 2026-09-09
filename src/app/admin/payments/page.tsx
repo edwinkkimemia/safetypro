@@ -211,7 +211,7 @@ export default function AdminPaymentsPage() {
     ws["!cols"] = cols.map(() => ({ wch: 18 }));
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Payments");
-    XLSX.writeFile(wb, `kimsafety-payments-${new Date().toISOString().slice(0, 10)}.xlsx`);
+    XLSX.writeFile(wb, `safetypro-payments-${new Date().toISOString().slice(0, 10)}.xlsx`);
     setShowExport(false);
   };
 

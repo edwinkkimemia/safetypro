@@ -65,7 +65,7 @@ function RegisterInner() {
       <div className="bg-surface pb-20">
         <PageHeader
           bg="/images/hero/hero2.jpg"
-          eyebrow="Join KimSafety"
+          eyebrow="Join SafetyPro"
           title="Check Your Email"
           subtitle="One quick click and your account is fully active."
         />
@@ -104,7 +104,7 @@ function RegisterInner() {
     <div className="bg-surface pb-20">
       <PageHeader
         bg="/images/hero/hero2.jpg"
-        eyebrow="Join KimSafety"
+        eyebrow="Join SafetyPro"
         title="Create Your Account"
         subtitle="Register for bulk pricing, saved quotes, order tracking and faster checkout."
       />

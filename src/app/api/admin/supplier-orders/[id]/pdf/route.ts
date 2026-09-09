@@ -14,11 +14,11 @@ const GRAY = "#6B7280";
 const LIGHT = "#F3F4F6";
 
 const FALLBACK_COMPANY = {
-  name: "KimSafety Ltd",
-  address: "KimSafety House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
+  name: "SafetyPro Ltd",
+  address: "SafetyPro House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
   phone: "+254 715135141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  email: "sales@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const fmt = (n: number) =>
@@ -230,7 +230,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
     .fontSize(8)
     .fillColor(GRAY)
     .text(
-      "Please acknowledge receipt of this purchase order. Deliver goods to KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya.",
+      "Please acknowledge receipt of this purchase order. Deliver goods to SafetyPro House, Enterprise Road, Industrial Area, Nairobi, Kenya.",
       totalX,
       ty,
       { width: totalW }
@@ -265,7 +265,7 @@ export async function GET(_req: Request, { params }: { params: { id: string } })
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="kimsafety-supplier-po-${po.id}.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-supplier-po-${po.id}.pdf"`,
       "Cache-Control": "no-store",
     },
   });

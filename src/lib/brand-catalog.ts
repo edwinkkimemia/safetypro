@@ -19,11 +19,11 @@ import {
 import type { Brand, Product } from "@/lib/types";
 
 const COMPANY = {
-  name: "KimSafety Kenya Ltd",
-  address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
+  name: "SafetyPro Kenya Ltd",
+  address: "SafetyPro House, Enterprise Road, Industrial Area, Nairobi, Kenya",
   phone: "+254 715 135 141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  email: "sales@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const fmtDate = (d: Date) =>
@@ -316,7 +316,7 @@ export async function buildBrandCatalogPdf(
   ensure(200);
   pdf.rect(padL, y, 3, 72).fill(GREEN);
   pdf.font("Helvetica-Bold").fontSize(10).fillColor(NAVY);
-  pdf.text(`Ordering ${brand.name} from KimSafety`, padL + 14, y + 4, { width: BODY_W - 30 });
+  pdf.text(`Ordering ${brand.name} from SafetyPro`, padL + 14, y + 4, { width: BODY_W - 30 });
   pdf.font("Helvetica").fontSize(11).fillColor(INK);
   pdf.text(
     `Every item is genuine, certified and quality-inspected at our Nairobi warehouse. For bulk pricing, quotations or certificates of conformance, contact our team at ${COMPANY.phone} or ${COMPANY.email}.`,

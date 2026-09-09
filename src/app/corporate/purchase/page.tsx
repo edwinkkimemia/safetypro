@@ -71,7 +71,7 @@ export default function PurchaseOrderPage() {
         bg="/images/hero/hero3.jpg"
         eyebrow={
           <>
-            <Building2 className="h-3.5 w-3.5" /> KimSafety Corporate Portal
+            <Building2 className="h-3.5 w-3.5" /> SafetyPro Corporate Portal
           </>
         }
         title="Submit a purchase order"
@@ -166,7 +166,7 @@ export default function PurchaseOrderPage() {
               </form>
 
               <p className="mt-6 flex items-center gap-2 text-[11px] text-gray-400">
-                <ShieldCheck className="h-3.5 w-3.5 text-safety-600" /> Your documents are stored securely and only shared with the KimSafety procurement team.
+                <ShieldCheck className="h-3.5 w-3.5 text-safety-600" /> Your documents are stored securely and only shared with the SafetyPro procurement team.
               </p>
             </div>
           )}

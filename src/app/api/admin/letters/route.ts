@@ -62,11 +62,11 @@ export async function POST(req: Request) {
     salutation: body.salutation,
     body: body.body!.trim(),
     closing: body.closing,
-    sender_name: body.sender_name?.trim() || me?.name || "KimSafety Team",
+    sender_name: body.sender_name?.trim() || me?.name || "SafetyPro Team",
     // Default the sender title to the staff member's department when not supplied.
     sender_title: body.sender_title?.trim() || me?.company || null,
     with_stamp: body.with_stamp,
-    created_by: me?.name ?? "KimSafety Team",
+    created_by: me?.name ?? "SafetyPro Team",
     created_by_id: me?.id ?? null,
   });
 

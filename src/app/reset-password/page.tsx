@@ -54,7 +54,7 @@ function ResetPasswordForm() {
         bg="/images/hero/hero3.jpg"
         eyebrow="Account Security"
         title="Choose a New Password"
-        subtitle="Set a fresh password for your KimSafety account."
+        subtitle="Set a fresh password for your SafetyPro account."
       />
 
       <div className="mx-auto max-w-shell px-4 pt-8 lg:px-8">

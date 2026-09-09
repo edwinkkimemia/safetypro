@@ -9,23 +9,23 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Contact KimSafety — Nairobi Industrial Area | Sales, Quotes & Support",
+  title: "Contact SafetyPro — Nairobi Industrial Area | Sales, Quotes & Support",
   description:
-    "Reach KimSafety — Nairobi warehouse in Industrial Area. Sales, quotes, support and technical advice via phone +254 715 135 141, email sales@kimsafety.co.ke or WhatsApp. Mon–Sat 8am–6pm.",
-  keywords: ["contact KimSafety", "KimSafety phone", "KimSafety Nairobi Industrial Area", "KimSafety sales"],
+    "Reach SafetyPro — Nairobi warehouse in Industrial Area. Sales, quotes, support and technical advice via phone +254 715 135 141, email sales@safetypro.co.ke or WhatsApp. Mon–Sat 8am–6pm.",
+  keywords: ["contact SafetyPro", "SafetyPro phone", "SafetyPro Nairobi Industrial Area", "SafetyPro sales"],
   alternates: { canonical: `${siteUrl}/contact` },
   openGraph: {
-    title: "Contact KimSafety — Nairobi Industrial Area",
+    title: "Contact SafetyPro — Nairobi Industrial Area",
     description: "Sales, quotes & support via phone, email or WhatsApp.",
     type: "website",
     url: `${siteUrl}/contact`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Contact KimSafety" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Contact SafetyPro" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact KimSafety — Nairobi",
-    description: "Phone +254 715 135 141 · sales@kimsafety.co.ke",
+    title: "Contact SafetyPro — Nairobi",
+    description: "Phone +254 715 135 141 · sales@safetypro.co.ke",
     images: [`${siteUrl}/og-image.jpg`],
   },
 };

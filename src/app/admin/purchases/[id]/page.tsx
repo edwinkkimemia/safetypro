@@ -114,7 +114,7 @@ export default function AdminPurchaseOrderDetailPage() {
           {order && (
             <a
               href={`/api/admin/supplier-orders/${order.id}/pdf`}
-              download={`kimsafety-supplier-po-${order.id}.pdf`}
+              download={`safetypro-supplier-po-${order.id}.pdf`}
               className="flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-xs font-bold text-navy-900 hover:bg-surface"
             >
               <Download className="h-4 w-4" /> Purchase order

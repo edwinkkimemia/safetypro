@@ -17,8 +17,8 @@ const QUALITY = 0.95;
 const MAX_WORKING = 3200;
 const TEMPLATE_URL = "/images/products/product_template.jpg";
 
-export const CLIENT_WEBSITE = "www.kimsafety.co.ke";
-export const CLIENT_EMAIL = "sales@kimsafety.co.ke";
+export const CLIENT_WEBSITE = "www.safetypro.co.ke";
+export const CLIENT_EMAIL = "sales@safetypro.co.ke";
 export const CLIENT_PHONE = "+254 715 135 141";
 export const CLIENT_CONTACT = `${CLIENT_EMAIL} · ${CLIENT_PHONE}`;
 

@@ -58,7 +58,7 @@ export async function GET() {
   return new NextResponse(new Uint8Array(buf), {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "Content-Disposition": `attachment; filename="kimsafety-customers-${date}.xlsx"`,
+      "Content-Disposition": `attachment; filename="safetypro-customers-${date}.xlsx"`,
     },
   });
 }

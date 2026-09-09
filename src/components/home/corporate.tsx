@@ -33,7 +33,7 @@ export function CorporateSolutions() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-safety-400">
-              KimSafety Corporate
+              SafetyPro Corporate
             </span>
             <h2
               id="corporate-heading"

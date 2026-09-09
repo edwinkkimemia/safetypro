@@ -31,12 +31,12 @@ export const emptyBanner: Banner = {
   id: 0,
   title: "",
   subtitle: "",
-  kicker: "KimSafety",
+  kicker: "SafetyPro",
   cta: "Shop Now",
   cta_href: "/search",
   cta2: "Request a Quote",
   image: "",
-  card_kicker: "KimSafety",
+  card_kicker: "SafetyPro",
   card_title: "",
   card_subtitle: "",
   stat1_label: "Trusted by",
@@ -177,7 +177,7 @@ export function BannerEditor({ initial, isNew }: { initial: Banner; isNew: boole
                   className={adminField}
                   value={f.card_kicker}
                   onChange={(e) => set({ card_kicker: e.target.value })}
-                  placeholder="KimSafety"
+                  placeholder="SafetyPro"
                 />
               </Field>
               <Field label="Card headline">

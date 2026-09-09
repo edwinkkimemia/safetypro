@@ -199,7 +199,7 @@ export default function AdminOrdersPage() {
   const exportOrders = () => {
     const chosen = selected.size > 0 ? visible.filter((o) => selected.has(o.id)) : visible;
     downloadXlsx(
-      `kimsafety-orders-${new Date().toISOString().slice(0, 10)}.xlsx`,
+      `safetypro-orders-${new Date().toISOString().slice(0, 10)}.xlsx`,
       "Orders",
       ["Order ID", "Date", "Customer", "Email", "Phone", "Address", "Payment", "Status", "Items", "Units", "Subtotal", "Discount", "Shipping", "Total"],
       chosen.map((o) => [
@@ -223,7 +223,7 @@ export default function AdminOrdersPage() {
 
   const exportBestSellers = () => {
     downloadXlsx(
-      `kimsafety-best-sellers-${new Date().toISOString().slice(0, 10)}.xlsx`,
+      `safetypro-best-sellers-${new Date().toISOString().slice(0, 10)}.xlsx`,
       "Best sellers",
       ["Product", "SKU", "Units sold", "Revenue"],
       bestSellers.map((b) => [b.name, b.sku, b.qty, b.revenue])

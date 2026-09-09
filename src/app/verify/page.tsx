@@ -96,7 +96,7 @@ export default function VerifyPage() {
         bg="/images/hero/hero3.jpg"
         eyebrow="Account"
         title="Email Verification"
-        subtitle="Confirm your email address to activate your KimSafety account."
+        subtitle="Confirm your email address to activate your SafetyPro account."
       />
       <div className="mx-auto max-w-shell px-4 pt-8 lg:px-8">
         <Suspense>

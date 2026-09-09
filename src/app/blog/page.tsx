@@ -9,23 +9,23 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Blog — Safety News & Insights in Kenya | KimSafety",
+  title: "Blog — Safety News & Insights in Kenya | SafetyPro",
   description:
-    "Safety news, product updates, compliance insights and practical tips from the KimSafety team. PPE, fire safety & Kenyan workplace regulations.",
-  keywords: ["KimSafety blog", "safety news Kenya", "PPE insights", "workplace safety Kenya"],
+    "Safety news, product updates, compliance insights and practical tips from the SafetyPro team. PPE, fire safety & Kenyan workplace regulations.",
+  keywords: ["SafetyPro blog", "safety news Kenya", "PPE insights", "workplace safety Kenya"],
   alternates: { canonical: `${siteUrl}/blog` },
   openGraph: {
-    title: "Blog — Safety News & Insights — KimSafety Kenya",
-    description: "Product updates, workplace safety tips & compliance news from KimSafety's HSE specialists.",
+    title: "Blog — Safety News & Insights — SafetyPro Kenya",
+    description: "Product updates, workplace safety tips & compliance news from SafetyPro's HSE specialists.",
     type: "website",
     url: `${siteUrl}/blog`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "KimSafety Blog" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "SafetyPro Blog" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Safety News & Insights — KimSafety Kenya",
-    description: "Safety news & practical tips from KimSafety.",
+    title: "Blog — Safety News & Insights — SafetyPro Kenya",
+    description: "Safety news & practical tips from SafetyPro.",
     images: [`${siteUrl}/og-image.jpg`],
   },
 };
@@ -37,7 +37,7 @@ export default async function BlogPage() {
     <div className="bg-surface pb-20">
       <PageHeader
         bg="/images/hero/hero2.jpg"
-        eyebrow="KimSafety Blog"
+        eyebrow="SafetyPro Blog"
         title="Safety News & Insights"
         subtitle="Product updates, workplace safety tips, compliance news and practical advice from our HSE and product specialists."
       />

@@ -16,11 +16,11 @@ const GRAY = "#6B7280";
 const LIGHT = "#F3F4F6";
 
 const FALLBACK_COMPANY = {
-  name: "KimSafety Ltd",
-  address: "KimSafety House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
+  name: "SafetyPro Ltd",
+  address: "SafetyPro House, Enterprise Road,\nIndustrial Area, Nairobi, Kenya",
   phone: "+254 715135141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  email: "sales@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 const money = (n: number) =>
@@ -47,7 +47,7 @@ export async function GET(req: Request) {
   const quote = await getQuoteById(id);
   if (!quote) return NextResponse.json({ error: "Quote not found" }, { status: 404 });
 
-  const preparedBy = me?.name ?? "KimSafety Team";
+  const preparedBy = me?.name ?? "SafetyPro Team";
 
   const items = JSON.parse(quote.items) as {
     productId: string;
@@ -314,7 +314,7 @@ export async function GET(req: Request) {
     .font("Helvetica")
     .fontSize(8.5)
     .fillColor(GRAY)
-    .text("To accept, reply to sales@kimsafety.co.ke or contact your account manager", padL, prepY + 58, { width: padR - padL });
+    .text("To accept, reply to sales@safetypro.co.ke or contact your account manager", padL, prepY + 58, { width: padR - padL });
 
   // ---- Stamp on the last page, above the footer ----
   const stampPath = join(process.cwd(), "public", "images", "logo", "stamp.png");
@@ -346,7 +346,7 @@ export async function GET(req: Request) {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="kimsafety-quotation-${quote.id}.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-quotation-${quote.id}.pdf"`,
       "Cache-Control": "no-store",
     },
   });

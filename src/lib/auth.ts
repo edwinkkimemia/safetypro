@@ -54,9 +54,9 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      // NextAuth defaults to VERCEL_URL (kimsafetyshop4.vercel.app) when
+      // NextAuth defaults to VERCEL_URL (safetyproshop4.vercel.app) when
       // NEXTAUTH_URL is not set correctly in production. Force all
-      // sign-out/sign-in redirects to the canonical kimsafety.co.ke.
+      // sign-out/sign-in redirects to the canonical safetypro.co.ke.
       // Allows relative URLs and any URL on the canonical host or the
       // current baseUrl (preview deployments), otherwise falls back to siteUrl.
       try {

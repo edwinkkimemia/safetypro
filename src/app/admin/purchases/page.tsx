@@ -239,7 +239,7 @@ export default function AdminPurchasesPage() {
       </AdminCard>
 
       <p className="flex items-center gap-1.5 text-xs text-gray-400">
-        <Truck className="h-3.5 w-3.5" /> Supplier orders track stock KimSafety purchases from vendors — separate from customer purchase orders in Corporate Accounts.
+        <Truck className="h-3.5 w-3.5" /> Supplier orders track stock SafetyPro purchases from vendors — separate from customer purchase orders in Corporate Accounts.
       </p>
     </div>
   );

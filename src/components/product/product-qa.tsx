@@ -90,7 +90,7 @@ export function ProductQA({ productId }: { productId: string }) {
               </p>
               {item.answer && (
                 <div className="mt-3 rounded-xl bg-safety-50 p-3.5">
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-safety-600">KimSafety answer</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-safety-600">SafetyPro answer</p>
                   <p className="mt-1 text-sm leading-relaxed text-gray-700">{item.answer}</p>
                 </div>
               )}

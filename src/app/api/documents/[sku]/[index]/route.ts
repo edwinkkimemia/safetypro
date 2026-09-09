@@ -25,11 +25,11 @@ const LIGHT = "#C7D2E0";
 const SOFT = "#93A5BE";
 
 const COMPANY = {
-  name: "KimSafety Kenya Ltd",
-  address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
+  name: "SafetyPro Kenya Ltd",
+  address: "SafetyPro House, Enterprise Road, Industrial Area, Nairobi, Kenya",
   phone: "+254 715 135 141",
-  email: "sales@kimsafety.co.ke",
-  website: "www.kimsafety.co.ke",
+  email: "sales@safetypro.co.ke",
+  website: "www.safetypro.co.ke",
 };
 
 // PDFKit supports only JPEG and PNG — WebP/SVG will throw "Unknown image format".
@@ -71,9 +71,9 @@ type Token = {
 };
 
 function downloadFilename(product: Product, doc: { name: string; file?: string }): string {
-  // Datasheet must always be kimsafety-datasheet-{slug}.pdf (e.g. kimsafety-datasheet-griptech-steel-toe-work-boots.pdf)
+  // Datasheet must always be safetypro-datasheet-{slug}.pdf (e.g. safetypro-datasheet-griptech-steel-toe-work-boots.pdf)
   if (/datasheet/i.test(doc.name || "")) {
-    return `kimsafety-datasheet-${slugify(product.slug)}.pdf`;
+    return `safetypro-datasheet-${slugify(product.slug)}.pdf`;
   }
   if (doc.file) {
     const base = path.basename(doc.file);
@@ -312,7 +312,7 @@ export async function GET(_req: Request, { params }: { params: { sku: string; in
   const facts = [
     ["CERTIFICATION", product.certification ?? "CE · ISO compliant"],
     ["STANDARD", product.standard ?? "EN ISO"],
-    ["WARRANTY", product.warranty ?? "12-month KimSafety warranty"],
+    ["WARRANTY", product.warranty ?? "12-month SafetyPro warranty"],
   ];
   ensure(40);
   const factW = BODY_W / facts.length;

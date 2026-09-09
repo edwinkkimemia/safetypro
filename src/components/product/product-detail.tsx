@@ -384,7 +384,7 @@ export function ProductDetail({
             <div className="mt-3 flex items-center gap-3">
               <a
                 href={`https://wa.me/254715135141?text=${encodeURIComponent(
-                  `Hello KimSafety! I'd like to order:\n• ${product.name} (${product.sku})\n• Quantity: ${qty}\n• Unit price: ${formatKES(unitPrice)}${bulkPriceActive ? " (bulk price)" : ""}\n• Total: ${formatKES(qty * unitPrice)}`
+                  `Hello SafetyPro! I'd like to order:\n• ${product.name} (${product.sku})\n• Quantity: ${qty}\n• Unit price: ${formatKES(unitPrice)}${bulkPriceActive ? " (bulk price)" : ""}\n• Total: ${formatKES(qty * unitPrice)}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -489,7 +489,7 @@ export function ProductDetail({
                       <li>• 1 × {product.name}</li>
                       <li>• Certificate of conformance</li>
                       <li>• Product datasheet & user guide</li>
-                      <li>• KimSafety 12-month warranty cover</li>
+                      <li>• SafetyPro 12-month warranty cover</li>
                     </ul>
                   </div>
                 </div>
@@ -537,7 +537,7 @@ export function ProductDetail({
               <div className="max-w-2xl space-y-3">
                 {product.downloads.map((d, i) => {
                   const isDatasheet = /datasheet/i.test(d.name || "");
-                  const datasheetFilename = `kimsafety-datasheet-${product.slug}.pdf`;
+                  const datasheetFilename = `safetypro-datasheet-${product.slug}.pdf`;
                   return (
                     <a
                       key={d.name + i}

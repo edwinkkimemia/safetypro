@@ -71,7 +71,7 @@ type AdminProduct = {
 const empty: AdminProduct = {
   sku: "",
   name: "",
-  brand: "KimSafety",
+  brand: "SafetyPro",
   category: "industrial-safety",
   categoryName: "Industrial Safety",
   categories: ["industrial-safety"],
@@ -108,7 +108,7 @@ function buildSpecs(f: AdminProduct): SpecRow[] {
     { label: "Manufacturer", value: f.brand },
     { label: "Country of Origin", value: f.country || "Import, quality inspected in Kenya" },
     { label: "Shelf Life", value: f.shelfLife || "5 years from manufacture" },
-    { label: "Warranty", value: f.warranty || "12-month KimSafety warranty" },
+    { label: "Warranty", value: f.warranty || "12-month SafetyPro warranty" },
   ];
 }
 
@@ -405,7 +405,7 @@ export default function AdminProductEditPage() {
               </label>
               <label className="block">
                 <span className="mb-1 block text-xs font-bold text-gray-500">Warranty</span>
-                <input className={adminField} value={form.warranty ?? ""} onChange={(e) => set({ warranty: e.target.value })} placeholder="e.g. 12-month KimSafety warranty" />
+                <input className={adminField} value={form.warranty ?? ""} onChange={(e) => set({ warranty: e.target.value })} placeholder="e.g. 12-month SafetyPro warranty" />
               </label>
             </div>
           </AdminCard>
@@ -682,7 +682,7 @@ function ImagePicker({
               <ProductArt
                 tags={["safety"]}
                 categoryName="Product"
-                brand="KimSafety"
+                brand="SafetyPro"
                 src={previewSrc}
                 alt="Product image preview"
                 className="aspect-[4/3]"
@@ -962,7 +962,7 @@ function UploadZone({
     setUploading(true);
     setError(null);
     try {
-      // Process in the browser (background-removed product on the KimSafety
+      // Process in the browser (background-removed product on the SafetyPro
       // product template) so the result is identical on Vercel, where the
       // Python pipeline can't run, and stays under Vercel's 4.5MB
       // serverless body limit.

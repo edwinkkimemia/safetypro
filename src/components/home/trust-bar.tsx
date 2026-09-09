@@ -29,7 +29,7 @@ const items = [
 
 export function TrustBar() {
   return (
-    <section className="border-b border-line bg-white" aria-label="Why shop with KimSafety">
+    <section className="border-b border-line bg-white" aria-label="Why shop with SafetyPro">
       <div className="mx-auto grid max-w-shell grid-cols-1 gap-4 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         {items.map(({ icon: Icon, title, text, accent }) => (
           <div

@@ -209,10 +209,10 @@ export function getDb(): Pool {
     if (url.startsWith("prisma://")) {
       const direct = process.env.DIRECT_URL;
       if (direct) {
-        console.warn("[kimsafety] DATABASE_URL is prisma:// — using DIRECT_URL for pg Pool");
+        console.warn("[safetypro] DATABASE_URL is prisma:// — using DIRECT_URL for pg Pool");
         url = direct;
       } else {
-        console.error("[kimsafety] DATABASE_URL is prisma:// and DIRECT_URL not set — DB calls will fail until plan is upgraded or DIRECT_URL is set. Falling back to static catalog where possible.");
+        console.error("[safetypro] DATABASE_URL is prisma:// and DIRECT_URL not set — DB calls will fail until plan is upgraded or DIRECT_URL is set. Falling back to static catalog where possible.");
       }
     }
     let host = "localhost";
@@ -227,7 +227,7 @@ export function getDb(): Pool {
       connectionTimeoutMillis: 8000,
       idleTimeoutMillis: 15000,
     });
-    pool.on("error", (err: Error) => console.error("[kimsafety] pg pool error", err));
+    pool.on("error", (err: Error) => console.error("[safetypro] pg pool error", err));
   }
   return pool;
 }
@@ -296,7 +296,7 @@ export async function qe(sql: string, ...params: unknown[]): Promise<number> {
 // applied at deploy time via `prisma migrate deploy` — not at runtime.
 
 export async function seedUsers() {
-  const adminEmail = process.env.ADMIN_EMAIL ?? "admin@kimsafety.co.ke";
+  const adminEmail = process.env.ADMIN_EMAIL ?? "admin@safetypro.co.ke";
   const adminPass = process.env.ADMIN_PASSWORD;
   const res = await getDb().query("SELECT role FROM users WHERE email = $1", [adminEmail]);
   const existing = res.rows[0] as { role: string } | undefined;
@@ -311,7 +311,7 @@ export async function seedUsers() {
   }
   await getDb().query(
     "INSERT INTO users (id, name, email, password_hash, role, company, phone, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
-    [randomUUID(), "KimSafety Admin", adminEmail, hashPassword(adminPass), "superadmin", "KimSafety Ltd", "+254 715135141", new Date().toISOString()]
+    [randomUUID(), "SafetyPro Admin", adminEmail, hashPassword(adminPass), "superadmin", "SafetyPro Ltd", "+254 715135141", new Date().toISOString()]
   );
 }
 
@@ -325,7 +325,7 @@ const SEED_BANNERS = [
     cta_href: "/search",
     cta2: "Request Quote",
     image: "/images/hero/hero1.jpg",
-    card_kicker: "KimSafety",
+    card_kicker: "SafetyPro",
     card_title: "Your Trusted Safety Partner",
     card_subtitle: "Genuine & certified PPE, delivered nationwide within 24–72 hours.",
   },
@@ -426,10 +426,10 @@ export async function seedMarketing() {
         [b.title, b.subtitle, b.kicker, b.cta, b.cta_href, b.cta2, b.image, b.card_kicker, b.card_title, b.card_subtitle, i, now, now]
       );
     }
-    console.log("[kimsafety] Seeded marketing banners");
+    console.log("[safetypro] Seeded marketing banners");
   }
   await d.query(
-    "UPDATE marketing_banners SET card_kicker = 'KimSafety', card_title = 'Your Trusted Safety Partner', card_subtitle = 'Genuine & certified PPE, delivered nationwide within 24–72 hours.' WHERE card_title = ''"
+    "UPDATE marketing_banners SET card_kicker = 'SafetyPro', card_title = 'Your Trusted Safety Partner', card_subtitle = 'Genuine & certified PPE, delivered nationwide within 24–72 hours.' WHERE card_title = ''"
   );
   const campaignCount = (await d.query("SELECT COUNT(*)::int AS c FROM marketing_campaigns")).rows[0] as { c: number };
   if (campaignCount.c === 0) {
@@ -439,7 +439,7 @@ export async function seedMarketing() {
         [c.name, c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-"), c.description, c.discount_label, c.cta_href, c.start_date, c.end_date, now, now]
       );
     }
-    console.log("[kimsafety] Seeded marketing campaigns");
+    console.log("[safetypro] Seeded marketing campaigns");
   }
   const CAMPAIGN_IMAGE_BY_KEYWORD: [string, string][] = [
     ["back-to-school", "3-Ply Face Masks.jpg"],
@@ -1190,7 +1190,7 @@ export async function setPurchaseOrderStatus(id: string, status: string) {
   await qe("UPDATE purchase_orders SET status = ? WHERE id = ?", status, id);
 }
 
-// ---- Supplier purchase orders (KimSafety buys stock from suppliers) ----
+// ---- Supplier purchase orders (SafetyPro buys stock from suppliers) ----
 
 export async function createSupplierOrder(input: {
   supplier: string;
@@ -1456,7 +1456,7 @@ export async function createPost(input: PostInput): Promise<DbPost> {  const pos
     excerpt: input.excerpt,
     content: input.content,
     cover: input.cover ?? null,
-    author: input.author ?? "KimSafety Team",
+    author: input.author ?? "SafetyPro Team",
     read_time: input.read_time ?? "5 min read",
     published: input.published === false ? 0 : 1,
     created_at: new Date().toISOString(),

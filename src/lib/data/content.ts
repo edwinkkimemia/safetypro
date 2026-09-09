@@ -3,7 +3,7 @@ import type { Testimonial, Guide } from "../types";
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "KimSafety has been our sole PPE supplier for two years. Their bulk pricing, delivery reliability and genuine certified products make procurement effortless for our 400+ staff.",
+      "SafetyPro has been our sole PPE supplier for two years. Their bulk pricing, delivery reliability and genuine certified products make procurement effortless for our 400+ staff.",
     name: "Grace Wanjiku",
     role: "Procurement Manager",
     company: "Nairobi Metropolitan Hospital",
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "As an NGO running field clinics, we rely on KimSafety for medical supplies at honest prices. Their team understands emergency timelines and never lets us down.",
+      "As an NGO running field clinics, we rely on SafetyPro for medical supplies at honest prices. Their team understands emergency timelines and never lets us down.",
     name: "Samuel Kiprop",
     role: "Logistics Coordinator",
     company: "HealthBridge Foundation",

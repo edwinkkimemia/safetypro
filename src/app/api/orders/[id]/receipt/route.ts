@@ -34,7 +34,7 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="kimsafety-receipt-${order.id}.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-receipt-${order.id}.pdf"`,
       "Cache-Control": "no-store",
     },
   });

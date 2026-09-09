@@ -31,7 +31,7 @@ export function CoverImagePicker({
     setUploading(true);
     setError(null);
     try {
-      // Process in the browser (background-removed product on the KimSafety
+      // Process in the browser (background-removed product on the SafetyPro
       // product template) so the result is identical on Vercel, where the
       // Python pipeline can't run, and stays under Vercel's 4.5MB
       // serverless body limit.

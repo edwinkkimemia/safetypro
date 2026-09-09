@@ -186,7 +186,7 @@ export default function AdminOrderDetailPage() {
           </a>
           {order?.delivery_note_file && (
             <button
-              onClick={() => handleDownload(order.delivery_note_file!, `kimsafety-signed-delivery-${id}.pdf`)}
+              onClick={() => handleDownload(order.delivery_note_file!, `safetypro-signed-delivery-${id}.pdf`)}
               className="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100"
             >
               <FileText className="h-4 w-4" /> Signed delivery note
@@ -194,7 +194,7 @@ export default function AdminOrderDetailPage() {
           )}
           {order?.kra_invoice_file && (
             <button
-              onClick={() => handleDownload(order.kra_invoice_file!, `kimsafety-kra-invoice-${id}.pdf`)}
+              onClick={() => handleDownload(order.kra_invoice_file!, `safetypro-kra-invoice-${id}.pdf`)}
               className="flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-xs font-bold text-navy-900 hover:bg-surface"
             >
               <Receipt className="h-4 w-4" /> KRA Invoice
@@ -500,7 +500,7 @@ export default function AdminOrderDetailPage() {
                     </p>
                     <p className="text-[11px] text-gray-500">Upload the customer&apos;s signed delivery note. Images (JPG/PNG/WEBP) are auto-converted to PDF.</p>
                     {order.delivery_note_file ? (
-                      <button onClick={() => handleDownload(order.delivery_note_file!, `kimsafety-signed-delivery-${id}.pdf`)} className="mt-2 flex w-full items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-700 hover:bg-emerald-100 border border-emerald-200 text-left">
+                      <button onClick={() => handleDownload(order.delivery_note_file!, `safetypro-signed-delivery-${id}.pdf`)} className="mt-2 flex w-full items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-700 hover:bg-emerald-100 border border-emerald-200 text-left">
                         <CheckCircle2 className="h-4 w-4" /> Signed delivery note <Download className="h-3.5 w-3.5 ml-auto" />
                       </button>
                     ) : (
@@ -518,7 +518,7 @@ export default function AdminOrderDetailPage() {
                     </p>
                     <p className="text-[11px] text-gray-500">Optional KRA-compliant invoice PDF for this order.</p>
                     {order.kra_invoice_file ? (
-                      <button onClick={() => handleDownload(order.kra_invoice_file!, `kimsafety-kra-invoice-${id}.pdf`)} className="mt-2 flex w-full items-center gap-2 rounded-lg bg-surface px-3 py-2 text-xs font-bold text-navy-900 border border-line hover:bg-white text-left">
+                      <button onClick={() => handleDownload(order.kra_invoice_file!, `safetypro-kra-invoice-${id}.pdf`)} className="mt-2 flex w-full items-center gap-2 rounded-lg bg-surface px-3 py-2 text-xs font-bold text-navy-900 border border-line hover:bg-white text-left">
                         <FileText className="h-4 w-4 text-safety-600" /> KRA Invoice <Download className="h-3.5 w-3.5 ml-auto" />
                       </button>
                     ) : (

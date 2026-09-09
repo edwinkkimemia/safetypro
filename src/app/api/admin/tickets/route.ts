@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   const reply = await addTicketReply({
     ticket_id: body.id,
     user_id: null,
-    staff_name: user?.name ?? "KimSafety Support",
+    staff_name: user?.name ?? "SafetyPro Support",
     message: body.message.trim(),
   });
 
@@ -63,7 +63,7 @@ export async function POST(req: Request) {
         name: account.name,
         ticketId: ticket.id,
         message: body.message.trim(),
-        staffName: user?.name ?? "KimSafety Support",
+        staffName: user?.name ?? "SafetyPro Support",
       });
     }
   } catch (err) {

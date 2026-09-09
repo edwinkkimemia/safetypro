@@ -500,7 +500,7 @@ export async function buildBrandedDatasheetPdf(
     const facts = [
       ["CERTIFICATION", product.certification ?? "CE · ISO compliant"],
       ["STANDARD", product.standard ?? "EN ISO"],
-      ["WARRANTY", product.warranty ?? "12-month KimSafety warranty"],
+      ["WARRANTY", product.warranty ?? "12-month SafetyPro warranty"],
     ];
     ensure(40);
     const factW = BODY_W / facts.length;

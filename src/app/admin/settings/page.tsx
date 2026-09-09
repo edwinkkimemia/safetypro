@@ -67,7 +67,7 @@ export default function AdminSettingsPage() {
       // logo/details up without waiting for the TTL.
       invalidateClientSettings();
       try {
-        localStorage.setItem("kimsafety-settings-version", String(Date.now()));
+        localStorage.setItem("safetypro-settings-version", String(Date.now()));
       } catch {
         /* private mode */
       }

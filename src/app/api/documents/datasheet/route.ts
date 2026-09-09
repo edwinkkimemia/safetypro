@@ -19,7 +19,7 @@ export async function GET(req: Request) {
     headers: {
       "Content-Type": "application/pdf",
       // Use same disposition as product page docs (/api/documents/[sku]/[index]) — direct download
-      "Content-Disposition": `attachment; filename="kimsafety-datasheet-${slugify(product.slug)}.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-datasheet-${slugify(product.slug)}.pdf"`,
     },
   });
 }

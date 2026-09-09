@@ -60,7 +60,7 @@ export default function AdminCreateStaffPage() {
           </label>
           <label className="block">
             <span className="mb-1 block text-xs font-bold text-gray-500">Email *</span>
-            <input type="email" className={adminField} value={form.email} onChange={(e) => set({ email: e.target.value })} placeholder="jane@kimsafety.co.ke" />
+            <input type="email" className={adminField} value={form.email} onChange={(e) => set({ email: e.target.value })} placeholder="jane@safetypro.co.ke" />
           </label>
           <label className="block">
             <span className="mb-1 block text-xs font-bold text-gray-500">Temporary password * (min 6 characters)</span>

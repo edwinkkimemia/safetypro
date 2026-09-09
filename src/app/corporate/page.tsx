@@ -147,11 +147,11 @@ export default function CorporatePage() {
         bg="/images/hero/hero3.jpg"
         eyebrow={
           <>
-            <Building2 className="h-3.5 w-3.5" /> KimSafety Corporate Portal
+            <Building2 className="h-3.5 w-3.5" /> SafetyPro Corporate Portal
           </>
         }
         title="Procurement built for Kenyan organizations"
-        subtitle="Hospitals, factories, contractors, schools, government agencies and NGOs — one supplier, one invoice, zero headaches. Join 1,200+ organizations that procure with KimSafety."
+        subtitle="Hospitals, factories, contractors, schools, government agencies and NGOs — one supplier, one invoice, zero headaches. Join 1,200+ organizations that procure with SafetyPro."
       >
         <div className="mt-7 flex flex-wrap gap-3">
           <Link

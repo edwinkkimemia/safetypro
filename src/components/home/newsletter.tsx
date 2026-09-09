@@ -54,7 +54,7 @@ export function Newsletter() {
                 </span>
                 <p className="font-display text-lg font-extrabold">You&apos;re subscribed!</p>
                 <p className="max-w-xs text-sm text-white/75">
-                  Welcome to the KimSafety community. Your first briefing arrives at the end of this month.
+                  Welcome to the SafetyPro community. Your first briefing arrives at the end of this month.
                 </p>
               </div>
             ) : (

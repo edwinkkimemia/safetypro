@@ -138,7 +138,7 @@ export function AccountShell({ children }: { children: ReactNode }) {
               </span>
               <div>
                 <h1 className="font-display text-2xl font-extrabold">Hello, {user?.name ?? "there"}</h1>
-                <p className="text-sm text-white/60">{user?.email ?? "Your KimSafety account"}</p>
+                <p className="text-sm text-white/60">{user?.email ?? "Your SafetyPro account"}</p>
               </div>
               <div className="ml-auto grid grid-cols-2 gap-x-8 gap-y-3 text-center sm:flex sm:items-center sm:gap-6">
                 <div>

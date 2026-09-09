@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return { title: "Post not found" };
   const images = post.cover ? [{ url: post.cover, alt: post.title }] : [{ url: "/og-image.jpg", width: 1200, height: 630, alt: post.title }];
   return {
-    title: `${post.title} — KimSafety Blog`,
+    title: `${post.title} — SafetyPro Blog`,
     description: post.excerpt.slice(0, 160),
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title: `${post.title} — KimSafety Blog`,
+      title: `${post.title} — SafetyPro Blog`,
       description: post.excerpt.slice(0, 160),
       type: "article",
       url: `/blog/${post.slug}`,
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} — KimSafety Blog`,
+      title: `${post.title} — SafetyPro Blog`,
       description: post.excerpt.slice(0, 160),
       images,
     },
@@ -84,8 +84,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     image: post.cover ?? `${siteUrl}/og-image.jpg`,
     datePublished: post.created_at,
     dateModified: post.updated_at ?? post.created_at,
-    author: { "@type": "Organization", name: post.author || "KimSafety" },
-    publisher: { "@type": "Organization", name: "KimSafety", url: siteUrl },
+    author: { "@type": "Organization", name: post.author || "SafetyPro" },
+    publisher: { "@type": "Organization", name: "SafetyPro", url: siteUrl },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${siteUrl}/blog/${post.slug}`,
@@ -146,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             )}
             <a
               href={`/api/documents/blog?slug=${encodeURIComponent(post.slug)}`}
-              download={`kimsafety-blog-${post.slug}.pdf`}
+              download={`safetypro-blog-${post.slug}.pdf`}
               className="mb-8 inline-flex items-center gap-2 rounded-xl bg-navy-900 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-safety-500"
             >
               <Download className="h-4 w-4" /> Download Article (PDF)

@@ -211,7 +211,7 @@ async function mergedCatalog(): Promise<Product[]> {
       slug: typeof c.slug === "string" && c.slug ? c.slug : slugify(String(c.name ?? c.sku)),
       sku: String(c.sku),
       name: String(c.name ?? c.sku),
-      brand: String(c.brand ?? "KimSafety"),
+      brand: String(c.brand ?? "SafetyPro"),
       category: String(c.category ?? "industrial-safety"),
       categoryName: String(c.categoryName ?? "Industrial Safety"),
       categories: Array.isArray(c.categories) ? (c.categories as string[]) : undefined,

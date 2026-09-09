@@ -39,7 +39,7 @@ export async function GET(req: Request) {
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="kimsafety-guide-${slug}.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-guide-${slug}.pdf"`,
       "Cache-Control": "no-store",
     },
   });

@@ -20,21 +20,21 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!brand) return { title: "Brand not found" };
   const description = `Shop genuine ${brand.name} safety equipment in Kenya. ${brand.tagline}. Certified stock with full documentation, bulk pricing & same-day Nairobi delivery.`;
   return {
-    title: `Buy ${brand.name} Safety Equipment in Kenya — ${brand.tagline} | KimSafety`,
+    title: `Buy ${brand.name} Safety Equipment in Kenya — ${brand.tagline} | SafetyPro`,
     description,
     keywords: [brand.name, `${brand.name} Kenya`, `${brand.name} safety equipment`, `buy ${brand.name} Nairobi`, brand.tagline],
     alternates: { canonical: `${siteUrl}/brands/${brand.slug}` },
     openGraph: {
-      title: `${brand.name} — KimSafety Kenya`,
+      title: `${brand.name} — SafetyPro Kenya`,
       description,
       type: "website",
       url: `${siteUrl}/brands/${brand.slug}`,
-      siteName: "KimSafety",
+      siteName: "SafetyPro",
       images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: `${brand.name} safety equipment Kenya` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${brand.name} — KimSafety Kenya`,
+      title: `${brand.name} — SafetyPro Kenya`,
       description,
       images: [`${siteUrl}/og-image.jpg`],
     },
@@ -51,9 +51,9 @@ export default async function BrandPage({ params }: { params: { slug: string } }
     "@type": "CollectionPage",
     "@id": `${siteUrl}/brands/${brand.slug}#collection`,
     name: `${brand.name} Safety Equipment in Kenya`,
-    description: `${brand.tagline} — authorized KimSafety stock with certification documents.`,
+    description: `${brand.tagline} — authorized SafetyPro stock with certification documents.`,
     url: `${siteUrl}/brands/${brand.slug}`,
-    isPartOf: { "@type": "WebSite", name: "KimSafety", url: siteUrl },
+    isPartOf: { "@type": "WebSite", name: "SafetyPro", url: siteUrl },
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: filtered.length,
@@ -88,7 +88,7 @@ export default async function BrandPage({ params }: { params: { slug: string } }
       <Suspense fallback={null}>
         <CatalogView
           title={`${brand.name} Safety Equipment`}
-          subtitle={`${brand.tagline} — authorized KimSafety stock with certification documents.`}
+          subtitle={`${brand.tagline} — authorized SafetyPro stock with certification documents.`}
           brand={brand.slug}
           hideBrandFilter
         />

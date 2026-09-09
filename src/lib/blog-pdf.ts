@@ -20,8 +20,8 @@ import {
 } from "@/lib/pdf-engine";
 
 const COMPANY = {
-  name: "KimSafety Kenya Ltd",
-  address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
+  name: "SafetyPro Kenya Ltd",
+  address: "SafetyPro House, Enterprise Road, Industrial Area, Nairobi, Kenya",
   phone: "+254 715 135 141",
   email: "sales@safetypro.co.ke",
   website: "www.safetypro.co.ke",
@@ -149,7 +149,7 @@ export async function buildBlogPostPdf(post: BlogPostPdfInput): Promise<Buffer> 
     .font("Helvetica")
     .fontSize(9)
     .fillColor(GRAY)
-    .text(`${post.author || "KimSafety Team"} · ${post.readTime || "5 min read"} · Published ${fmtDate(new Date(post.dateIso))}`, padL, y, {
+    .text(`${post.author || "SafetyPro Team"} · ${post.readTime || "5 min read"} · Published ${fmtDate(new Date(post.dateIso))}`, padL, y, {
       width: BODY_W,
     });
   y += 24;

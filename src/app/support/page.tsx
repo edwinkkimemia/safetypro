@@ -9,23 +9,23 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Help & Support — Delivery, Payment & Returns | KimSafety Kenya",
+  title: "Help & Support — Delivery, Payment & Returns | SafetyPro Kenya",
   description:
-    "Delivery, payment, returns and product FAQs from KimSafety. Same-day Nairobi delivery, M-Pesa & card payments, 7-day returns. Bulk & corporate support.",
-  keywords: ["KimSafety support", "KimSafety delivery", "KimSafety returns", "M-Pesa Kenya safety equipment"],
+    "Delivery, payment, returns and product FAQs from SafetyPro. Same-day Nairobi delivery, M-Pesa & card payments, 7-day returns. Bulk & corporate support.",
+  keywords: ["SafetyPro support", "SafetyPro delivery", "SafetyPro returns", "M-Pesa Kenya safety equipment"],
   alternates: { canonical: `${siteUrl}/support` },
   openGraph: {
-    title: "Help & Support — KimSafety Kenya",
+    title: "Help & Support — SafetyPro Kenya",
     description: "Delivery, payment, returns & product FAQs — same-day Nairobi delivery & 7-day returns.",
     type: "website",
     url: `${siteUrl}/support`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Help & Support — KimSafety" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Help & Support — SafetyPro" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Help & Support — KimSafety Kenya",
-    description: "Delivery, payment & returns FAQs from KimSafety.",
+    title: "Help & Support — SafetyPro Kenya",
+    description: "Delivery, payment & returns FAQs from SafetyPro.",
     images: [`${siteUrl}/og-image.jpg`],
   },
 };

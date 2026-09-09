@@ -11,7 +11,7 @@ export function Testimonials() {
             Trusted by teams across Kenya
           </h2>
           <p className="mt-2 text-sm text-gray-500">
-            From county hospitals to national construction firms — 1,200+ organizations rely on KimSafety.
+            From county hospitals to national construction firms — 1,200+ organizations rely on SafetyPro.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">

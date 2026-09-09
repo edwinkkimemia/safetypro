@@ -131,8 +131,8 @@ export function ProductArt({
   const theme = themes[hashStr(sku + brand + categoryName) % themes.length];
   const imageSrc = src ?? (sku ? productImageFor(sku) : undefined);
   const defaultAlt = name
-    ? `${name} — KimSafety`
-    : categoryName || brand || "KimSafety product";
+    ? `${name} — SafetyPro`
+    : categoryName || brand || "SafetyPro product";
 
   useEffect(() => {
     setFailed(false);

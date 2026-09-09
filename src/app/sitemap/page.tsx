@@ -7,8 +7,8 @@ import { getLiveBrands } from "@/lib/brands";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sitemap — KimSafety Kenya",
-  description: "Sitemap: all KimSafety pages — categories, brands, products & guides for easy navigation.",
+  title: "Sitemap — SafetyPro Kenya",
+  description: "Sitemap: all SafetyPro pages — categories, brands, products & guides for easy navigation.",
   alternates: { canonical: `${siteUrl}/sitemap` },
   robots: { index: true, follow: true },
 };
@@ -20,7 +20,7 @@ const topPages: [string, string][] = [
   ["Knowledge Center", "/knowledge"],
   ["Corporate Solutions", "/corporate"],
   ["Government & Tenders", "/corporate"],
-  ["About KimSafety", "/about"],
+  ["About SafetyPro", "/about"],
   ["Contact Us", "/contact"],
   ["Help Center", "/support"],
   ["Track My Order", "/account"],
@@ -37,7 +37,7 @@ export default async function SitemapPage() {
     <div className="bg-surface pb-20">
       <PageHeader bg="/images/hero/hero4.jpg" title="Sitemap">
         <p className="mx-auto mt-3 max-w-xl text-sm text-white/70">
-          Every page on KimSafety, organised for easy navigation.
+          Every page on SafetyPro, organised for easy navigation.
         </p>
       </PageHeader>
 

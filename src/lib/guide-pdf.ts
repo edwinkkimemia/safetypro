@@ -21,8 +21,8 @@ import {
 } from "@/lib/pdf-engine";
 
 const COMPANY = {
-  name: "KimSafety Kenya Ltd",
-  address: "KimSafety House, Enterprise Road, Industrial Area, Nairobi, Kenya",
+  name: "SafetyPro Kenya Ltd",
+  address: "SafetyPro House, Enterprise Road, Industrial Area, Nairobi, Kenya",
   phone: "+254 715 135 141",
   email: "sales@safetypro.co.ke",
   website: "www.safetypro.co.ke",
@@ -149,7 +149,7 @@ export async function buildGuidePdf(guide: GuidePdfInput): Promise<Buffer> {
     .font("Helvetica")
     .fontSize(9)
     .fillColor(GRAY)
-    .text(`${guide.readTime || "5 min read"} · Updated ${fmtDate(new Date())} · By the KimSafety HSE Team`, padL, y, {
+    .text(`${guide.readTime || "5 min read"} · Updated ${fmtDate(new Date())} · By the SafetyPro HSE Team`, padL, y, {
       width: BODY_W,
     });
   y += 24;

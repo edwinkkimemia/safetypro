@@ -10,7 +10,7 @@ import { resolveLogoUrl } from "@/lib/logo";
 
 /**
  * Admin-only branded PDF catalog of the ENTIRE live catalog.
- * GET /api/admin/products/catalog → kimsafety-product-catalog.pdf
+ * GET /api/admin/products/catalog → safetypro-product-catalog.pdf
  */
 export async function GET() {
   const denied = await requireAdmin();
@@ -22,8 +22,8 @@ export async function GET() {
   ]);
 
   const brand = {
-    slug: "kimsafety",
-    name: settings.site_name?.trim() || "KimSafety",
+    slug: "safetypro",
+    name: settings.site_name?.trim() || "SafetyPro",
     tagline: settings.tagline?.trim() || "Certified safety equipment in Kenya",
     origin: "Nairobi, Kenya",
     image: resolveLogoUrl(settings),
@@ -42,7 +42,7 @@ export async function GET() {
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="kimsafety-product-catalog.pdf"`,
+      "Content-Disposition": `attachment; filename="safetypro-product-catalog.pdf"`,
       "Cache-Control": "no-store",
     },
   });

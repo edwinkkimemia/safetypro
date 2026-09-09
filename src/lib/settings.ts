@@ -67,7 +67,7 @@ export function useSettings(): Record<string, string> {
       });
     };
     const onStorage = (e: StorageEvent) => {
-      if (e.key !== "kimsafety-settings-version") return;
+      if (e.key !== "safetypro-settings-version") return;
       fetchSettings(true).then((s) => {
         if (active) setSettings(s);
       });

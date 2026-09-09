@@ -17,7 +17,7 @@ export const revalidate = 300;
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const category = categories.find((c) => c.slug === params.slug);
   if (!category) return { title: "Category not found" };
-  const title = `${category.name} Equipment in Kenya | ${category.tagline} | KimSafety`;
+  const title = `${category.name} Equipment in Kenya | ${category.tagline} | SafetyPro`;
   const description = `${category.description} — Shop ${category.name.toLowerCase()} with bulk pricing, same-day Nairobi delivery & certification docs. Serving ${category.industries.join(", ")}.`;
   return {
     title,
@@ -25,16 +25,16 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     keywords: [category.name, `${category.name} Kenya`, `${category.tagline}`, `${category.slug} equipment`, `buy ${category.name.toLowerCase()} Nairobi`],
     alternates: { canonical: `${siteUrl}/category/${category.slug}` },
     openGraph: {
-      title: `${category.name} Equipment — KimSafety Kenya`,
+      title: `${category.name} Equipment — SafetyPro Kenya`,
       description: description.slice(0, 160),
       type: "website",
       url: `${siteUrl}/category/${category.slug}`,
-      siteName: "KimSafety",
+      siteName: "SafetyPro",
       images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${category.name} — KimSafety Kenya`,
+      title: `${category.name} — SafetyPro Kenya`,
       description: description.slice(0, 160),
       images: [`${siteUrl}/og-image.jpg`],
     },
@@ -55,7 +55,7 @@ export default async function CategoryPage({ params }: { params: { slug: string 
     name: `${category.name} Equipment in Kenya`,
     description: category.description,
     url: `${siteUrl}/category/${category.slug}`,
-    isPartOf: { "@type": "WebSite", name: "KimSafety", url: siteUrl },
+    isPartOf: { "@type": "WebSite", name: "SafetyPro", url: siteUrl },
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: filtered.length,

@@ -238,8 +238,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       <footer className="bg-navy-900 text-white">
         <div className="border-t border-white/10 py-4">
           <div className="mx-auto flex max-w-shell flex-col items-center justify-between gap-2 px-4 text-xs text-white/40 lg:flex-row lg:px-8">
-            <p>© {new Date().getFullYear()} KimSafety. All rights reserved.</p>
-            <p>KimSafety Admin Panel</p>
+            <p>© {new Date().getFullYear()} SafetyPro. All rights reserved.</p>
+            <p>SafetyPro Admin Panel</p>
           </div>
         </div>
       </footer>

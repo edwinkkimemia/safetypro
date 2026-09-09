@@ -46,7 +46,7 @@ function LoginForm() {
         bg="/images/hero/hero3.jpg"
         eyebrow="Customer Portal"
         title="Welcome Back"
-        subtitle="Sign in to track orders, request quotes and manage your KimSafety account."
+        subtitle="Sign in to track orders, request quotes and manage your SafetyPro account."
       />
 
       <div className="mx-auto max-w-shell px-4 pt-8 lg:px-8">
@@ -109,7 +109,7 @@ function LoginForm() {
             </p>
 
             <p className="mt-6 text-center text-sm text-gray-500">
-              New to KimSafety?{" "}
+              New to SafetyPro?{" "}
               <Link href="/register" className="font-bold text-safety-600 hover:underline">
                 Create an account
               </Link>

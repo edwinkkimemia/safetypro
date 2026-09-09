@@ -67,7 +67,7 @@ export async function POST(req: Request) {
   const review = await createReview({
     product_id: productId,
     user_id: user.id,
-    user_name: user.name || "KimSafety Customer",
+    user_name: user.name || "SafetyPro Customer",
     rating,
     title,
     text,

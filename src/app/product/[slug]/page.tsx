@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const stock = Number(product.stock ?? 0);
     const rating = Number(product.rating ?? 0);
     const reviews = Number(product.reviews ?? 0);
-    const title = `Buy ${product.name} — ${product.brand} in Kenya | KimSafety`;
+    const title = `Buy ${product.name} — ${product.brand} in Kenya | SafetyPro`;
     const description = `${cleanDesc.slice(0, 120)} — KES ${price.toLocaleString()} · ${stock > 0 ? `${stock} in stock` : "Out of stock"} · ${rating}★ (${reviews} reviews) · Same-day Nairobi delivery & bulk discounts.`;
     const mainImageRaw =
       (product.image as string) ||
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         String(product.name),
         `${product.brand} ${product.name}`,
         `${product.categoryName} Kenya`,
-        `${product.sku} KimSafety`,
+        `${product.sku} SafetyPro`,
         `${product.brand} Kenya`,
         `buy ${product.name} Nairobi`,
       ],
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description: description.slice(0, 160),
         type: "website",
         url: `${siteUrl}/product/${product.slug}`,
-        siteName: "KimSafety",
+        siteName: "SafetyPro",
         images,
       },
       twitter: {
@@ -116,7 +116,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
       priceValidUntil: new Date(Date.now() + 30 * 24 * 3600 * 1000).toISOString().split("T")[0],
       availability: stockNum > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
-      seller: { "@type": "Organization", name: "KimSafety", url: siteUrl },
+      seller: { "@type": "Organization", name: "SafetyPro", url: siteUrl },
     },
   };
 
@@ -138,17 +138,17 @@ export default async function ProductPage({ params }: { params: { slug: string }
       {
         "@type": "Question",
         name: `What is the price of ${String(product.name)} in Kenya?`,
-        acceptedAnswer: { "@type": "Answer", text: `${String(product.name)} costs KES ${priceNum.toLocaleString()} ${oldPriceNum && oldPriceNum > priceNum ? `(was KES ${oldPriceNum.toLocaleString()})` : ""} at KimSafety. Bulk discounts apply for 10+ units.` },
+        acceptedAnswer: { "@type": "Answer", text: `${String(product.name)} costs KES ${priceNum.toLocaleString()} ${oldPriceNum && oldPriceNum > priceNum ? `(was KES ${oldPriceNum.toLocaleString()})` : ""} at SafetyPro. Bulk discounts apply for 10+ units.` },
       },
       {
         "@type": "Question",
         name: `Is ${String(product.name)} in stock?`,
-        acceptedAnswer: { "@type": "Answer", text: stockNum > 0 ? `Yes — ${stockNum} units in stock at KimSafety's Nairobi warehouse. Same-day dispatch in Nairobi on orders before 3 PM, 24–72 hours countrywide.` : `Currently out of stock. Join the restock notification on the product page to be emailed when ${String(product.name)} is back.` },
+        acceptedAnswer: { "@type": "Answer", text: stockNum > 0 ? `Yes — ${stockNum} units in stock at SafetyPro's Nairobi warehouse. Same-day dispatch in Nairobi on orders before 3 PM, 24–72 hours countrywide.` : `Currently out of stock. Join the restock notification on the product page to be emailed when ${String(product.name)} is back.` },
       },
       {
         "@type": "Question",
         name: "Do you provide certification and bulk pricing?",
-        acceptedAnswer: { "@type": "Answer", text: "Every KimSafety product ships with certification documentation (CE, KEBS, EN, ISO as applicable) and a datasheet PDF. Tiered bulk pricing: 1–9 standard, 10–49, 50–199, 200+ with up to ~17% off. Corporate quotations at /quote or /corporate/purchase." },
+        acceptedAnswer: { "@type": "Answer", text: "Every SafetyPro product ships with certification documentation (CE, KEBS, EN, ISO as applicable) and a datasheet PDF. Tiered bulk pricing: 1–9 standard, 10–49, 50–199, 200+ with up to ~17% off. Corporate quotations at /quote or /corporate/purchase." },
       },
     ],
   };

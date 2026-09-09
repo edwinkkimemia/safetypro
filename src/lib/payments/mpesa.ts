@@ -65,12 +65,12 @@ export function mpesaCallbackUrl(siteUrlBase: string): string {
   const override = process.env.MPESA_CALLBACK_URL?.trim();
   // In production the callback must be reachable by Safaricom's servers —
   // ngrok tunnels (e.g. "https://...ngrok-free.dev/...") are for local dev
-  // only and must not be used when the canonical site is kimsafety.co.ke.
+  // only and must not be used when the canonical site is safetypro.co.ke.
   // If the override looks like an ngrok URL while the site is production,
   // ignore it and use the site's own callback URL.
   if (override) {
     const isNgrok = override.includes("ngrok");
-    const isProdSite = siteUrlBase.includes("kimsafety.co.ke");
+    const isProdSite = siteUrlBase.includes("safetypro.co.ke");
     if (isNgrok && isProdSite) {
       console.warn("[mpesa] MPESA_CALLBACK_URL is an ngrok tunnel but site is production — ignoring override");
       return `${siteUrlBase}/api/payments/mpesa/callback`;
@@ -182,7 +182,7 @@ export async function mpesaFetchReceipt(checkoutId: string): Promise<string | nu
         ConversationID: checkoutId,
         OriginatorConversationID: checkoutId,
         ShortCode: c.shortcode,
-        Remarks: "KimSafety order reconciliation",
+        Remarks: "SafetyPro order reconciliation",
       });
       const res = await fetch(`${c.baseUrl}/mpesa/transactionstatus/v1/query?${params.toString()}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -225,9 +225,9 @@ export async function mpesaFetchReceipt(checkoutId: string): Promise<string | nu
       TransactionID: checkoutId,
       PartyA: c.shortcode,
       IdentifierType: "4",
-      ResultURL: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kimsafety.co.ke"}/api/payments/mpesa/result`,
-      QueueTimeOutURL: `${process.env.NEXT_PUBLIC_SITE_URL || "https://kimsafety.co.ke"}/api/payments/mpesa/timeout`,
-      Remarks: "KimSafety receipt lookup",
+      ResultURL: `${process.env.NEXT_PUBLIC_SITE_URL || "https://safetypro.co.ke"}/api/payments/mpesa/result`,
+      QueueTimeOutURL: `${process.env.NEXT_PUBLIC_SITE_URL || "https://safetypro.co.ke"}/api/payments/mpesa/timeout`,
+      Remarks: "SafetyPro receipt lookup",
       Occasion: checkoutId,
     };
     const res = await fetch(`${c.baseUrl}/mpesa/transactionstatus/v1/query`, {
@@ -288,7 +288,7 @@ export async function mpesaStkPush(input: {
       PhoneNumber: phone,
       CallBackURL: input.callbackUrl,
       AccountReference: input.accountRef.slice(0, 12),
-      TransactionDesc: `KimSafety order ${input.accountRef}`,
+      TransactionDesc: `SafetyPro order ${input.accountRef}`,
     }),
   });
   const json = (await res.json().catch(() => ({}))) as {

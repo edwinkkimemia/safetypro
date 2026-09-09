@@ -27,7 +27,7 @@ export function guideFallbackSections(): { heading: string; body: string; points
     },
     {
       heading: "Budgeting for compliance",
-      body: `A realistic PPE budget should include inspection, replacement and training costs — typically 15–25% above the purchase price. KimSafety's bulk pricing tiers make full-team outfitting predictable and cost-effective.`,
+      body: `A realistic PPE budget should include inspection, replacement and training costs — typically 15–25% above the purchase price. SafetyPro's bulk pricing tiers make full-team outfitting predictable and cost-effective.`,
       points: [
         "Tier 1 (1–9 units): standard pricing",
         "Tier 2 (10–49 units): 5% discount",

@@ -75,7 +75,7 @@ export async function POST(req: Request) {
   const record = {
     sku,
     name: body.name,
-    brand: body.brand ?? "KimSafety",
+    brand: body.brand ?? "SafetyPro",
     category: body.category ?? "industrial-safety",
     categoryName: body.categoryName ?? "Industrial Safety",
     categories: Array.isArray(body.categories) ? body.categories.filter((c): c is string => typeof c === "string") : undefined,

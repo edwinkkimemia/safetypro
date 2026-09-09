@@ -5,8 +5,8 @@ import { siteUrl } from "@/lib/site";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — KimSafety Kenya",
-  description: "KimSafety privacy policy — how we collect, use and protect your personal data under Kenya's Data Protection Act, 2019.",
+  title: "Privacy Policy — SafetyPro Kenya",
+  description: "SafetyPro privacy policy — how we collect, use and protect your personal data under Kenya's Data Protection Act, 2019.",
   alternates: { canonical: `${siteUrl}/privacy` },
   robots: { index: true, follow: true },
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const sections: [string, string][] = [
   [
     "1. Who we are",
-    "KimSafety Limited ('KimSafety', 'we', 'us') operates kimsafety.co.ke, an e-commerce marketplace for safety equipment based in Nairobi, Kenya. This policy explains how we collect, use and protect your personal data.",
+    "SafetyPro Limited ('SafetyPro', 'we', 'us') operates safetypro.co.ke, an e-commerce marketplace for safety equipment based in Nairobi, Kenya. This policy explains how we collect, use and protect your personal data.",
   ],
   [
     "2. Data we collect",
@@ -34,7 +34,7 @@ const sections: [string, string][] = [
   ],
   [
     "6. Your rights",
-    "Under Kenya's Data Protection Act, 2019, you may request access to, correction of, or deletion of your personal data, and may withdraw marketing consent at any time via support@kimsafety.co.ke.",
+    "Under Kenya's Data Protection Act, 2019, you may request access to, correction of, or deletion of your personal data, and may withdraw marketing consent at any time via support@safetypro.co.ke.",
   ],
   [
     "7. Retention",
@@ -42,7 +42,7 @@ const sections: [string, string][] = [
   ],
   [
     "8. Contact",
-    "For any privacy request, contact our Data Protection Officer at privacy@kimsafety.co.ke or KimSafety House, Enterprise Road, Industrial Area, Nairobi.",
+    "For any privacy request, contact our Data Protection Officer at privacy@safetypro.co.ke or SafetyPro House, Enterprise Road, Industrial Area, Nairobi.",
   ],
 ];
 
@@ -64,7 +64,7 @@ function LegalPage({
       <PageHeader
         bg="/images/hero/hero4.jpg"
         title={title}
-        subtitle={`Last updated: ${updated} · KimSafety Limited, Nairobi, Kenya`}
+        subtitle={`Last updated: ${updated} · SafetyPro Limited, Nairobi, Kenya`}
       />
       <div className="mx-auto max-w-3xl px-4 pt-8 lg:px-0">
         <div className="space-y-8 rounded-2xl border border-line bg-white p-8 shadow-card">

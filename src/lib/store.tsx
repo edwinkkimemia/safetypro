@@ -147,7 +147,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const stock = p?.stock ?? 0;
       if (stock <= 0) {
         if (typeof window !== "undefined") {
-          window.dispatchEvent(new CustomEvent("kimsafety:toast", { detail: { message: "Out of stock", type: "warning" } }));
+          window.dispatchEvent(new CustomEvent("safetypro:toast", { detail: { message: "Out of stock", type: "warning" } }));
         }
         return;
       }
@@ -203,7 +203,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       if (prev.includes(productId)) return prev.filter((id) => id !== productId);
       if (prev.length >= 4) {
         if (typeof window !== "undefined") {
-          window.dispatchEvent(new CustomEvent("kimsafety:toast", { detail: { message: "Compare limit is 4 items. Remove one to add another.", type: "warning" } }));
+          window.dispatchEvent(new CustomEvent("safetypro:toast", { detail: { message: "Compare limit is 4 items. Remove one to add another.", type: "warning" } }));
         }
         return prev;
       }

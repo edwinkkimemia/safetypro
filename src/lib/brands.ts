@@ -51,7 +51,7 @@ export async function getLiveBrands(): Promise<Brand[]> {
   }
 
   // Ensure every brand that appears in products exists in the brand list,
-  // otherwise the brands page misses brands that have products (e.g. KimSafety, Jua Kali, HIVIEW, Sandak).
+  // otherwise the brands page misses brands that have products (e.g. SafetyPro, Jua Kali, HIVIEW, Sandak).
   const existingNames = new Set(base.map((b) => b.name.toLowerCase()));
   const existingSlugs = new Set(base.map((b) => b.slug));
   for (const p of staticProducts) {

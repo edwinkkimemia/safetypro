@@ -623,7 +623,7 @@ export default function CheckoutPage() {
                 />
                 <span className="min-w-0 flex-1 text-xs leading-relaxed text-gray-500">
                   <span className="font-bold text-navy-900">Keep me updated</span> — occasional safety
-                  briefings, product news and offers from KimSafety. Unsubscribe anytime.
+                  briefings, product news and offers from SafetyPro. Unsubscribe anytime.
                 </span>
               </label>
 

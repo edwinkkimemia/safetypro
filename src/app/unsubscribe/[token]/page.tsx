@@ -55,7 +55,7 @@ export default function UnsubscribePage() {
             </h1>
             <p className="mt-2 text-sm leading-relaxed text-gray-500">
               {state === "done"
-                ? "You won't receive any more KimSafety safety briefings. If this was a mistake, subscribe again anytime."
+                ? "You won't receive any more SafetyPro safety briefings. If this was a mistake, subscribe again anytime."
                 : "Your email is already removed from our briefing list."}
             </p>
           </>
@@ -72,7 +72,7 @@ export default function UnsubscribePage() {
           href="/"
           className="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-900 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-navy-800"
         >
-          Back to KimSafety
+          Back to SafetyPro
         </Link>
       </div>
     </div>

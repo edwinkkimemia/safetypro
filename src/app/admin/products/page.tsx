@@ -103,7 +103,7 @@ export default function AdminProductsPage() {
       const a = document.createElement("a");
       a.href = url;
       const match = res.headers.get("Content-Disposition")?.match(/filename="([^"]+)"/);
-      a.download = match?.[1] ?? "kimsafety-products.xlsx";
+      a.download = match?.[1] ?? "safetypro-products.xlsx";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -147,7 +147,7 @@ export default function AdminProductsPage() {
         <div className="flex flex-wrap gap-2">
           <a
             href="/api/admin/products/catalog"
-            download="kimsafety-product-catalog.pdf"
+            download="safetypro-product-catalog.pdf"
             className="flex items-center gap-2 rounded-xl border border-safety-200 bg-safety-50 px-4 py-3 text-sm font-bold text-safety-700 hover:bg-safety-100"
             title="Download a branded PDF catalog of every product (logo, prices, stock)"
           >

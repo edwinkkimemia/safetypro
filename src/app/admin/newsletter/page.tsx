@@ -166,7 +166,7 @@ export default function AdminNewsletterPage() {
     ws["!cols"] = [{ wch: 34 }, { wch: 24 }, { wch: 12 }, { wch: 14 }, { wch: 24 }, { wch: 24 }];
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Subscribers");
-    XLSX.writeFile(wb, `kimsafety-subscribers-${new Date().toISOString().slice(0, 10)}.xlsx`);
+    XLSX.writeFile(wb, `safetypro-subscribers-${new Date().toISOString().slice(0, 10)}.xlsx`);
   };
 
   const send = async (test: boolean) => {

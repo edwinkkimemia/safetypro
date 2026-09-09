@@ -104,7 +104,7 @@ export default function AdminDatasheetsPage() {
         throw new Error(j.error || "Failed to generate PDF");
       }
       const blob = await res.blob();
-      const filename = res.headers.get("Content-Disposition")?.match(/filename="([^"]+)"/)?.[1] ?? `kimsafety-datasheets-all-${new Date().toISOString().slice(0, 10)}.pdf`;
+      const filename = res.headers.get("Content-Disposition")?.match(/filename="([^"]+)"/)?.[1] ?? `safetypro-datasheets-all-${new Date().toISOString().slice(0, 10)}.pdf`;
       await triggerDownload(blob, filename);
       setNotice(`Downloaded datasheets for all ${all.length} products as one PDF.`);
     } catch (e) {
@@ -134,7 +134,7 @@ export default function AdminDatasheetsPage() {
         throw new Error(j.error || "Failed to generate PDF");
       }
       const blob = await res.blob();
-      const filename = res.headers.get("Content-Disposition")?.match(/filename="([^"]+)"/)?.[1] ?? `kimsafety-datasheets-${skus.length}-selected.pdf`;
+      const filename = res.headers.get("Content-Disposition")?.match(/filename="([^"]+)"/)?.[1] ?? `safetypro-datasheets-${skus.length}-selected.pdf`;
       await triggerDownload(blob, filename);
       setNotice(`Downloaded datasheets for ${skus.length} selected ${skus.length === 1 ? "product" : "products"} as one PDF.`);
     } catch (e) {
@@ -298,7 +298,7 @@ export default function AdminDatasheetsPage() {
                         <span className="text-xs font-bold text-navy-900">{formatKES(p.price)}</span>
                         <a
                           href={`/api/documents/datasheet?sku=${encodeURIComponent(p.sku)}`}
-                          download={`kimsafety-datasheet-${p.sku}.pdf`}
+                          download={`safetypro-datasheet-${p.sku}.pdf`}
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-1 rounded-lg border border-line bg-white px-2.5 py-1 text-[11px] font-bold text-navy-900 hover:border-safety-300 hover:text-safety-600"
                         >
@@ -373,7 +373,7 @@ export default function AdminDatasheetsPage() {
                           <div className="flex justify-end">
                             <a
                               href={`/api/documents/datasheet?sku=${encodeURIComponent(p.sku)}`}
-                              download={`kimsafety-datasheet-${p.sku}.pdf`}
+                              download={`safetypro-datasheet-${p.sku}.pdf`}
                               className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-white px-3 py-1.5 text-xs font-bold text-navy-900 hover:border-safety-300 hover:text-safety-600"
                               title={`Download datasheet for ${p.name}`}
                             >

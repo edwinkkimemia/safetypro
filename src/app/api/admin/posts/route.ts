@@ -18,7 +18,7 @@ function parseBody(body: unknown): PostInput | null {
     excerpt: String(b.excerpt ?? "").trim().slice(0, 300),
     content: sanitizePostHtml(String(b.content ?? "")),
     cover: typeof b.cover === "string" && b.cover ? b.cover : null,
-    author: String(b.author ?? "KimSafety Team").trim() || "KimSafety Team",
+    author: String(b.author ?? "SafetyPro Team").trim() || "SafetyPro Team",
     read_time: String(b.read_time ?? "5 min read").trim() || "5 min read",
     published: b.published !== false,
   };

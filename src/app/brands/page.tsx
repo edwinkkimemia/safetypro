@@ -29,22 +29,22 @@ function hasLogoFile(image: string): boolean {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Shop by Brand — 3M, Honeywell, Ansell & More in Kenya | KimSafety",
+  title: "Shop by Brand — 3M, Honeywell, Ansell & More in Kenya | SafetyPro",
   description:
-    "Authorized KimSafety stockist for 3M, Honeywell, Ansell, Uvex, MSA, Dräger, Kimberly-Clark, DuPont, Karam and Delta Plus safety equipment in Kenya. Certified stock, bulk pricing.",
+    "Authorized SafetyPro stockist for 3M, Honeywell, Ansell, Uvex, MSA, Dräger, Kimberly-Clark, DuPont, Karam and Delta Plus safety equipment in Kenya. Certified stock, bulk pricing.",
   keywords: ["3M Kenya", "Honeywell Kenya", "Ansell Kenya", "safety brands Nairobi", "buy 3M safety equipment Kenya"],
   alternates: { canonical: `${siteUrl}/brands` },
   openGraph: {
-    title: "Shop by Brand — KimSafety Kenya",
+    title: "Shop by Brand — SafetyPro Kenya",
     description: "Authorized stockist for 3M, Honeywell, Ansell, Uvex, MSA & more — certified safety equipment with bulk pricing.",
     type: "website",
     url: `${siteUrl}/brands`,
-    siteName: "KimSafety",
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Shop by Brand — KimSafety Kenya" }],
+    siteName: "SafetyPro",
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Shop by Brand — SafetyPro Kenya" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shop by Brand — KimSafety Kenya",
+    title: "Shop by Brand — SafetyPro Kenya",
     description: "3M, Honeywell, Ansell, Uvex & more — certified stock with bulk pricing.",
     images: [`${siteUrl}/og-image.jpg`],
   },
@@ -57,7 +57,7 @@ export default async function BrandsPage() {
       <PageHeader
         bg="/images/hero/hero1.jpg"
         title="Shop by Brand"
-        subtitle="Every KimSafety product is sourced through authorized channels and quality-inspected before dispatch — never gray-market, never counterfeit."
+        subtitle="Every SafetyPro product is sourced through authorized channels and quality-inspected before dispatch — never gray-market, never counterfeit."
       />
       <div className="mx-auto grid max-w-shell grid-cols-1 gap-5 px-4 pt-8 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
         {brands.map((brand) => {

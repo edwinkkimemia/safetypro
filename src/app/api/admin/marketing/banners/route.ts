@@ -19,7 +19,7 @@ function parseBanner(body: unknown): (Omit<MarketingBanner, "id" | "created_at" 
     id: typeof b.id === "number" ? b.id : undefined,
     title,
     subtitle: String(b.subtitle ?? "").trim(),
-    kicker: String(b.kicker ?? "KimSafety").trim() || "KimSafety",
+    kicker: String(b.kicker ?? "SafetyPro").trim() || "SafetyPro",
     cta: String(b.cta ?? "Shop Now").trim() || "Shop Now",
     cta_href: String(b.cta_href ?? "/search").trim() || "/search",
     cta2: String(b.cta2 ?? "Request a Quote").trim() || "Request a Quote",

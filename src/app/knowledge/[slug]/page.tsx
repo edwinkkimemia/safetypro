@@ -20,11 +20,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const guide = guides.find((g) => g.slug === params.slug);
   return {
-    title: guide ? `${guide.title} — KimSafety Knowledge` : "Guide not found",
+    title: guide ? `${guide.title} — SafetyPro Knowledge` : "Guide not found",
     description: guide?.excerpt,
     alternates: { canonical: guide ? `/knowledge/${guide.slug}` : undefined },
     openGraph: {
-      title: guide ? `${guide.title} — KimSafety Knowledge` : undefined,
+      title: guide ? `${guide.title} — SafetyPro Knowledge` : undefined,
       description: guide?.excerpt,
       type: "article",
       url: guide ? `/knowledge/${guide.slug}` : undefined,
@@ -32,7 +32,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     },
     twitter: {
       card: "summary_large_image",
-      title: guide ? `${guide.title} — KimSafety Knowledge` : undefined,
+      title: guide ? `${guide.title} — SafetyPro Knowledge` : undefined,
       description: guide?.excerpt,
       images: guide ? [guide.image] : undefined,
     },
@@ -56,8 +56,8 @@ export default async function GuidePage({ params }: { params: { slug: string } }
     description: guide.excerpt,
     image: guide.image ?? `${siteUrl}/og-image.jpg`,
     dateModified: new Date().toISOString(),
-    author: { "@type": "Organization", name: "KimSafety HSE Team" },
-    publisher: { "@type": "Organization", name: "KimSafety", url: siteUrl },
+    author: { "@type": "Organization", name: "SafetyPro HSE Team" },
+    publisher: { "@type": "Organization", name: "SafetyPro", url: siteUrl },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${siteUrl}/knowledge/${guide.slug}`,
@@ -90,7 +90,7 @@ export default async function GuidePage({ params }: { params: { slug: string } }
           <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-gray-400">
             <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {guide.readTime}</span>
             <span className="flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" /> Updated July 2026</span>
-            <span>By the KimSafety HSE Team</span>
+            <span>By the SafetyPro HSE Team</span>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default async function GuidePage({ params }: { params: { slug: string } }
             <p className="text-[15px] leading-relaxed text-gray-600">{guide.excerpt}</p>
             <a
               href={`/api/documents/guide?slug=${encodeURIComponent(guide.slug)}`}
-              download={`kimsafety-guide-${guide.slug}.pdf`}
+              download={`safetypro-guide-${guide.slug}.pdf`}
               className="mt-4 inline-flex items-center gap-2 rounded-xl bg-navy-900 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-safety-500"
             >
               <Download className="h-4 w-4" /> Download Guide (PDF)
