@@ -51,10 +51,18 @@ const productCount = async () => {
   return getProductCount();
 };
 
+function safeMetadataBase(): URL {
+  try {
+    return new URL(siteUrl);
+  } catch {
+    return new URL("https://www.safetypro.co.ke");
+  }
+}
+
 export async function generateMetadata(): Promise<Metadata> {
   const count = await productCount();
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: safeMetadataBase(),
     title: {
       default: "SAFETYPRO AFRICA — Protecting People. Powering Safety. | PPE & Safety Equipment Kenya",
       template: "%s | SAFETYPRO AFRICA",
