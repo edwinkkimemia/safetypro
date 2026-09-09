@@ -48,3 +48,5 @@ todo.md
 # build logs (avoid committing Windows-temporary opencode build.log with colon in name)
 *.log
 C:*.log
+scripts/models/*.onnx
+scripts/models/u2net.onnx

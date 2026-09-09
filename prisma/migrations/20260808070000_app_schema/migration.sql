@@ -1,4 +1,4 @@
--- Application schema for the KimSafety storefront (previously auto-created at runtime
+-- Application schema for the SafetyPro storefront (previously auto-created at runtime
 -- by initSchema() in src/lib/db.ts). Idempotent: safe to apply on an already-initialized database.
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS posts (
   excerpt TEXT NOT NULL DEFAULT '',
   content TEXT NOT NULL DEFAULT '',
   cover TEXT,
-  author TEXT NOT NULL DEFAULT 'KimSafety Team',
+  author TEXT NOT NULL DEFAULT 'SafetyPro Team',
   read_time TEXT NOT NULL DEFAULT '5 min read',
   published INTEGER NOT NULL DEFAULT 1,
   created_at TEXT NOT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS marketing_banners (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
   subtitle TEXT NOT NULL DEFAULT '',
-  kicker TEXT NOT NULL DEFAULT 'KimSafety',
+  kicker TEXT NOT NULL DEFAULT 'SafetyPro',
   cta TEXT NOT NULL DEFAULT 'Shop Now',
   cta_href TEXT NOT NULL DEFAULT '/search',
   cta2 TEXT NOT NULL DEFAULT 'Request a Quote',

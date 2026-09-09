@@ -1,6 +1,6 @@
-# KimSafety — PPE & Safety Equipment Storefront (Kenya)
+# SafetyPro — PPE & Safety Equipment Storefront (Kenya)
 
-Next.js 14 (App Router) storefront for KimSafety Ltd — certified industrial PPE, medical safety,
+Next.js 14 (App Router) storefront for SafetyPro Ltd — certified industrial PPE, medical safety,
 fire safety and laboratory equipment. Postgres-backed with M-Pesa (Daraja) and Paystack payments.
 
 ## Stack
