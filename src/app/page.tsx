@@ -55,24 +55,32 @@ export default async function Home() {
   let campaigns: Awaited<ReturnType<typeof getActiveCampaigns>> = [];
   let catalog: Awaited<ReturnType<typeof liveCatalog>> = [];
   try {
-    bannerSlides = (await getActiveBanners()).map((b) => ({
-      kicker: b.kicker,
-      title: b.title,
-      subtitle: b.subtitle,
-      cta: b.cta,
-      cta_href: b.cta_href,
-      cta2: b.cta2,
-      card_kicker: b.card_kicker,
-      card_title: b.card_title,
-      card_subtitle: b.card_subtitle,
-      stat1_label: b.stat1_label,
-      stat1_value: b.stat1_value,
-      stat2_label: b.stat2_label,
-      stat2_value: b.stat2_value,
-      bg: b.image,
-    }));
+    const banners = await getActiveBanners();
+    if (banners.length > 0) {
+      bannerSlides = banners.map((b) => ({
+        kicker: b.kicker,
+        title: b.title,
+        subtitle: b.subtitle,
+        cta: b.cta,
+        cta_href: b.cta_href,
+        cta2: b.cta2,
+        card_kicker: b.card_kicker,
+        card_title: b.card_title,
+        card_subtitle: b.card_subtitle,
+        stat1_label: b.stat1_label,
+        stat1_value: b.stat1_value,
+        stat2_label: b.stat2_label,
+        stat2_value: b.stat2_value,
+        bg: b.image,
+      }));
+    }
   } catch (err) {
     console.error("[home] getActiveBanners failed during build:", (err as Error).message);
+  }
+  // Fallback to static heroSlides when no banners in DB (fresh deploy)
+  if (bannerSlides.length === 0) {
+    const { heroSlides } = await import("@/lib/data/content");
+    bannerSlides = heroSlides as HeroSlide[];
   }
   try {
     campaigns = await getActiveCampaigns();

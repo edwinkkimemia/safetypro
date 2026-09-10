@@ -55,6 +55,10 @@ const nextConfig = {
       // people who can add remote URLs are staff via the admin console.
       { protocol: "https", hostname: "**" },
     ],
+    // Vercel Hobby image optimization is paywalled (402 Payment Required) — disable
+    // optimization so /images/* and /_next/image both serve directly. Admin uses
+    // <img> already, but storefront next/image was blank on Vercel while visible in admin.
+    unoptimized: true,
     // AVIF is ~30–50% smaller than WebP on modern browsers; WebP stays as the
     // fallback. All <Image> requests (product photos, heroes, logos) benefit.
     formats: ["image/avif", "image/webp"],

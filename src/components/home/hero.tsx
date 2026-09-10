@@ -68,7 +68,7 @@ export function HeroSlider({ slides = heroSlides }: { slides?: HeroSlide[] }) {
               priority
               sizes="100vw"
               quality={85}
-              className="object-cover opacity-20"
+              className="object-cover"
             />
           </motion.div>
         </AnimatePresence>
