@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         // === SAFETYPRO AFRICA BRAND PALETTE ===
-        // Primary: Navy #063B70
-        // Secondary: Teal #08A88A
+        // Primary: Navy #063B70 (logo navy sampled #01315D, kept #063B70 for contrast)
+        // Secondary: Logo Green #03A435 sampled from public/images/logo/logoy.png
         // Accent: Safety Red #E53935
         // Neutral: Slate #263746
         navy: {
@@ -28,19 +28,20 @@ const config: Config = {
           900: "#042240",
           950: "#02152A",
         },
-        // Teal secondary — used for CTAs, interactive, highlights
+        // SafetyPro logo green — sampled from public/images/logo/logoy.png #03A435 (RGB 3,164,53)
+        // Replaces teal #08A88A so all CTAs match the shield green in the logo
         teal: {
-          DEFAULT: "#08A88A",
-          50: "#E6F7F3",
-          100: "#C2EEE6",
-          200: "#9AE3D3",
-          300: "#5ECDBC",
-          400: "#2EBFA5",
-          500: "#08A88A",
-          600: "#06967C",
-          700: "#05806A",
-          800: "#046A58",
-          900: "#035446",
+          DEFAULT: "#03A435",
+          50: "#E6F6EA",
+          100: "#C1EAD0",
+          200: "#86D8A3",
+          300: "#4EC67A",
+          400: "#1FB65A",
+          500: "#03A435",
+          600: "#02943D",
+          700: "#027F33",
+          800: "#016A2A",
+          900: "#015522",
         },
         // Safety Red accent — alerts, sale badges, warnings
         accent: {
@@ -69,22 +70,22 @@ const config: Config = {
           800: "#1E2B38",
           900: "#16202A",
         },
-        // Legacy alias — `safety` now maps to Teal so existing bg-safety-* CTAs become branded teal without rewrite
+        // Legacy alias — `safety` now maps to logo green so existing bg-safety-* CTAs match logo
         safety: {
-          DEFAULT: "#08A88A",
-          50: "#E6F7F3",
-          100: "#C2EEE6",
-          200: "#9AE3D3",
-          300: "#5ECDBC",
-          400: "#2EBFA5",
-          500: "#08A88A",
-          600: "#06967C",
-          700: "#05806A",
-          800: "#046A58",
-          900: "#035446",
+          DEFAULT: "#03A435",
+          50: "#E6F6EA",
+          100: "#C1EAD0",
+          200: "#86D8A3",
+          300: "#4EC67A",
+          400: "#1FB65A",
+          500: "#03A435",
+          600: "#02943D",
+          700: "#027F33",
+          800: "#016A2A",
+          900: "#015522",
         },
         emerald: {
-          DEFAULT: "#08A88A",
+          DEFAULT: "#03A435",
         },
         primary: {
           DEFAULT: "#063B70",
@@ -99,7 +100,7 @@ const config: Config = {
         },
         surface: "#F8F9FA",
         line: "#E2E8F0",
-        success: "#08A88A",
+        success: "#03A435",
         danger: "#E53935",
         warning: "#F59E0B",
         ink: "#263746",

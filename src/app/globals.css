@@ -6,7 +6,7 @@
   --background: #ffffff;
   --foreground: #263746;
   --navy: #063B70;
-  --teal: #08A88A;
+  --teal: #03A435;
   --accent: #E53935;
   --slate: #263746;
 }
@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: #08A88A;
+  background: #03A435;
   color: #fff;
 }
 
@@ -177,8 +177,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .blog-prose blockquote,
 .prose-editor blockquote {
   margin: 0 0 1.1em;
-  border-left: 4px solid #08A88A;
-  background: #E6F7F3;
+  border-left: 4px solid #03A435;
+  background: #E6F6EA;
   padding: 0.9em 1.2em;
   border-radius: 0 0.75rem 0.75rem 0;
   font-style: italic;
@@ -193,7 +193,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .blog-prose a:hover,
 .prose-editor a:hover {
-  color: #08A88A;
+  color: #03A435;
 }
 .blog-prose img,
 .prose-editor img {
@@ -242,6 +242,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transition: background-color 0.15s, color 0.15s;
 }
 .toolbar-btn:hover {
-  background: #E6F7F3;
+  background: #E6F6EA;
   color: #063B70;
 }
