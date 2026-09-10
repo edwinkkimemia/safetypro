@@ -24,7 +24,7 @@ export function Logo({ light, className }: { light?: boolean; className?: string
         height={120}
         quality={90}
         unoptimized={isUpload}
-        className={cn("h-10 w-auto object-contain lg:h-12", light && "rounded-lg bg-white px-2 py-1 shadow-sm")}
+        className={cn("h-12 w-auto object-contain lg:h-16", light && "rounded-lg bg-white px-2 py-1 shadow-sm")}
         priority
         onError={(e) => {
           // If the configured upload 404s (DB missing), fall back to bundled default so header never blank
