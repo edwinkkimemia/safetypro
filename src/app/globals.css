@@ -43,6 +43,31 @@ h1, h2, h3, h4, h5, h6 {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  /* Vibrant marketplace utilities */
+  .marketplace-gradient {
+    background: linear-gradient(135deg, #F68B1E 0%, #E53935 50%, #F59E0B 100%);
+  }
+  .deal-gradient {
+    background: linear-gradient(135deg, #063B70 0%, #E53935 50%, #F59E0B 100%);
+  }
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+  }
+  .pulse-dot {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 ::selection {

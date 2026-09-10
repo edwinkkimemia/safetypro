@@ -103,6 +103,26 @@ const config: Config = {
         danger: "#E53935",
         warning: "#F59E0B",
         ink: "#263746",
+        // Vibrant marketplace accents - activated for Jumia/Amazon energy
+        marketplace: {
+          orange: "#F68B1E",
+          amber: "#F59E0B",
+          coral: "#FF6B35",
+          sunflower: "#FFC107",
+        },
+        amber: {
+          DEFAULT: "#F59E0B",
+          50: "#FFFBEB",
+          100: "#FEF3C7",
+          200: "#FDE68A",
+          300: "#FCD34D",
+          400: "#FBBF24",
+          500: "#F59E0B",
+          600: "#D97706",
+          700: "#B45309",
+          800: "#92400E",
+          900: "#78350F",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -113,9 +133,13 @@ const config: Config = {
         cardHover:
           "0 2px 4px rgba(15,40,71,0.05), 0 12px 32px rgba(15,40,71,0.12)",
         soft: "0 8px 40px rgba(15,40,71,0.08)",
+        marketplace: "0 4px 20px rgba(246,139,30,0.15), 0 2px 8px rgba(246,139,30,0.1)",
+        deal: "0 8px 32px rgba(229,57,53,0.15), 0 4px 16px rgba(245,158,11,0.1)",
+        amber: "0 4px 16px rgba(245,158,11,0.2)",
       },
       borderRadius: {
         xl2: "1.25rem",
+        "4xl": "2rem",
       },
       keyframes: {
         marquee: {
@@ -126,10 +150,36 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+        bounceSubtle: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-4px)" },
+        },
+        flash: {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.05)" },
+        },
+        countdown: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.02)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         marquee: "marquee 40s linear infinite",
         fadeUp: "fadeUp 0.6s ease-out both",
+        shimmer: "shimmer 2s infinite",
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        bounceSubtle: "bounceSubtle 2s ease-in-out infinite",
+        flash: "flash 1.5s ease-in-out infinite",
+        countdown: "countdown 1s ease-in-out infinite",
       },
       maxWidth: {
         shell: "88rem",

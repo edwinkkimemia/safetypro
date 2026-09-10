@@ -24,10 +24,10 @@ function Hospital(props: React.SVGProps<SVGSVGElement>) {
 
 export function CorporateSolutions() {
   return (
-    <section className="relative overflow-hidden bg-navy-900 py-16 lg:py-24" aria-labelledby="corporate-heading">
+    <section className="relative overflow-hidden bg-navy-950 py-16 lg:py-24" aria-labelledby="corporate-heading">
       <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
-      <div className="pointer-events-none absolute -right-40 top-0 h-[28rem] w-[28rem] rounded-full bg-safety-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute -left-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 top-0 h-[28rem] w-[28rem] rounded-full bg-amber-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-safety-500/15 blur-3xl" />
 
       <div className="relative mx-auto max-w-shell px-4 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">

@@ -5,20 +5,26 @@ import { useSettings } from "@/lib/settings";
 export function AnnouncementBar() {
   const { phone, email, whatsapp, site_name } = useSettings();
   return (
-    <div className="bg-navy-900 text-white">
+    <div className="bg-navy-950 text-white">
       <div className="mx-auto flex h-9 max-w-shell items-center justify-between gap-4 px-4 text-[11px] font-medium lg:px-8">
         <div className="flex items-center gap-5 overflow-hidden">
           <span className="flex items-center gap-1.5 whitespace-nowrap">
-            <Truck className="h-3.5 w-3.5 text-safety-400" />
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500">
+              <Truck className="h-3 w-3 text-white" />
+            </span>
             Free delivery within Nairobi over KES 10,000
           </span>
           <span className="hidden items-center gap-1.5 whitespace-nowrap md:flex">
-            <Zap className="h-3.5 w-3.5 text-safety-400" />
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-safety-500">
+              <Zap className="h-3 w-3 text-white" />
+            </span>
             Same-day delivery in Nairobi
           </span>
           <span className="hidden items-center gap-1.5 whitespace-nowrap lg:flex">
-            <BadgePercent className="h-3.5 w-3.5 text-safety-400" />
-            Bulk order discounts up to 30%
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-danger">
+              <BadgePercent className="h-3 w-3 text-white" />
+            </span>
+            Bulk order discounts up to 30% <span className="ml-1 animate-pulse rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-extrabold">FLASH</span>
           </span>
         </div>
         <div className="flex items-center gap-4">

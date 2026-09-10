@@ -94,33 +94,33 @@ export default async function Home() {
     <>
       <HeroSlider slides={bannerSlides} />
       <TrustBar />
-      <CampaignStrip campaigns={campaigns} />
+      <CategoryGrid />
+      <DealsBanner />
       <ProductCarousel
-        kicker="Handpicked for you"
+        kicker="🔥 Handpicked for you"
         title="Featured Products"
         filter="featured"
         href="/search?sort=featured"
         showTabs
         items={catalog}
       />
-      <CategoryGrid />
-      <DealsBanner />
+      <CampaignStrip campaigns={campaigns} />
       <ProductCarousel
-        kicker="Most ordered"
+        kicker="⭐ Most ordered"
         title="Best Sellers"
         filter="bestSeller"
         href="/search?sort=popular"
         items={catalog}
       />
-      <CorporateSolutions />
       <BrandStrip />
       <ProductCarousel
-        kicker="Deals & discounts"
+        kicker="⚡ Deals & discounts"
         title="Deals & Discounts"
         filter="deals"
         href="/search?discount=1"
         items={catalog}
       />
+      <CorporateSolutions />
       <KnowledgeCenter />
       <Testimonials />
       <Newsletter />

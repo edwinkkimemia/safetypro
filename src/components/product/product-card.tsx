@@ -59,7 +59,7 @@ export function ProductCard({
         />
         <div className="absolute left-3 top-3 flex flex-col gap-1.5">
           {off && (
-            <span className="rounded-full bg-danger px-2.5 py-1 text-[11px] font-bold text-white shadow-sm">
+            <span className="rounded-full bg-gradient-to-r from-danger to-amber-500 px-2.5 py-1 text-[11px] font-extrabold text-white shadow-md">
               -{off}%
             </span>
           )}
@@ -68,14 +68,19 @@ export function ProductCard({
               NEW
             </span>
           )}
+          {product.bestSeller && !off && (
+            <span className="rounded-full bg-amber-500 px-2.5 py-1 text-[11px] font-bold text-white shadow-sm">
+              🔥 Best Seller
+            </span>
+          )}
         </div>
         {out ? (
           <span className="absolute right-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-danger shadow-sm">
             Out of stock
           </span>
         ) : low ? (
-          <span className="absolute right-3 top-3 rounded-full bg-warning/95 px-2.5 py-1 text-[11px] font-semibold text-white shadow-sm">
-            Low stock
+          <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-amber-500 px-2.5 py-1 text-[11px] font-bold text-white shadow-md animate-pulse">
+            <span className="h-1.5 w-1.5 rounded-full bg-white pulse-dot" /> Only {product.stock} left
           </span>
         ) : (
           <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 shadow-sm">
@@ -101,9 +106,20 @@ export function ProductCard({
           {product.name}
         </Link>
         <RatingStars rating={product.rating} reviews={product.reviews} size="xs" />
+        {low && !out && (
+          <div className="mt-1">
+            <div className="flex items-center justify-between text-[10px] font-medium">
+              <span className="text-amber-600">{product.stock} left</span>
+              <span className="text-gray-400">{Math.round((product.stock / product.lowStockAt) * 50)}% claimed</span>
+            </div>
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-amber-100">
+              <div className="h-full rounded-full bg-gradient-to-r from-amber-500 to-danger transition-all" style={{ width: `${Math.max(20, Math.min(90, (1 - product.stock / (product.lowStockAt * 2)) * 100))}%` }} />
+            </div>
+          </div>
+        )}
         <div className="mt-auto flex items-end justify-between pt-2">
           <div className="flex flex-col">
-            <span className="text-lg font-extrabold text-navy-900">
+            <span className={cn("text-lg font-extrabold tabular-nums", off ? "text-amber-600" : "text-navy-900")}>
               {formatKES(product.price)}
             </span>
              {off && product.oldPrice != null && product.oldPrice > product.price && (
@@ -111,18 +127,26 @@ export function ProductCard({
                 {formatKES(product.oldPrice)}
               </span>
             )}
+            {!out && product.price > 2000 && (
+              <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
+                ✓ Free delivery
+              </span>
+            )}
           </div>
-          <span className="text-[10px] text-gray-400">{(product.sold ?? 0).toLocaleString()} sold</span>
+          <span className="flex items-center gap-1 text-[10px] text-gray-400">
+            <span className="h-1 w-1 rounded-full bg-emerald-500 pulse-dot" />
+            {(product.sold ?? 0).toLocaleString()} sold
+          </span>
         </div>
 
         <div className="mt-2 flex items-center gap-1.5">
           <button
             onClick={handleAdd}
             aria-label={`Add ${product.name} to cart`}
-            className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-xl bg-navy-900 text-xs font-semibold text-white transition-colors hover:bg-safety-500"
+            className={cn("flex h-9 flex-1 items-center justify-center gap-1.5 rounded-xl text-xs font-bold text-white shadow-sm transition-all", added ? "bg-emerald-500" : "bg-navy-900 hover:bg-amber-500 hover:shadow-marketplace")}
           >
             <ShoppingCart className="h-3.5 w-3.5" />
-            {added ? "Added" : "Add to Cart"}
+            {added ? "Added ✓" : "Add to Cart"}
           </button>
           <button
             onClick={() => toggleWishlist(product.id)}

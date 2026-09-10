@@ -43,18 +43,21 @@ export async function BrandStrip() {
   const loop = brands.length > 0 ? [...brands, ...brands] : [];
 
   return (
-    <section className="border-y border-line bg-surface py-14" aria-label="Shop by brand">
+    <section className="border-y-2 border-amber-100 bg-gradient-to-r from-white via-amber-50/30 to-white py-14" aria-label="Shop by brand">
       <div className="mx-auto max-w-shell px-4 lg:px-8">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-safety-600">Authorized stockists</span>
-            <h2 className="mt-2 font-display text-2xl font-extrabold tracking-tight text-navy-900 lg:text-3xl">
-              Shop by Brand
+            <span className="inline-flex items-center gap-2 rounded-full bg-navy-900 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 pulse-dot" /> Authorized stockists
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight text-navy-900 lg:text-3xl">
+              Shop by Brand <span className="rounded-full bg-amber-500 px-2 py-1 text-sm font-bold text-white">16+</span>
             </h2>
+            <p className="mt-1 text-xs text-gray-500">Genuine stock, verified distributors</p>
           </div>
           <Link
             href="/brands"
-            className="hidden items-center gap-2 text-sm font-bold text-navy-900 transition-colors hover:text-safety-600 sm:flex"
+            className="hidden items-center gap-2 rounded-full bg-navy-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-amber-500 sm:flex"
           >
             All brands <ArrowRight className="h-4 w-4" />
           </Link>

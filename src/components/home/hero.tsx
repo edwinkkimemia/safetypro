@@ -42,9 +42,11 @@ export function HeroSlider({ slides = heroSlides }: { slides?: HeroSlide[] }) {
   if (count === 0) return null;
   const slide = slides[index];
 
+  const isDealSlide = index % 2 === 1;
+
   return (
     <section
-      className="relative overflow-hidden bg-navy-900"
+      className={cn("relative overflow-hidden", isDealSlide ? "bg-gradient-to-br from-amber-500 via-marketplace-orange to-danger" : "bg-navy-900")}
       aria-label="Featured promotions"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -66,16 +68,16 @@ export function HeroSlider({ slides = heroSlides }: { slides?: HeroSlide[] }) {
               priority
               sizes="100vw"
               quality={85}
-              className="object-cover"
+              className="object-cover opacity-20"
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/35 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent" />
+        <div className={cn("absolute inset-0", isDealSlide ? "bg-gradient-to-r from-amber-500/90 via-marketplace-orange/80 to-danger/90" : "bg-gradient-to-r from-white/60 via-white/35 to-transparent")} />
+        {!isDealSlide && <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent" />}
       </div>
       <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#063B70_1px,transparent_0)] [background-size:22px_22px]" />
-      <div className="pointer-events-none absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-safety-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-shell px-4 lg:px-8">
         <div className="grid min-h-[520px] grid-cols-1 items-center gap-10 py-14 lg:min-h-[560px] lg:grid-cols-12 lg:py-20">
@@ -88,37 +90,47 @@ export function HeroSlider({ slides = heroSlides }: { slides?: HeroSlide[] }) {
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-safety-500/30 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-safety-700 shadow-sm">
-                  {slide.kicker}
-                </span>
-                <h1 className="mt-5 max-w-2xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-navy-950 sm:text-5xl lg:text-[3.4rem]">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className={cn("inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-widest shadow-sm", isDealSlide ? "border-white/30 bg-white text-amber-600" : "border-safety-500/30 bg-white/80 text-safety-700")}>
+                    {isDealSlide && <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-75" /><span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" /></span>}
+                    {slide.kicker}
+                  </span>
+                  {isDealSlide && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-extrabold text-danger shadow-sm">
+                      ⏰ Ends in 06:12:04
+                    </span>
+                  )}
+                </div>
+                <h1 className={cn("mt-5 max-w-2xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]", isDealSlide ? "text-white" : "text-navy-950")}>
                   {slide.title}
                 </h1>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-navy-900/70 sm:text-lg">
+                <p className={cn("mt-5 max-w-xl text-base leading-relaxed sm:text-lg", isDealSlide ? "text-white/90" : "text-navy-900/70")}>
                   {slide.subtitle}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href={slide.cta_href ?? "/search"}
-                    className="group inline-flex h-13 items-center gap-2 rounded-xl bg-safety-500 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(245,124,0,0.4)] transition-all hover:bg-safety-600 hover:shadow-[0_8px_32px_rgba(245,124,0,0.55)]"
+                    className={cn("group inline-flex h-13 items-center gap-2 rounded-xl px-7 py-3.5 text-[15px] font-bold text-white shadow-lg transition-all hover:scale-105", isDealSlide ? "bg-white text-amber-600 shadow-white/20 hover:bg-gray-50" : "bg-safety-500 shadow-[0_8px_24px_rgba(245,124,0,0.4)] hover:bg-safety-600")}
                   >
                     {slide.cta}
                     <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
                   </Link>
                   <Link
                     href="/quote"
-                    className="inline-flex h-13 items-center gap-2 rounded-xl bg-navy-900 px-7 py-3.5 text-[15px] font-bold text-white shadow-[0_8px_24px_rgba(15,40,71,0.35)] transition-colors hover:bg-navy-950"
+                    className={cn("inline-flex h-13 items-center gap-2 rounded-xl px-7 py-3.5 text-[15px] font-bold shadow-lg transition-all", isDealSlide ? "bg-navy-900 text-white hover:bg-navy-800" : "bg-navy-900 text-white shadow-[0_8px_24px_rgba(15,40,71,0.35)] hover:bg-navy-950")}
                   >
                     <FileText className="h-4.5 w-4.5" />
                     {slide.cta2}
                   </Link>
                 </div>
-                <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-medium text-navy-900/60">
-                  <span className="flex items-center gap-2">
-                    <BadgePercent className="h-4 w-4 text-safety-600" /> Bulk discounts up to 30%
+                <div className={cn("mt-8 flex flex-wrap items-center gap-3", isDealSlide ? "text-white/80" : "text-navy-900/60")}>
+                  <span className={cn("inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold", isDealSlide ? "bg-white/20 text-white backdrop-blur" : "bg-amber-100 text-amber-700")}>
+                    🔥 2,341 sold in last 24h
                   </span>
-                  <span>✓ 100% Genuine &amp; Certified</span>
-                  <span>✓ 24–72h Nationwide Delivery</span>
+                  <span className="flex items-center gap-2 text-xs font-medium">
+                    <BadgePercent className={cn("h-4 w-4", isDealSlide ? "text-white" : "text-safety-600")} /> Bulk discounts up to 30%
+                  </span>
+                  <span className="hidden text-xs sm:inline">✓ 100% Genuine</span>
                 </div>
               </motion.div>
             </AnimatePresence>

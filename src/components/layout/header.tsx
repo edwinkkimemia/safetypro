@@ -147,12 +147,19 @@ export function Header() {
           <Link href="/corporate" className="flex h-11 items-center px-4 text-sm font-medium text-navy-800 transition-colors hover:text-safety-600">
             Corporate
           </Link>
-          <Link href="/deals" className="flex h-11 items-center px-4 text-sm font-bold text-navy-900 transition-colors hover:text-safety-600">
-            Deals
+          <Link href="/deals" className="relative flex h-11 items-center gap-1.5 px-4 text-sm font-extrabold text-white transition-all hover:scale-105">
+            <span className="absolute inset-1 rounded-full bg-gradient-to-r from-amber-500 to-danger shadow-amber" aria-hidden="true" />
+            <span className="relative flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+              </span>
+              Deals
+            </span>
           </Link>
           <Link
             href="/quote"
-            className="mx-2 flex h-8 items-center gap-1.5 rounded-full bg-safety-50 px-3.5 text-xs font-bold text-safety-700 transition-colors hover:bg-safety-100"
+            className="mx-2 flex h-8 items-center gap-1.5 rounded-full bg-safety-500 px-3.5 text-xs font-bold text-white shadow-card transition-all hover:bg-safety-600 hover:shadow-md"
           >
             <ClipboardList className="h-3.5 w-3.5" />
             Request Quote

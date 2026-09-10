@@ -53,8 +53,8 @@ export function SmartSearch({ className }: { className?: string }) {
   return (
     <div ref={ref} className={cn("relative", className)}>
       <form onSubmit={submit} role="search">
-        <div className="flex items-center gap-2 rounded-lg border border-line bg-surface px-3 transition-all focus-within:border-safety-400 focus-within:bg-white focus-within:ring-4 focus-within:ring-safety-500/10">
-          <Search className="h-4 w-4 shrink-0 text-gray-400" />
+        <div className="flex items-center gap-2 rounded-xl border-2 border-line bg-white px-3 py-1 shadow-sm transition-all focus-within:border-amber-500 focus-within:shadow-amber focus-within:ring-4 focus-within:ring-amber-500/10">
+          <Search className="h-5 w-5 shrink-0 text-gray-400" />
           <input
             type="search"
             value={query}
@@ -63,13 +63,13 @@ export function SmartSearch({ className }: { className?: string }) {
               setOpen(true);
             }}
             onFocus={() => setOpen(true)}
-            placeholder="Search by product, brand, SKU, category or certification…"
+            placeholder="Search products, brands, SKU… (e.g. Nitrile gloves, 3M helmet)"
             aria-label="Search products"
-            className="h-9 w-full bg-transparent text-sm outline-none placeholder:text-gray-400"
+            className="h-10 w-full bg-transparent text-sm outline-none placeholder:text-gray-400"
           />
           <button
             type="submit"
-            className="hidden shrink-0 rounded-md bg-safety-500 px-3 py-1 text-xs font-bold text-white transition-colors hover:bg-safety-600 sm:block"
+            className="hidden shrink-0 rounded-full bg-gradient-to-r from-amber-500 to-marketplace-orange px-5 py-2 text-xs font-extrabold text-white shadow-marketplace transition-all hover:scale-105 hover:shadow-lg sm:block"
           >
             Search
           </button>
